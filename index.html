@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SANRIO SCHOOL FES 2026 WINTER|サンリオ学園祭 in 渋谷・代々木公園</title>
+<meta name="description" content="街全体がサンリオの学園祭になる2日間。2026年12月19日(土)・20日(日)、渋谷の街と代々木公園イルミネーションを舞台に、部活動ブース・グリーティング・そして放課後ナイトライブまで、一日中あそべるウィンターフェス開催!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@500;700;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pink:#f4568c;
+  --pink-deep:#e0356f;
+  --pink-pale:#ffe3ee;
+  --sky:#6ec6ea;
+  --sky-pale:#e2f4fc;
+  --yellow:#ffc93c;
+  --yellow-pale:#fff3d4;
+  --purple:#a685e0;
+  --purple-pale:#efe8fb;
+  --mint:#5fc9a7;
+  --mint-pale:#e0f5ec;
+  --night:#2b2350;
+  --night2:#413577;
+  --ink:#4a3a3d;
+  --cream:#fffaf3;
+  --white:#ffffff;
+  --line:3px;
+  --radius:22px;
+  --ff-round:"M PLUS Rounded 1c","Hiragino Maru Gothic ProN","Rounded Mplus 1c","Yu Gothic",sans-serif;
+  --ff-maru:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;
+  --ff-en:"Baloo 2","M PLUS Rounded 1c",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  font-family:var(--ff-round);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.9;
+  font-size:16px;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ---------- 背景の水玉 ---------- */
+.dots-bg{
+  background-image:radial-gradient(rgba(244,86,140,.07) 3.5px, transparent 3.5px);
+  background-size:34px 34px;
+}
+
+/* ---------- ヘッダー ---------- */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(6px);
+  border-bottom:var(--line) solid var(--pink);
+}
+.header-inner{
+  max-width:1140px;margin:0 auto;padding:10px 16px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.header-logo{display:flex;flex-direction:column;line-height:1.15}
+.header-logo .en{
+  font-family:var(--ff-en);font-weight:800;font-size:19px;color:var(--pink-deep);letter-spacing:.02em;
+}
+.header-logo .ja{font-size:10.5px;font-weight:700;color:var(--ink);letter-spacing:.14em}
+.gnav ul{display:flex;gap:2px;flex-wrap:wrap}
+.gnav a{
+  display:block;padding:7px 13px;border-radius:999px;
+  font-weight:800;font-size:13.5px;transition:.2s;
+}
+.gnav a:hover{background:var(--pink-pale);color:var(--pink-deep)}
+.nav-ticket{
+  background:var(--pink);color:#fff !important;border-radius:999px;
+  padding:9px 20px !important;box-shadow:0 3px 0 var(--pink-deep);
+  font-weight:800;
+}
+.nav-ticket:hover{background:var(--pink-deep) !important;transform:translateY(1px);box-shadow:0 2px 0 var(--pink-deep)}
+.menu-btn{
+  display:none;background:var(--pink);border:none;border-radius:12px;
+  width:46px;height:46px;cursor:pointer;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;
+}
+.menu-btn span{display:block;width:22px;height:3px;border-radius:3px;background:#fff;transition:.25s}
+.menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+/* ---------- ヒーロー ---------- */
+.hero{
+  position:relative;
+  padding:120px 16px 0;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,201,60,.25), transparent 32%),
+    radial-gradient(circle at 88% 12%, rgba(110,198,234,.28), transparent 34%),
+    radial-gradient(circle at 80% 78%, rgba(166,133,224,.22), transparent 38%),
+    linear-gradient(180deg,#ffeef5 0%, #fff6ec 55%, var(--cream) 100%);
+  text-align:center;
+  overflow:hidden;
+}
+.garland{position:absolute;top:64px;left:0;width:100%;pointer-events:none}
+.hero-inner{position:relative;max-width:900px;margin:0 auto;padding:34px 0 46px}
+.hero-badge{
+  display:inline-block;background:var(--night);color:#fff;
+  font-weight:800;font-size:13px;letter-spacing:.18em;
+  padding:6px 22px;border-radius:999px;margin-bottom:18px;
+}
+.hero-title{
+  font-family:var(--ff-en);
+  font-weight:800;
+  font-size:clamp(42px,8.4vw,86px);
+  line-height:1.02;
+  color:var(--pink-deep);
+  text-shadow:
+    3px 3px 0 #fff,
+    6px 6px 0 rgba(244,86,140,.25);
+  letter-spacing:.01em;
+}
+.hero-title .small{display:block;font-size:.42em;color:var(--night);letter-spacing:.12em;margin-top:6px}
+.hero-catch{
+  font-family:var(--ff-maru);
+  font-weight:900;
+  font-size:clamp(19px,3.4vw,30px);
+  color:var(--ink);
+  margin:26px 0 8px;
+}
+.hero-catch .marker{background:linear-gradient(transparent 62%, var(--yellow) 62%)}
+.hero-sub{font-weight:700;font-size:clamp(13px,2vw,16px);color:#8a6f74}
+.hero-info{
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:30px 0 6px;
+}
+.hero-date,.hero-place{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:18px;
+  padding:14px 26px;box-shadow:5px 5px 0 rgba(74,58,61,.14);
+  text-align:center;min-width:250px;
+}
+.hero-date .label,.hero-place .label{
+  display:inline-block;font-size:11.5px;font-weight:800;color:#fff;
+  background:var(--pink);border-radius:999px;padding:1px 14px;margin-bottom:6px;letter-spacing:.14em;
+}
+.hero-place .label{background:var(--sky)}
+.hero-date .big{font-family:var(--ff-en);font-weight:800;font-size:30px;line-height:1.2;color:var(--ink)}
+.hero-date .big em{font-style:normal;color:var(--pink-deep)}
+.hero-date .dow{font-size:.52em;vertical-align:.28em;letter-spacing:.05em}
+.hero-place .big{font-weight:900;font-family:var(--ff-maru);font-size:20px;line-height:1.5}
+.hero-place .note,.hero-date .note{font-size:12px;font-weight:700;color:#9a8286}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;font-weight:800;font-size:16.5px;
+  padding:15px 44px;border-radius:999px;transition:.15s;position:relative;
+}
+.btn-primary{
+  background:var(--pink);color:#fff;box-shadow:0 5px 0 var(--pink-deep);
+}
+.btn-primary:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--pink-deep)}
+.btn-outline{
+  background:#fff;color:var(--pink-deep);border:var(--line) solid var(--pink);
+  box-shadow:0 5px 0 rgba(224,53,111,.35);
+}
+.btn-outline:hover{transform:translateY(3px);box-shadow:0 2px 0 rgba(224,53,111,.35)}
+.hero-free{
+  display:inline-block;margin-top:22px;background:#fff;
+  border:2px dashed var(--pink);border-radius:14px;
+  padding:8px 22px;font-weight:800;font-size:14px;color:var(--pink-deep);
+}
+.hero-wave{display:block;width:100%;margin-top:34px}
+
+/* ---------- ティッカー ---------- */
+.ticker{
+  background:var(--night);color:#fff;overflow:hidden;white-space:nowrap;
+  padding:11px 0;font-weight:700;font-size:14px;
+}
+.ticker-track{display:inline-block;animation:ticker 28s linear infinite}
+.ticker-track span{margin:0 34px;letter-spacing:.05em}
+.ticker-track .star{color:var(--yellow)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- 共通セクション ---------- */
+.section{padding:84px 16px}
+.section-inner{max-width:1080px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:48px}
+.sec-head .en{
+  font-family:var(--ff-en);font-weight:800;
+  font-size:clamp(34px,5.6vw,52px);line-height:1.1;letter-spacing:.02em;
+}
+.sec-head .ja{
+  display:inline-block;margin-top:10px;font-weight:800;font-size:15px;
+  padding:3px 26px;border-radius:999px;background:var(--ink);color:#fff;letter-spacing:.16em;
+}
+.sec-head.c-pink .en{color:var(--pink-deep)}
+.sec-head.c-sky .en{color:#2e97c4}
+.sec-head.c-purple .en{color:#7b56c0}
+.sec-head.c-yellow .en{color:#e09a00}
+.sec-head.c-mint .en{color:#2ba57f}
+.sec-head .deco{display:block;margin:0 auto 8px;width:56px}
+
+.lead{
+  text-align:center;font-weight:700;
+  font-size:clamp(15px,2.2vw,17.5px);
+  max-width:760px;margin:0 auto;
+}
+.lead .strong{color:var(--pink-deep);font-weight:900}
+
+/* ---------- ABOUT ---------- */
+.about-copy{
+  font-family:var(--ff-maru);font-weight:900;text-align:center;
+  font-size:clamp(22px,4vw,34px);line-height:1.7;margin-bottom:26px;
+}
+.about-copy .pink{color:var(--pink-deep)}
+.about-points{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;
+}
+.point-card{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:var(--radius);
+  padding:30px 22px 26px;text-align:center;position:relative;
+  box-shadow:6px 6px 0 rgba(74,58,61,.12);
+  transition:.2s;
+}
+.point-card:hover{transform:translateY(-5px) rotate(-.6deg)}
+.point-card .num{
+  position:absolute;top:-18px;left:50%;transform:translateX(-50%);
+  background:var(--yellow);border:3px solid var(--ink);color:var(--ink);
+  font-family:var(--ff-en);font-weight:800;font-size:15px;
+  border-radius:999px;padding:2px 18px;letter-spacing:.08em;white-space:nowrap;
+}
+.point-card .icon{font-size:44px;line-height:1;margin:8px 0 12px;display:block}
+.point-card h3{font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:10px;color:var(--pink-deep)}
+.point-card p{font-size:14px;font-weight:500;text-align:left}
+
+/* ---------- AREA ---------- */
+.area-wrap{display:flex;flex-direction:column;gap:34px}
+.area-card{
+  display:grid;grid-template-columns:300px 1fr;gap:0;overflow:hidden;
+  background:#fff;border:var(--line) solid var(--ink);border-radius:26px;
+  box-shadow:7px 7px 0 rgba(74,58,61,.12);
+}
+.area-visual{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;padding:34px 18px;text-align:center;
+}
+.area-visual .emoji{font-size:64px;line-height:1;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.08))}
+.area-visual .tag{
+  font-family:var(--ff-en);font-weight:800;font-size:14px;letter-spacing:.14em;
+  background:#fff;border:2px solid currentColor;border-radius:999px;padding:2px 18px;
+}
+.a-pink .area-visual{background:repeating-linear-gradient(45deg,var(--pink-pale) 0 16px,#fff0f6 16px 32px);color:var(--pink-deep)}
+.a-night .area-visual{background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.14) 2px,transparent 3px) 0 0/26px 26px,linear-gradient(160deg,var(--night),var(--night2));color:#ffd7e6}
+.a-night .area-visual .tag{color:#fff;border-color:#fff}
+.a-sky .area-visual{background:repeating-linear-gradient(45deg,var(--sky-pale) 0 16px,#f0faff 16px 32px);color:#2e97c4}
+.area-body{padding:30px 34px 28px}
+.area-body h3{
+  font-family:var(--ff-maru);font-weight:900;font-size:clamp(19px,2.6vw,24px);
+  margin-bottom:6px;line-height:1.5;
+}
+.a-pink .area-body h3{color:var(--pink-deep)}
+.a-night .area-body h3{color:#5a3fae}
+.a-sky .area-body h3{color:#2e97c4}
+.area-body .place{
+  display:inline-block;font-size:12.5px;font-weight:800;color:#fff;background:var(--ink);
+  border-radius:999px;padding:1px 16px;margin-bottom:12px;letter-spacing:.08em;
+}
+.area-body p{font-size:14.5px;font-weight:500;margin-bottom:14px}
+.area-body ul{display:flex;flex-wrap:wrap;gap:8px}
+.area-body li{
+  font-size:12.5px;font-weight:800;border-radius:999px;padding:4px 14px;
+  background:var(--pink-pale);color:var(--pink-deep);
+}
+.a-night .area-body li{background:var(--purple-pale);color:#6a48b5}
+.a-sky .area-body li{background:var(--sky-pale);color:#2481aa}
+
+/* ---------- タイムテーブル ---------- */
+.tt{position:relative;max-width:760px;margin:0 auto;padding-left:30px}
+.tt::before{
+  content:"";position:absolute;left:9px;top:8px;bottom:8px;width:5px;
+  border-radius:5px;
+  background:linear-gradient(180deg,var(--yellow),var(--pink) 55%,var(--purple));
+}
+.tt-item{position:relative;padding:0 0 34px 26px}
+.tt-item::before{
+  content:"";position:absolute;left:-30px;top:8px;width:22px;height:22px;
+  background:#fff;border:5px solid var(--pink);border-radius:50%;
+}
+.tt-item.night::before{border-color:var(--purple)}
+.tt-item .time{
+  font-family:var(--ff-en);font-weight:800;font-size:21px;color:var(--pink-deep);
+  letter-spacing:.03em;
+}
+.tt-item.night .time{color:#7b56c0}
+.tt-item h3{font-family:var(--ff-maru);font-weight:900;font-size:18.5px;margin:2px 0 4px}
+.tt-item p{font-size:14px;font-weight:500;color:#7d666b}
+.tt-note{text-align:center;font-size:12.5px;font-weight:700;color:#9a8286;margin-top:8px}
+
+/* ---------- 部活動(コンテンツ) ---------- */
+.bukatsu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bukatsu-card{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:var(--radius);
+  overflow:hidden;box-shadow:6px 6px 0 rgba(74,58,61,.12);transition:.2s;
+  display:flex;flex-direction:column;
+}
+.bukatsu-card:hover{transform:translateY(-5px)}
+.bukatsu-card:nth-child(odd):hover{transform:translateY(-5px) rotate(.7deg)}
+.bukatsu-head{
+  padding:20px 18px 16px;text-align:center;position:relative;
+}
+.bukatsu-head .emoji{font-size:46px;line-height:1;display:block}
+.bukatsu-head .club{
+  display:inline-block;margin-top:10px;background:#fff;border:2.5px solid var(--ink);
+  border-radius:999px;padding:2px 20px;font-family:var(--ff-maru);
+  font-weight:900;font-size:16.5px;
+}
+.bk-pink .bukatsu-head{background:var(--pink-pale)}
+.bk-sky .bukatsu-head{background:var(--sky-pale)}
+.bk-yellow .bukatsu-head{background:var(--yellow-pale)}
+.bk-purple .bukatsu-head{background:var(--purple-pale)}
+.bk-mint .bukatsu-head{background:var(--mint-pale)}
+.bukatsu-body{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.bukatsu-body h3{font-weight:800;font-size:15.5px;color:var(--pink-deep);margin-bottom:8px;line-height:1.6}
+.bukatsu-body p{font-size:13.5px;font-weight:500;flex:1}
+.bukatsu-body .with{
+  margin-top:12px;font-size:11.5px;font-weight:800;color:#8a6f74;
+  border-top:2px dashed #eadfd4;padding-top:10px;
+}
+
+/* ---------- LIVE ---------- */
+.live{
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255,209,102,.18) 0 3px, transparent 4px) 0 0/90px 90px,
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.16) 0 2px, transparent 3px) 0 0/60px 60px,
+    linear-gradient(165deg,var(--night) 0%, var(--night2) 60%, #59397e 100%);
+  color:#fff;
+}
+.live .sec-head .en{color:#ffd7e6;text-shadow:0 0 22px rgba(255,140,180,.5)}
+.live .sec-head .ja{background:#ffd7e6;color:var(--night)}
+.live-lead{text-align:center;font-weight:700;font-size:clamp(15px,2.2vw,17.5px);max-width:740px;margin:0 auto 44px;color:#f2ecff}
+.live-cards{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:44px}
+.live-card{
+  background:rgba(255,255,255,.07);
+  border:2px solid rgba(255,255,255,.35);
+  border-radius:26px;padding:34px 30px;text-align:center;
+  backdrop-filter:blur(2px);
+}
+.live-card .cat{
+  display:inline-block;font-family:var(--ff-en);font-weight:800;font-size:13px;letter-spacing:.16em;
+  background:var(--pink);border-radius:999px;padding:3px 20px;margin-bottom:14px;
+}
+.live-card:last-child .cat{background:var(--purple)}
+.live-card h3{font-family:var(--ff-maru);font-weight:900;font-size:clamp(19px,2.6vw,24px);margin-bottom:12px;color:#ffe1ec}
+.live-card p{font-size:14.5px;font-weight:500;color:#e9e2fa}
+.coming{
+  max-width:680px;margin:0 auto;text-align:center;
+  border:3px dashed rgba(255,255,255,.5);border-radius:26px;padding:38px 24px;
+}
+.coming .en{
+  font-family:var(--ff-en);font-weight:800;font-size:clamp(26px,4.4vw,40px);
+  color:var(--yellow);letter-spacing:.06em;text-shadow:0 0 24px rgba(255,201,60,.45);
+}
+.coming p{font-weight:700;font-size:14.5px;margin-top:8px;color:#f2ecff}
+
+/* ---------- FOOD & GOODS ---------- */
+.fg-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.fg-card{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:26px;
+  padding:34px 30px;box-shadow:7px 7px 0 rgba(74,58,61,.12);
+}
+.fg-card .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.fg-card .emoji{font-size:44px;line-height:1}
+.fg-card h3{font-family:var(--ff-maru);font-weight:900;font-size:21px}
+.fg-card.food h3{color:#e09a00}
+.fg-card.goods h3{color:var(--pink-deep)}
+.fg-card p{font-size:14.5px;font-weight:500;margin-bottom:14px}
+.fg-card ul{display:flex;flex-direction:column;gap:9px}
+.fg-card li{
+  font-size:13.5px;font-weight:700;padding-left:26px;position:relative;
+}
+.fg-card li::before{
+  content:"♥";position:absolute;left:2px;top:0;color:var(--pink);font-size:14px;
+}
+.fg-card.food li::before{content:"★";color:var(--yellow)}
+
+/* ---------- TICKET ---------- */
+.ticket{background:linear-gradient(180deg,var(--pink-pale),#fff0e6)}
+.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:44px}
+.ticket-card{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:24px;
+  overflow:hidden;box-shadow:6px 6px 0 rgba(74,58,61,.14);
+  display:flex;flex-direction:column;text-align:center;position:relative;
+}
+.ticket-card .type{
+  padding:13px 10px;font-family:var(--ff-maru);font-weight:900;font-size:17px;color:#fff;
+}
+.tk-free .type{background:var(--mint)}
+.tk-live .type{background:var(--pink)}
+.tk-student .type{background:var(--sky)}
+.ticket-card .body{padding:24px 20px 26px;flex:1;display:flex;flex-direction:column;align-items:center}
+.ticket-card .price{font-family:var(--ff-en);font-weight:800;font-size:38px;line-height:1.1}
+.ticket-card .price .unit{font-size:.44em;font-weight:800}
+.tk-free .price{color:#2ba57f}
+.tk-live .price{color:var(--pink-deep)}
+.tk-student .price{color:#2e97c4}
+.ticket-card .desc{font-size:13px;font-weight:600;margin-top:12px;text-align:left;flex:1}
+.ticket-card .chip{
+  margin-top:14px;font-size:11.5px;font-weight:800;background:var(--yellow-pale);
+  color:#a06e00;border-radius:999px;padding:3px 16px;
+}
+.osusume{
+  position:absolute;top:-13px;right:-9px;background:var(--yellow);border:3px solid var(--ink);
+  color:var(--ink);font-weight:900;font-size:12px;border-radius:999px;padding:3px 14px;
+  transform:rotate(7deg);
+}
+.dpoint{
+  background:#fff;border:var(--line) solid var(--pink);border-radius:26px;
+  padding:32px 34px;box-shadow:6px 6px 0 rgba(224,53,111,.18);
+}
+.dpoint h3{
+  font-family:var(--ff-maru);font-weight:900;font-size:20px;color:var(--pink-deep);
+  text-align:center;margin-bottom:18px;
+}
+.dpoint ul{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.dpoint li{font-size:14px;font-weight:700;padding-left:30px;position:relative}
+.dpoint li::before{
+  content:"✓";position:absolute;left:0;top:0;width:21px;height:21px;line-height:21px;
+  text-align:center;background:var(--pink);color:#fff;border-radius:50%;font-size:12px;font-weight:900;
+}
+.dpoint .note{grid-column:1/-1;font-size:11.5px;color:#9a8286;font-weight:600;padding-left:0}
+.dpoint .note::before{content:none}
+.ticket-flow{margin-top:44px}
+.ticket-flow h3{text-align:center;font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:22px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:step}
+.flow-item{
+  background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:24px 20px 20px;
+  text-align:center;position:relative;
+}
+.flow-item::before{
+  counter-increment:step;content:"STEP " counter(step);
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--pink);color:#fff;font-family:var(--ff-en);font-weight:800;font-size:12.5px;
+  border-radius:999px;padding:2px 16px;letter-spacing:.1em;white-space:nowrap;
+}
+.flow-item:not(:last-child)::after{
+  content:"▶";position:absolute;right:-24px;top:50%;transform:translateY(-50%);
+  color:var(--pink);font-size:16px;
+}
+.flow-item .when{font-weight:800;color:var(--pink-deep);font-size:14.5px;margin:6px 0 4px}
+.flow-item p{font-size:12.5px;font-weight:600}
+
+/* ---------- ACCESS ---------- */
+.access-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.access-card{
+  background:#fff;border:var(--line) solid var(--ink);border-radius:26px;
+  padding:30px 30px 26px;box-shadow:6px 6px 0 rgba(74,58,61,.12);
+}
+.access-card h3{
+  font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.access-card h3 .pin{font-size:24px}
+.ac-shibuya h3{color:var(--pink-deep)}
+.ac-yoyogi h3{color:#7b56c0}
+.access-card p{font-size:14px;font-weight:600;margin-bottom:10px}
+.access-card ul{display:flex;flex-direction:column;gap:7px}
+.access-card li{
+  font-size:13.5px;font-weight:600;padding-left:24px;position:relative;
+}
+.access-card li::before{
+  content:"🚃";position:absolute;left:0;top:0;font-size:14px;
+}
+.access-note{
+  margin-top:26px;text-align:center;font-size:13px;font-weight:700;color:#9a8286;
+}
+
+/* ---------- NEWS ---------- */
+.news-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.news-item{
+  display:flex;align-items:center;gap:18px;background:#fff;
+  border:2.5px solid #f0e4da;border-radius:18px;padding:16px 24px;
+  transition:.2s;flex-wrap:wrap;
+}
+.news-item:hover{border-color:var(--pink);transform:translateX(4px)}
+.news-item .date{font-family:var(--ff-en);font-weight:700;font-size:14px;color:#b3989e;white-space:nowrap}
+.news-item .cat{
+  font-size:11px;font-weight:800;color:#fff;background:var(--pink);
+  border-radius:999px;padding:1px 14px;white-space:nowrap;
+}
+.news-item .cat.c2{background:var(--sky)}
+.news-item .cat.c3{background:var(--purple)}
+.news-item .txt{font-weight:700;font-size:14.5px;flex:1;min-width:200px}
+
+/* ---------- FAQ ---------- */
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{
+  background:#fff;border:2.5px solid #f0e4da;border-radius:18px;overflow:hidden;
+}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;text-align:left;
+  padding:18px 54px 18px 22px;font-family:var(--ff-round);
+  font-weight:800;font-size:15px;color:var(--ink);position:relative;line-height:1.7;
+}
+.faq-q::before{content:"Q.";color:var(--pink-deep);font-family:var(--ff-en);font-weight:800;margin-right:10px;font-size:17px}
+.faq-q::after{
+  content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  width:26px;height:26px;line-height:24px;text-align:center;border-radius:50%;
+  background:var(--pink-pale);color:var(--pink-deep);font-weight:800;font-size:18px;transition:.25s;
+}
+.faq-item.open .faq-q::after{content:"−";transform:translateY(-50%) rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-a-inner{padding:0 22px 20px;font-size:14px;font-weight:500;border-top:2px dashed #f0e4da;margin:0 22px;padding:14px 0 20px}
+.faq-a-inner::before{content:"A.";color:#2e97c4;font-family:var(--ff-en);font-weight:800;margin-right:10px;font-size:16px}
+
+/* ---------- OUTRO ---------- */
+.outro{
+  text-align:center;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(244,86,140,.12), transparent 34%),
+    radial-gradient(circle at 85% 65%, rgba(110,198,234,.14), transparent 36%),
+    var(--cream);
+}
+.outro-copy{
+  font-family:var(--ff-maru);font-weight:900;
+  font-size:clamp(21px,3.8vw,32px);line-height:1.8;margin-bottom:30px;
+}
+.outro-copy .pink{color:var(--pink-deep)}
+
+/* ---------- フッター ---------- */
+.footer{background:var(--night);color:#fff;padding:56px 16px 30px}
+.footer-inner{max-width:1080px;margin:0 auto}
+.footer-logo{text-align:center;margin-bottom:34px}
+.footer-logo .en{font-family:var(--ff-en);font-weight:800;font-size:26px;color:#ffd7e6}
+.footer-logo .ja{font-size:12px;font-weight:700;letter-spacing:.2em;color:#cfc6ee}
+.orgs{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;
+  max-width:720px;margin:0 auto 36px;
+}
+.orgs dt{
+  font-size:11.5px;font-weight:800;letter-spacing:.16em;color:#ffd7e6;
+  border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:4px;margin-bottom:6px;
+}
+.orgs dd{font-size:13.5px;font-weight:700;line-height:1.8}
+.footer-sns{display:flex;justify-content:center;gap:14px;margin-bottom:34px}
+.footer-sns a{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
+  font-family:var(--ff-en);font-weight:800;font-size:13px;transition:.2s;
+}
+.footer-sns a:hover{background:var(--pink)}
+.footer-note{text-align:center;font-size:11px;color:#a99fce;margin-bottom:18px;font-weight:500}
+.copyright{text-align:center;font-size:11.5px;color:#cfc6ee;font-weight:600;letter-spacing:.04em}
+
+/* ---------- ページトップ ---------- */
+.totop{
+  position:fixed;right:18px;bottom:18px;z-index:90;
+  width:54px;height:54px;border-radius:50%;border:3px solid var(--ink);
+  background:var(--yellow);color:var(--ink);font-size:20px;font-weight:900;
+  cursor:pointer;box-shadow:3px 3px 0 rgba(74,58,61,.25);
+  opacity:0;pointer-events:none;transition:.3s;
+}
+.totop.show{opacity:1;pointer-events:auto}
+
+/* ---------- スクロールで表示 ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:none}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width:960px){
+  .about-points,.bukatsu-grid,.ticket-grid{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:1fr;gap:34px}
+  .flow-item:not(:last-child)::after{content:"▼";right:auto;left:50%;top:auto;bottom:-28px;transform:translateX(-50%)}
+}
+@media (max-width:840px){
+  .gnav{
+    display:none;position:fixed;top:66px;left:0;right:0;
+    background:#fff;border-bottom:var(--line) solid var(--pink);
+    padding:14px 16px 20px;box-shadow:0 12px 24px rgba(0,0,0,.08);
+  }
+  .gnav.open{display:block}
+  .gnav ul{flex-direction:column;gap:4px}
+  .gnav a{font-size:15px;padding:11px 16px}
+  .nav-ticket{text-align:center;margin-top:8px}
+  .menu-btn{display:flex}
+  .area-card{grid-template-columns:1fr}
+  .area-visual{padding:26px 18px}
+  .live-cards,.fg-grid,.access-grid{grid-template-columns:1fr}
+  .dpoint ul{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .about-points,.bukatsu-grid,.ticket-grid{grid-template-columns:1fr}
+  .section{padding:66px 14px}
+  .hero-date,.hero-place{min-width:0;width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#top" class="header-logo">
+      <span class="en">SANRIO SCHOOL FES 2026</span>
+      <span class="ja">サンリオ学園祭 in 渋谷・代々木公園</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
+    <nav class="gnav" id="gnav">
+      <ul>
+        <li><a href="#about">開催概要</a></li>
+        <li><a href="#area">エリア</a></li>
+        <li><a href="#timetable">1日の流れ</a></li>
+        <li><a href="#bukatsu">部活動ブース</a></li>
+        <li><a href="#live">ライブ</a></li>
+        <li><a href="#food">フード&グッズ</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#news">お知らせ</a></li>
+        <li><a href="#ticket" class="nav-ticket">チケット</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ヒーロー -->
+<section class="hero" id="top">
+  <svg class="garland" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,10 Q300,70 600,10 T1200,10" fill="none" stroke="#f4568c" stroke-width="4"/>
+    <g>
+      <polygon points="80,22 110,22 95,58" fill="#ffc93c"/>
+      <polygon points="200,38 230,38 215,74" fill="#6ec6ea"/>
+      <polygon points="330,44 360,44 345,80" fill="#f4568c"/>
+      <polygon points="470,34 500,34 485,70" fill="#a685e0"/>
+      <polygon points="600,22 630,22 615,58" fill="#5fc9a7"/>
+      <polygon points="730,34 760,34 745,70" fill="#ffc93c"/>
+      <polygon points="870,44 900,44 885,80" fill="#f4568c"/>
+      <polygon points="1000,38 1030,38 1015,74" fill="#6ec6ea"/>
+      <polygon points="1110,22 1140,22 1125,58" fill="#a685e0"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <span class="hero-badge">WINTER FES 2026</span>
+    <h1 class="hero-title">
+      SANRIO<br>SCHOOL FES
+      <span class="small">サンリオ学園祭 in 渋谷・代々木公園</span>
+    </h1>
+    <p class="hero-catch"><span class="marker">キミの"スキ"が、まちを染める。</span></p>
+    <p class="hero-sub">街まるごとがキャンパスになる、いちばんカワイイ学園祭。</p>
+    <div class="hero-info">
+      <div class="hero-date">
+        <span class="label">DATE</span>
+        <div class="big">2026.<em>12.19</em><span class="dow">SAT</span> - <em>12.20</em><span class="dow">SUN</span></div>
+        <div class="note">11:00 開祭 / 20:30 閉祭(予定)</div>
+      </div>
+      <div class="hero-place">
+        <span class="label">PLACE</span>
+        <div class="big">渋谷駅周辺エリア &<br>代々木公園</div>
+        <div class="note">冬のイルミネーションと同時開催</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="#ticket" class="btn btn-primary">♥ チケット先行抽選にエントリー</a>
+      <a href="#about" class="btn btn-outline">フェスについて知る</a>
+    </div>
+    <div class="hero-free">街なかエリアは入場無料!学生証があるともっとおトク♪</div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,40 C240,90 480,-10 720,30 C960,70 1200,0 1440,40 L1440,70 L0,70 Z" fill="#2b2350"/>
+  </svg>
+</section>
+
+<!-- ティッカー -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
+    <span><span class="star">★</span> ライブ観覧チケット先行抽選は10月スタート</span>
+    <span><span class="star">★</span> 街なかエリアは入場無料</span>
+    <span><span class="star">★</span> 中高生は学生証提示でライブチケットが半額以下に</span>
+    <span><span class="star">★</span> 代々木公園イルミネーションとコラボ決定</span>
+    <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
+    <span><span class="star">★</span> ライブ観覧チケット先行抽選は10月スタート</span>
+    <span><span class="star">★</span> 街なかエリアは入場無料</span>
+    <span><span class="star">★</span> 中高生は学生証提示でライブチケットが半額以下に</span>
+    <span><span class="star">★</span> 代々木公園イルミネーションとコラボ決定</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section dots-bg" id="about">
+  <div class="section-inner">
+    <div class="sec-head c-pink reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <h2 class="en">ABOUT</h2>
+      <span class="ja">サンリオ学園祭って?</span>
+    </div>
+    <p class="about-copy reveal">
+      教室じゃなくて、<span class="pink">まちが会場。</span><br>
+      放課後よりも、ずっと自由。
+    </p>
+    <p class="lead reveal">
+      サンリオキャラクターたちが「生徒」になって、渋谷のまちをまるごと学園祭に!
+      昼は街なかで部活動ブースやスタンプラリーをめぐって、
+      夜は代々木公園のイルミネーションの中で<span class="strong">アーティストによる「放課後ナイトライブ」</span>へ。
+      朝から夜まで、友だちと一日中あそびつくせるウィンターフェスです。
+    </p>
+    <div class="about-points">
+      <div class="point-card reveal">
+        <span class="num">POINT 1</span>
+        <span class="icon">🏫</span>
+        <h3>街まるごとキャンパス</h3>
+        <p>渋谷駅周辺の商業施設・ストリートに「教室」が出現。参加無料のスタンプラリーで、まちを歩くほどフェスが楽しくなる!</p>
+      </div>
+      <div class="point-card reveal">
+        <span class="num">POINT 2</span>
+        <span class="icon">✨</span>
+        <h3>イルミ×キャラクター</h3>
+        <p>この冬はじまる代々木公園の大規模イルミネーションとコラボ。キャラクターたちと光に包まれる、ここだけの冬景色。</p>
+      </div>
+      <div class="point-card reveal">
+        <span class="num">POINT 3</span>
+        <span class="icon">🎤</span>
+        <h3>フィナーレはライブ</h3>
+        <p>一日のさいごは、人気アーティストとキャラクターが共演するスペシャルライブ。青春のBGMを、みんなで大合唱しよう。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AREA -->
+<section class="section" id="area">
+  <div class="section-inner">
+    <div class="sec-head c-sky reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 2 L36 16 L52 16 L39 24 L44 40 L30 30 L16 40 L21 24 L8 16 L24 16 Z" transform="scale(.6) translate(20,-2)" fill="#6ec6ea"/></svg>
+      <h2 class="en">AREA MAP</h2>
+      <span class="ja">3つのエリアをめぐろう</span>
+    </div>
+    <div class="area-wrap">
+      <div class="area-card a-pink reveal">
+        <div class="area-visual">
+          <span class="emoji">🎪</span>
+          <span class="tag">AREA 1</span>
+        </div>
+        <div class="area-body">
+          <h3>シブヤ・キャンパスエリア</h3>
+          <span class="place">渋谷駅周辺の街なか各所|入場無料</span>
+          <p>渋谷の商業施設やストリートに、キャラクターごとの「教室」ブースが点在。デジタルスタンプラリーで全教室をめぐって、限定ノベルティをゲットしよう。制服・なりきりコーデでの来場も大歓迎!</p>
+          <ul>
+            <li>デジタルスタンプラリー</li><li>フォトスポット</li><li>コラボ店舗めぐり</li><li>入場無料</li>
+          </ul>
+        </div>
+      </div>
+      <div class="area-card a-night reveal">
+        <div class="area-visual">
+          <span class="emoji">🌃</span>
+          <span class="tag">AREA 2</span>
+        </div>
+        <div class="area-body">
+          <h3>ヨヨギ・イルミネーションエリア</h3>
+          <span class="place">代々木公園|一部有料</span>
+          <p>この冬、代々木公園ではじまる大規模イルミネーションとスペシャルコラボ。キャラクターモチーフの光の装飾、グリーティング、あったかフード屋台がならぶ、夜が主役のエリアです。</p>
+          <ul>
+            <li>コラボイルミネーション</li><li>キャラクターグリーティング</li><li>フード屋台</li><li>点灯式セレモニー</li>
+          </ul>
+        </div>
+      </div>
+      <div class="area-card a-sky reveal">
+        <div class="area-visual">
+          <span class="emoji">🎸</span>
+          <span class="tag">AREA 3</span>
+        </div>
+        <div class="area-body">
+          <h3>ナイトライブ・ステージ</h3>
+          <span class="place">代々木公園 特設ステージ|チケット制</span>
+          <p>フェスのフィナーレを飾る特設ライブステージ。昼はキャラクターステージ、日が暮れたらアーティストによる「放課後ナイトライブ」へ。イルミネーションに包まれた、ここだけのライブ体験を。</p>
+          <ul>
+            <li>キャラクターステージ</li><li>放課後ナイトライブ</li><li>フィナーレ 光と音のショー</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- タイムテーブル -->
+<section class="section dots-bg" id="timetable">
+  <div class="section-inner">
+    <div class="sec-head c-yellow reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><circle cx="30" cy="12" r="10" fill="none" stroke="#ffc93c" stroke-width="4"/><line x1="30" y1="12" x2="30" y2="6" stroke="#ffc93c" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="12" x2="35" y2="14" stroke="#ffc93c" stroke-width="3" stroke-linecap="round"/></svg>
+      <h2 class="en">TIME TABLE</h2>
+      <span class="ja">フェスの1日</span>
+    </div>
+    <div class="tt reveal">
+      <div class="tt-item">
+        <span class="time">11:00</span>
+        <h3>開祭式(オープニングセレモニー)</h3>
+        <p>キャラクターたちの「開祭宣言」でフェスがスタート!街なかの各教室ブースも一斉オープン。</p>
+      </div>
+      <div class="tt-item">
+        <span class="time">11:30 - 16:00</span>
+        <h3>街なか学園祭タイム</h3>
+        <p>シブヤ・キャンパスエリアで部活動ブースめぐり&スタンプラリー。コラボフードでお昼ごはんも♪</p>
+      </div>
+      <div class="tt-item night">
+        <span class="time">16:30</span>
+        <h3>イルミネーション点灯式</h3>
+        <p>キャラクターたちと一緒にカウントダウン。代々木公園が一気に光の世界へ。</p>
+      </div>
+      <div class="tt-item night">
+        <span class="time">17:30</span>
+        <h3>キャラクタースペシャルステージ</h3>
+        <p>ハローキティ、シナモロール、クロミたちが日替わりで登場するステージショー。</p>
+      </div>
+      <div class="tt-item night">
+        <span class="time">18:30</span>
+        <h3>放課後ナイトライブ</h3>
+        <p>人気アーティストが登場するフェスのメインライブ。キャラクターとのスペシャルコラボも…?</p>
+      </div>
+      <div class="tt-item night">
+        <span class="time">20:15</span>
+        <h3>フィナーレ「光と音のスペシャルショー」</h3>
+        <p>イルミネーション×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
+      </div>
+    </div>
+    <p class="tt-note">※タイムテーブルは予定です。内容・時間は変更になる場合があります。</p>
+  </div>
+</section>
+
+<!-- 部活動ブース -->
+<section class="section" id="bukatsu">
+  <div class="section-inner">
+    <div class="sec-head c-pink reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <h2 class="en">CLUB ACTIVITIES</h2>
+      <span class="ja">キャラクター部活動ブース</span>
+    </div>
+    <p class="lead reveal" style="margin-bottom:44px">
+      キャラクターたちが「部長」をつとめる部活動ブースが街なかに登場。
+      好きな部活に"入部"して、体験してあそぼう!
+    </p>
+    <div class="bukatsu-grid">
+      <div class="bukatsu-card bk-pink reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">🎸</span>
+          <span class="club">軽音部</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>部長:クロミ</h3>
+          <p>バンド体験&リズムゲームで盛り上がる音楽ブース。ナイトライブ出演アーティストのスペシャル映像も先行公開!</p>
+          <div class="with">Supported by ドコモ・スタジオ&ライブ</div>
+        </div>
+      </div>
+      <div class="bukatsu-card bk-sky reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">📸</span>
+          <span class="club">写真部</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>部長:シナモロール</h3>
+          <p>"映え"が止まらないフォトスポットが大集合。撮った写真はその場でオリジナルフレーム加工して、SNSでシェアしよう。</p>
+          <div class="with">オリジナルARフォトフレーム配信中</div>
+        </div>
+      </div>
+      <div class="bukatsu-card bk-yellow reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">🧁</span>
+          <span class="club">家庭科部</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>部長:ポムポムプリン</h3>
+          <p>キャラクターモチーフのスイーツデコ体験や、あったかコラボフードの食べくらべ。冬のまち歩きのおともにどうぞ。</p>
+          <div class="with">コラボフードはエリア各所でも販売</div>
+        </div>
+      </div>
+      <div class="bukatsu-card bk-purple reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">🎨</span>
+          <span class="club">美術部</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>部長:マイメロディ</h3>
+          <p>みんなで完成させる巨大アート企画や、痛バ・推し活グッズのデコ体験コーナー。世界にひとつの推しグッズを作ろう。</p>
+          <div class="with">デコ体験は当日整理券制</div>
+        </div>
+      </div>
+      <div class="bukatsu-card bk-mint reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">📺</span>
+          <span class="club">放送部</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>部長:ポチャッコ</h3>
+          <p>フェスの様子を生配信する公開スタジオ。アナウンサー体験やキャラクターへの公開インタビューを間近で見られるかも!</p>
+          <div class="with">Supported by 日本テレビ</div>
+        </div>
+      </div>
+      <div class="bukatsu-card bk-pink reveal">
+        <div class="bukatsu-head">
+          <span class="emoji">💌</span>
+          <span class="club">生徒会</span>
+        </div>
+        <div class="bukatsu-body">
+          <h3>会長:ハローキティ</h3>
+          <p>フェスの総合案内&スタンプラリーのゴール地点。全教室をめぐった人には、生徒会から"卒業証書"風の限定ノベルティを進呈♪</p>
+          <div class="with">ノベルティは数量限定・なくなり次第終了</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE -->
+<section class="section live" id="live">
+  <div class="section-inner">
+    <div class="sec-head reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M22 20 V4 L44 0 V16" fill="none" stroke="#ffd7e6" stroke-width="3"/><circle cx="18" cy="20" r="4" fill="#ffd7e6"/><circle cx="40" cy="16" r="4" fill="#ffd7e6"/></svg>
+      <h2 class="en">NIGHT LIVE</h2>
+      <span class="ja">放課後ナイトライブ</span>
+    </div>
+    <p class="live-lead reveal">
+      日が暮れたら、フェスはクライマックスへ。<br>
+      イルミネーションきらめく代々木公園の特設ステージで、
+      人気アーティストとサンリオキャラクターが夢の共演。
+    </p>
+    <div class="live-cards">
+      <div class="live-card reveal">
+        <span class="cat">CHARACTER STAGE</span>
+        <h3>キャラクタースペシャルステージ</h3>
+        <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりランナップで登場。歌って踊れるステージショーをお届けします。</p>
+      </div>
+      <div class="live-card reveal">
+        <span class="cat">ARTIST LIVE</span>
+        <h3>アーティストライブ&コラボ演出</h3>
+        <p>いま聴きたいアーティストが集結するスペシャルライブ。キャラクターとのコラボパフォーマンスや、この日だけの演出は現地でしか見られません。</p>
+      </div>
+    </div>
+    <div class="coming reveal">
+      <div class="en">LINE UP … COMING SOON!</div>
+      <p>出演アーティスト第1弾は<strong>2026年9月発表予定</strong>。<br>公式SNSのフォローをして続報を待っててね♪</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD & GOODS -->
+<section class="section dots-bg" id="food">
+  <div class="section-inner">
+    <div class="sec-head c-yellow reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#ffc93c"/></svg>
+      <h2 class="en">FOOD & GOODS</h2>
+      <span class="ja">フード&限定グッズ</span>
+    </div>
+    <div class="fg-grid">
+      <div class="fg-card food reveal">
+        <div class="head">
+          <span class="emoji">🍫</span>
+          <h3>あったか学食フード</h3>
+        </div>
+        <p>冬のまち歩きにぴったりな、キャラクターモチーフのあったかメニューが大集合。「学食」がテーマの、どこか懐かしくてカワイイラインナップです。</p>
+        <ul>
+          <li>キャラクターホットドリンク&ラテアート</li>
+          <li>"購買部"風のコラボパン&ホットスナック</li>
+          <li>イルミネーションカラーの限定スイーツ</li>
+          <li>キャラクターおでこカイロ付きフードセット</li>
+        </ul>
+      </div>
+      <div class="fg-card goods reveal">
+        <div class="head">
+          <span class="emoji">🎒</span>
+          <h3>フェス限定グッズ</h3>
+        </div>
+        <p>「学園祭」をテーマにした描き起こしデザインのフェス限定グッズを販売。推し活にも普段使いにもぴったりなアイテムがそろいます。</p>
+        <ul>
+          <li>制服風キャラクター描き起こしグッズ</li>
+          <li>スクールバッグ風トート&缶バッジ</li>
+          <li>ライブ仕様のペンライト&マフラータオル</li>
+          <li>フェス会場限定カプセルトイ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKET -->
+<section class="section ticket" id="ticket">
+  <div class="section-inner">
+    <div class="sec-head c-pink reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <h2 class="en">TICKET</h2>
+      <span class="ja">チケット情報</span>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-card tk-free reveal">
+        <div class="type">街なかエリア</div>
+        <div class="body">
+          <div class="price">FREE<span class="unit"></span></div>
+          <p class="desc">シブヤ・キャンパスエリアの部活動ブース、スタンプラリー、フォトスポットは入場無料で楽しめます。※一部体験は有料・整理券制です。</p>
+          <span class="chip">チケット不要でOK!</span>
+        </div>
+      </div>
+      <div class="ticket-card tk-live reveal">
+        <div class="type">ナイトライブ観覧(一般)</div>
+        <div class="body">
+          <div class="price">¥8,500<span class="unit">(税込)</span></div>
+          <p class="desc">キャラクターステージ+放課後ナイトライブ+フィナーレショーの観覧エリアチケット。イルミネーションエリアの入場を含みます。抽選販売です。</p>
+          <span class="chip">フェス限定特典付き</span>
+        </div>
+      </div>
+      <div class="ticket-card tk-student reveal">
+        <span class="osusume">中高生おトク!</span>
+        <div class="type">ナイトライブ観覧(中高生)</div>
+        <div class="body">
+          <div class="price">¥3,900<span class="unit">(税込)</span></div>
+          <p class="desc">中学生・高校生は半額以下のスペシャルプライス!当日、入場時に学生証をご提示ください。友だちを誘って"放課後"の続きへ。</p>
+          <span class="chip">学生証の提示が必要です</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="dpoint reveal">
+      <h3>📱 dポイントクラブ会員はもっとおトク!</h3>
+      <ul>
+        <li>会員限定の最速先行抽選エントリー(10月上旬受付開始)</li>
+        <li>d払いでのグッズ購入でdポイント還元率アップ</li>
+        <li>スタンプラリー達成で限定dポイントプレゼント</li>
+        <li>会員限定・出演アーティストのライブ配信視聴特典</li>
+        <li class="note">※特典内容は予定です。詳細はチケット販売開始時にご案内します。dポイントクラブへの入会は無料です。</li>
+      </ul>
+    </div>
+
+    <div class="ticket-flow reveal">
+      <h3>チケット販売スケジュール</h3>
+      <div class="flow">
+        <div class="flow-item">
+          <p class="when">10月上旬〜</p>
+          <p>dポイントクラブ会員 最速先行抽選エントリー</p>
+        </div>
+        <div class="flow-item">
+          <p class="when">10月下旬〜</p>
+          <p>公式先行抽選(どなたでもエントリーOK)</p>
+        </div>
+        <div class="flow-item">
+          <p class="when">11月下旬〜</p>
+          <p>一般販売(先着・枚数がなくなり次第終了)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESS -->
+<section class="section" id="access">
+  <div class="section-inner">
+    <div class="sec-head c-mint reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 2 C20 2 14 9 14 16 C14 26 30 38 30 38 C30 38 46 26 46 16 C46 9 40 2 30 2Z" transform="scale(.55) translate(24,0)" fill="#5fc9a7"/></svg>
+      <h2 class="en">ACCESS</h2>
+      <span class="ja">アクセス</span>
+    </div>
+    <div class="access-grid">
+      <div class="access-card ac-shibuya reveal">
+        <h3><span class="pin">📍</span>シブヤ・キャンパスエリア</h3>
+        <p>渋谷駅周辺の商業施設・ストリート各所</p>
+        <ul>
+          <li>JR山手線・埼京線・湘南新宿ライン「渋谷駅」すぐ</li>
+          <li>東京メトロ銀座線・半蔵門線・副都心線「渋谷駅」すぐ</li>
+          <li>東急東横線・田園都市線/京王井の頭線「渋谷駅」すぐ</li>
+        </ul>
+      </div>
+      <div class="access-card ac-yoyogi reveal">
+        <h3><span class="pin">📍</span>ヨヨギ・イルミネーション&ライブエリア</h3>
+        <p>代々木公園(イベント広場・特設ステージ)</p>
+        <ul>
+          <li>JR山手線「原宿駅」から徒歩約3分</li>
+          <li>東京メトロ千代田線「代々木公園駅」から徒歩約3分</li>
+          <li>東京メトロ千代田線・副都心線「明治神宮前〈原宿〉駅」から徒歩約3分</li>
+        </ul>
+      </div>
+    </div>
+    <p class="access-note">※駐車場のご用意はありません。公共交通機関をご利用ください。渋谷⇔代々木公園間は徒歩約15分、スタンプラリーを楽しみながらの移動がおすすめです♪</p>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section dots-bg" id="news">
+  <div class="section-inner">
+    <div class="sec-head c-purple reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#a685e0"/></svg>
+      <h2 class="en">NEWS</h2>
+      <span class="ja">お知らせ</span>
+    </div>
+    <div class="news-list reveal">
+      <a class="news-item" href="#top">
+        <span class="date">2026.07.07</span>
+        <span class="cat">お知らせ</span>
+        <span class="txt">「SANRIO SCHOOL FES 2026 WINTER」公式サイトオープン!開催概要を公開しました</span>
+      </a>
+      <a class="news-item" href="#area">
+        <span class="date">2026.07.07</span>
+        <span class="cat c2">エリア</span>
+        <span class="txt">代々木公園イルミネーションとのスペシャルコラボが決定!</span>
+      </a>
+      <a class="news-item" href="#live">
+        <span class="date">2026.07.07</span>
+        <span class="cat c3">ライブ</span>
+        <span class="txt">出演アーティスト第1弾は9月発表予定。公式SNSをフォローして続報をチェック♪</span>
+      </a>
+      <a class="news-item" href="#ticket">
+        <span class="date">2026.07.07</span>
+        <span class="cat">チケット</span>
+        <span class="txt">チケットは10月より先行抽選スタート。中高生向けスペシャルプライスもご用意!</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-inner">
+    <div class="sec-head c-sky reveal">
+      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><text x="30" y="20" text-anchor="middle" font-size="24" font-weight="bold" fill="#6ec6ea">?</text></svg>
+      <h2 class="en">FAQ</h2>
+      <span class="ja">よくあるご質問</span>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <button class="faq-q">チケットがなくても楽しめますか?</button>
+        <div class="faq-a"><div class="faq-a-inner">はい!シブヤ・キャンパスエリア(部活動ブース・スタンプラリー・フォトスポット)は入場無料でお楽しみいただけます。ナイトライブの観覧と、代々木公園の一部エリアのみチケットが必要です。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">中高生プライスのチケットはどうやって買えますか?</button>
+        <div class="faq-a"><div class="faq-a-inner">一般チケットと同じ先行抽選・一般販売でご購入いただけます。ご入場の際に学生証(生徒手帳)のご提示が必要です。お忘れの場合は一般料金との差額をいただきますのでご注意ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">制服やなりきりコーデで参加してもいいですか?</button>
+        <div class="faq-a"><div class="faq-a-inner">大歓迎です!「学園祭」がテーマのフェスなので、制服・制服風コーデ・推しカラーコーデでの来場がおすすめです。ただし周囲のお客さまのご迷惑になる装いや、公共の場にふさわしくない衣装はご遠慮ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">小さな子どもや大人だけでも楽しめますか?</button>
+        <div class="faq-a"><div class="faq-a-inner">もちろんです!昼の街なかエリアはどなたでも楽しめるコンテンツが中心です。なおナイトライブは照明・音響演出が大きいため、小さなお子さまは保護者の方とご相談のうえご参加ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">雨や雪の日も開催されますか?</button>
+        <div class="faq-a"><div class="faq-a-inner">雨天決行・荒天中止です。開催可否は当日朝までに公式サイト・公式SNSでお知らせします。冬の屋外イベントのため、あたたかい服装でお越しください。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="section outro">
+  <div class="section-inner reveal">
+    <p class="outro-copy">
+      この冬、いちばんカワイイ放課後を。<br>
+      <span class="pink">まちで、待ってるね。</span>
+    </p>
+    <a href="#ticket" class="btn btn-primary">♥ チケット先行抽選にエントリー</a>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="en">SANRIO SCHOOL FES 2026</div>
+      <div class="ja">サンリオ学園祭 in 渋谷・代々木公園</div>
+    </div>
+    <dl class="orgs">
+      <div>
+        <dt>主催</dt>
+        <dd>株式会社サンリオ</dd>
+      </div>
+      <div>
+        <dt>共同企画・協力</dt>
+        <dd>日本テレビ放送網株式会社/株式会社NTTドコモ/株式会社ドコモ・スタジオ&ライブ</dd>
+      </div>
+    </dl>
+    <div class="footer-sns">
+      <a href="#top" aria-label="X(旧Twitter)">X</a>
+      <a href="#top" aria-label="Instagram">IG</a>
+      <a href="#top" aria-label="TikTok">TT</a>
+      <a href="#top" aria-label="YouTube">YT</a>
+    </div>
+    <p class="footer-note">掲載の内容は2026年7月時点の予定です。イベント内容・出演者・料金等は変更になる場合があります。</p>
+    <p class="copyright">© 2026 SANRIO CO., LTD. APPROVAL No.SP2612XX</p>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="ページの先頭へ">↑</button>
+
+<script>
+// モバイルメニュー
+const menuBtn=document.getElementById('menuBtn');
+const gnav=document.getElementById('gnav');
+menuBtn.addEventListener('click',()=>{
+  menuBtn.classList.toggle('open');
+  gnav.classList.toggle('open');
+});
+gnav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  menuBtn.classList.remove('open');
+  gnav.classList.remove('open');
+}));
+
+// スクロールで要素をふわっと表示
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// FAQ アコーディオン
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q');
+  const a=item.querySelector('.faq-a');
+  q.addEventListener('click',()=>{
+    const open=item.classList.toggle('open');
+    a.style.maxHeight=open?a.scrollHeight+'px':0;
+  });
+});
+
+// ページトップボタン
+const totop=document.getElementById('totop');
+window.addEventListener('scroll',()=>{
+  totop.classList.toggle('show',window.scrollY>600);
+});
+totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+</script>
+</body>
+</html>
