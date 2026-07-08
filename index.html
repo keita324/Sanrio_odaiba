@@ -13,6 +13,7 @@
   --pink:#f4568c;
   --pink-deep:#e0356f;
   --pink-pale:#ffe3ee;
+  --pink-soft:#ffd1e1;
   --sky:#6ec6ea;
   --sky-pale:#e2f4fc;
   --yellow:#ffc93c;
@@ -23,6 +24,11 @@
   --mint-pale:#e0f5ec;
   --night:#2b2350;
   --night2:#413577;
+  --board:#3c6e5f;
+  --board2:#2f5b4e;
+  --wood:#c08a5d;
+  --wood-dark:#a9744f;
+  --chalk:#fdf6e8;
   --ink:#4a3a3d;
   --cream:#fffaf3;
   --white:#ffffff;
@@ -45,12 +51,40 @@ body{
 img{max-width:100%}
 a{color:inherit;text-decoration:none}
 ul{list-style:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
 
-/* ---------- 背景の水玉 ---------- */
+/* ---------- 背景パターン ---------- */
 .dots-bg{
   background-image:radial-gradient(rgba(244,86,140,.07) 3.5px, transparent 3.5px);
   background-size:34px 34px;
 }
+.grid-bg{
+  background-color:#fdfcf7;
+  background-image:
+    linear-gradient(rgba(110,198,234,.20) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110,198,234,.20) 1px, transparent 1px);
+  background-size:26px 26px;
+}
+.heart-bg{
+  background-color:var(--cream);
+  background-image:radial-gradient(rgba(255,201,60,.14) 3.5px, transparent 3.5px),radial-gradient(rgba(244,86,140,.08) 3.5px, transparent 3.5px);
+  background-size:46px 46px,46px 46px;
+  background-position:0 0,23px 23px;
+}
+
+/* ---------- キャラクターの顔(共通) ---------- */
+.chara-face{
+  display:flex;align-items:center;justify-content:center;
+  border-radius:50%;border:3px solid var(--ink);
+  background:#fff;overflow:hidden;
+  box-shadow:4px 4px 0 rgba(74,58,61,.14);
+}
+.chara-face svg{width:82%;height:82%;display:block}
+.f-pink{background:linear-gradient(180deg,#ffeef5,var(--pink-pale))}
+.f-sky{background:linear-gradient(180deg,#eefaff,var(--sky-pale))}
+.f-yellow{background:linear-gradient(180deg,#fff9e8,var(--yellow-pale))}
+.f-purple{background:linear-gradient(180deg,#f6f1fd,var(--purple-pale))}
+.f-mint{background:linear-gradient(180deg,#ecfaf4,var(--mint-pale))}
 
 /* ---------- ヘッダー ---------- */
 .header{
@@ -60,30 +94,31 @@ ul{list-style:none}
   border-bottom:var(--line) solid var(--pink);
 }
 .header-inner{
-  max-width:1140px;margin:0 auto;padding:10px 16px;
+  max-width:1180px;margin:0 auto;padding:8px 16px;
   display:flex;align-items:center;justify-content:space-between;gap:12px;
 }
-.header-logo{display:flex;flex-direction:column;line-height:1.15}
+.header-logo{display:flex;align-items:center;gap:10px;line-height:1.15}
+.header-logo .mini-face{width:40px;height:40px;flex:none;box-shadow:2px 2px 0 rgba(74,58,61,.14)}
 .header-logo .en{
-  font-family:var(--ff-en);font-weight:800;font-size:19px;color:var(--pink-deep);letter-spacing:.02em;
+  font-family:var(--ff-en);font-weight:800;font-size:18px;color:var(--pink-deep);letter-spacing:.02em;display:block;
 }
-.header-logo .ja{font-size:10.5px;font-weight:700;color:var(--ink);letter-spacing:.14em}
-.gnav ul{display:flex;gap:2px;flex-wrap:wrap}
+.header-logo .ja{font-size:10px;font-weight:700;color:var(--ink);letter-spacing:.12em;display:block}
+.gnav ul{display:flex;gap:0;flex-wrap:wrap}
 .gnav a{
-  display:block;padding:7px 13px;border-radius:999px;
-  font-weight:800;font-size:13.5px;transition:.2s;
+  display:block;padding:7px 11px;border-radius:999px;
+  font-weight:800;font-size:13px;transition:.2s;
 }
 .gnav a:hover{background:var(--pink-pale);color:var(--pink-deep)}
 .nav-ticket{
   background:var(--pink);color:#fff !important;border-radius:999px;
-  padding:9px 20px !important;box-shadow:0 3px 0 var(--pink-deep);
-  font-weight:800;
+  padding:9px 18px !important;box-shadow:0 3px 0 var(--pink-deep);
+  font-weight:800;margin-left:6px;
 }
 .nav-ticket:hover{background:var(--pink-deep) !important;transform:translateY(1px);box-shadow:0 2px 0 var(--pink-deep)}
 .menu-btn{
   display:none;background:var(--pink);border:none;border-radius:12px;
   width:46px;height:46px;cursor:pointer;flex-direction:column;
-  align-items:center;justify-content:center;gap:5px;
+  align-items:center;justify-content:center;gap:5px;flex:none;
 }
 .menu-btn span{display:block;width:22px;height:3px;border-radius:3px;background:#fff;transition:.25s}
 .menu-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
@@ -93,26 +128,45 @@ ul{list-style:none}
 /* ---------- ヒーロー ---------- */
 .hero{
   position:relative;
-  padding:120px 16px 0;
+  padding:110px 16px 0;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255,201,60,.25), transparent 32%),
-    radial-gradient(circle at 88% 12%, rgba(110,198,234,.28), transparent 34%),
-    radial-gradient(circle at 80% 78%, rgba(166,133,224,.22), transparent 38%),
+    radial-gradient(circle at 12% 18%, rgba(255,201,60,.28), transparent 32%),
+    radial-gradient(circle at 88% 12%, rgba(110,198,234,.30), transparent 34%),
+    radial-gradient(circle at 80% 78%, rgba(166,133,224,.24), transparent 38%),
+    radial-gradient(rgba(244,86,140,.06) 3px, transparent 3px),
     linear-gradient(180deg,#ffeef5 0%, #fff6ec 55%, var(--cream) 100%);
+  background-size:auto,auto,auto,40px 40px,auto;
   text-align:center;
   overflow:hidden;
 }
-.garland{position:absolute;top:64px;left:0;width:100%;pointer-events:none}
-.hero-inner{position:relative;max-width:900px;margin:0 auto;padding:34px 0 46px}
+.garland{position:absolute;top:60px;left:0;width:100%;pointer-events:none}
+.confetti{position:absolute;top:-6%;pointer-events:none;font-size:18px;opacity:.85;animation:fall linear infinite;z-index:1}
+@keyframes fall{
+  0%{transform:translateY(-4vh) rotate(0deg)}
+  100%{transform:translateY(108vh) rotate(340deg)}
+}
+.hero-inner{position:relative;max-width:960px;margin:0 auto;padding:40px 0 40px;z-index:2}
+.class-plate{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;border:3px solid var(--sky);border-radius:10px;
+  padding:5px 24px;margin-bottom:16px;
+  font-family:var(--ff-maru);font-weight:900;font-size:14px;letter-spacing:.2em;
+  box-shadow:3px 3px 0 rgba(110,198,234,.35);
+  position:relative;
+}
+.class-plate::before,.class-plate::after{
+  content:"";width:9px;height:9px;border-radius:50%;
+  background:var(--sky);flex:none;
+}
 .hero-badge{
-  display:inline-block;background:var(--night);color:#fff;
+  display:block;width:fit-content;margin:0 auto 14px;background:var(--night);color:#fff;
   font-weight:800;font-size:13px;letter-spacing:.18em;
-  padding:6px 22px;border-radius:999px;margin-bottom:18px;
+  padding:6px 22px;border-radius:999px;
 }
 .hero-title{
   font-family:var(--ff-en);
   font-weight:800;
-  font-size:clamp(42px,8.4vw,86px);
+  font-size:clamp(42px,8.2vw,84px);
   line-height:1.02;
   color:var(--pink-deep);
   text-shadow:
@@ -126,18 +180,53 @@ ul{list-style:none}
   font-weight:900;
   font-size:clamp(19px,3.4vw,30px);
   color:var(--ink);
-  margin:26px 0 8px;
+  margin:24px 0 6px;
 }
 .hero-catch .marker{background:linear-gradient(transparent 62%, var(--yellow) 62%)}
 .hero-sub{font-weight:700;font-size:clamp(13px,2vw,16px);color:#8a6f74}
+
+/* キャラクター整列 */
+.chara-line{
+  display:flex;justify-content:center;align-items:flex-end;gap:14px;flex-wrap:wrap;
+  margin:30px auto 4px;
+}
+.chara{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.chara .chara-face{width:92px;height:92px;animation:bob 2.6s ease-in-out infinite}
+.chara:nth-child(2) .chara-face{animation-delay:.2s}
+.chara:nth-child(3) .chara-face{animation-delay:.4s}
+.chara:nth-child(4) .chara-face{animation-delay:.6s}
+.chara:nth-child(5) .chara-face{animation-delay:.8s}
+.chara:nth-child(6) .chara-face{animation-delay:1s}
+.chara:hover .chara-face{animation:wiggle .5s ease-in-out}
+.chara .name{
+  font-size:11px;font-weight:800;background:#fff;border:2px solid var(--ink);
+  border-radius:999px;padding:0 12px;white-space:nowrap;
+}
+.chara .bubble{
+  position:absolute;top:-34px;left:50%;transform:translateX(-50%);
+  background:#fff;border:2.5px solid var(--ink);border-radius:999px;
+  font-size:11.5px;font-weight:900;padding:2px 13px;white-space:nowrap;color:var(--pink-deep);
+}
+.chara .bubble::after{
+  content:"";position:absolute;bottom:-7px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:9px;height:9px;background:#fff;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);
+}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-7deg)}75%{transform:rotate(7deg)}}
+
 .hero-info{
-  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:30px 0 6px;
+  display:flex;justify-content:center;align-items:stretch;gap:14px;flex-wrap:wrap;margin:26px 0 6px;position:relative;
 }
 .hero-date,.hero-place{
   background:#fff;border:var(--line) solid var(--ink);border-radius:18px;
   padding:14px 26px;box-shadow:5px 5px 0 rgba(74,58,61,.14);
-  text-align:center;min-width:250px;
+  text-align:center;min-width:250px;position:relative;
 }
+.hero-date::before,.hero-place::before{
+  content:"";position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-2deg);
+  width:86px;height:20px;background:rgba(110,198,234,.5);border-radius:2px;
+}
+.hero-place::before{background:rgba(255,201,60,.55);transform:translateX(-50%) rotate(2deg)}
 .hero-date .label,.hero-place .label{
   display:inline-block;font-size:11.5px;font-weight:800;color:#fff;
   background:var(--pink);border-radius:999px;padding:1px 14px;margin-bottom:6px;letter-spacing:.14em;
@@ -148,7 +237,21 @@ ul{list-style:none}
 .hero-date .dow{font-size:.52em;vertical-align:.28em;letter-spacing:.05em}
 .hero-place .big{font-weight:900;font-family:var(--ff-maru);font-size:20px;line-height:1.5}
 .hero-place .note,.hero-date .note{font-size:12px;font-weight:700;color:#9a8286}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+
+/* 合格はんこ風スタンプ */
+.stamp{
+  position:relative;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  width:118px;height:118px;border-radius:50%;
+  border:4px solid #e8455f;color:#e8455f;background:rgba(255,255,255,.75);
+  transform:rotate(-9deg);margin:8px 0 0;
+  font-family:var(--ff-maru);font-weight:900;line-height:1.3;
+  box-shadow:inset 0 0 0 3px #fff, inset 0 0 0 5px #e8455f;
+}
+.stamp .l1{font-size:15px;letter-spacing:.1em}
+.stamp .l2{font-size:19px;letter-spacing:.06em}
+.stamp .l3{font-size:10px;letter-spacing:.14em}
+
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px}
 .btn{
   display:inline-block;font-weight:800;font-size:16.5px;
   padding:15px 44px;border-radius:999px;transition:.15s;position:relative;
@@ -156,18 +259,15 @@ ul{list-style:none}
 .btn-primary{
   background:var(--pink);color:#fff;box-shadow:0 5px 0 var(--pink-deep);
 }
+.btn-primary .hbeat{display:inline-block;animation:hbeat 1.2s ease-in-out infinite}
+@keyframes hbeat{0%,100%{transform:scale(1)}12%{transform:scale(1.35)}24%{transform:scale(1)}}
 .btn-primary:hover{transform:translateY(3px);box-shadow:0 2px 0 var(--pink-deep)}
 .btn-outline{
   background:#fff;color:var(--pink-deep);border:var(--line) solid var(--pink);
   box-shadow:0 5px 0 rgba(224,53,111,.35);
 }
 .btn-outline:hover{transform:translateY(3px);box-shadow:0 2px 0 rgba(224,53,111,.35)}
-.hero-free{
-  display:inline-block;margin-top:22px;background:#fff;
-  border:2px dashed var(--pink);border-radius:14px;
-  padding:8px 22px;font-weight:800;font-size:14px;color:var(--pink-deep);
-}
-.hero-wave{display:block;width:100%;margin-top:34px}
+.hero-wave{display:block;width:100%;margin-top:30px}
 
 /* ---------- ティッカー ---------- */
 .ticker{
@@ -179,10 +279,21 @@ ul{list-style:none}
 .ticker-track .star{color:var(--yellow)}
 @keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+/* ---------- スカラップ(レース)縁 ---------- */
+.scallop{display:block;width:100%;height:34px;margin-bottom:-1px}
+
 /* ---------- 共通セクション ---------- */
-.section{padding:84px 16px}
+.section{padding:84px 16px;position:relative}
 .section-inner{max-width:1080px;margin:0 auto}
 .sec-head{text-align:center;margin-bottom:48px}
+.sec-head .plate{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#fff;border:2.5px solid var(--ink);border-radius:10px;
+  padding:2px 20px;margin-bottom:12px;
+  font-family:var(--ff-maru);font-weight:900;font-size:12.5px;letter-spacing:.24em;
+  box-shadow:2px 2px 0 rgba(74,58,61,.16);
+}
+.sec-head .plate::before,.sec-head .plate::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--pink-soft)}
 .sec-head .en{
   font-family:var(--ff-en);font-weight:800;
   font-size:clamp(34px,5.6vw,52px);line-height:1.1;letter-spacing:.02em;
@@ -196,7 +307,6 @@ ul{list-style:none}
 .sec-head.c-purple .en{color:#7b56c0}
 .sec-head.c-yellow .en{color:#e09a00}
 .sec-head.c-mint .en{color:#2ba57f}
-.sec-head .deco{display:block;margin:0 auto 8px;width:56px}
 
 .lead{
   text-align:center;font-weight:700;
@@ -216,7 +326,7 @@ ul{list-style:none}
 }
 .point-card{
   background:#fff;border:var(--line) solid var(--ink);border-radius:var(--radius);
-  padding:30px 22px 26px;text-align:center;position:relative;
+  padding:34px 22px 26px;text-align:center;position:relative;
   box-shadow:6px 6px 0 rgba(74,58,61,.12);
   transition:.2s;
 }
@@ -227,22 +337,23 @@ ul{list-style:none}
   font-family:var(--ff-en);font-weight:800;font-size:15px;
   border-radius:999px;padding:2px 18px;letter-spacing:.08em;white-space:nowrap;
 }
-.point-card .icon{font-size:44px;line-height:1;margin:8px 0 12px;display:block}
+.point-card .chara-face{width:84px;height:84px;margin:4px auto 14px}
 .point-card h3{font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:10px;color:var(--pink-deep)}
 .point-card p{font-size:14px;font-weight:500;text-align:left}
 
 /* ---------- AREA ---------- */
 .area-wrap{display:flex;flex-direction:column;gap:34px}
 .area-card{
-  display:grid;grid-template-columns:300px 1fr;gap:0;overflow:hidden;
+  display:grid;grid-template-columns:310px 1fr;gap:0;overflow:hidden;
   background:#fff;border:var(--line) solid var(--ink);border-radius:26px;
   box-shadow:7px 7px 0 rgba(74,58,61,.12);
 }
 .area-visual{
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;padding:34px 18px;text-align:center;
+  gap:12px;padding:34px 18px;text-align:center;position:relative;
 }
-.area-visual .emoji{font-size:64px;line-height:1;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.08))}
+.area-visual .chara-face{width:104px;height:104px}
+.area-visual .emoji{font-size:34px;line-height:1;position:absolute;top:14px;right:16px;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.08))}
 .area-visual .tag{
   font-family:var(--ff-en);font-weight:800;font-size:14px;letter-spacing:.14em;
   background:#fff;border:2px solid currentColor;border-radius:999px;padding:2px 18px;
@@ -272,45 +383,98 @@ ul{list-style:none}
 .a-night .area-body li{background:var(--purple-pale);color:#6a48b5}
 .a-sky .area-body li{background:var(--sky-pale);color:#2481aa}
 
-/* ---------- タイムテーブル ---------- */
-.tt{position:relative;max-width:760px;margin:0 auto;padding-left:30px}
-.tt::before{
-  content:"";position:absolute;left:9px;top:8px;bottom:8px;width:5px;
-  border-radius:5px;
-  background:linear-gradient(180deg,var(--yellow),var(--pink) 55%,var(--purple));
+/* ---------- 時間割黒板 ---------- */
+.board-wrap{max-width:860px;margin:0 auto;position:relative}
+.board{
+  background:
+    radial-gradient(circle at 82% 12%, rgba(255,255,255,.06), transparent 30%),
+    linear-gradient(160deg,var(--board),var(--board2));
+  border:12px solid var(--wood);
+  border-bottom-color:var(--wood-dark);
+  border-radius:16px;
+  padding:40px 38px 34px;
+  color:var(--chalk);
+  box-shadow:8px 10px 0 rgba(74,58,61,.18), inset 0 0 34px rgba(0,0,0,.22);
+  position:relative;
 }
-.tt-item{position:relative;padding:0 0 34px 26px}
-.tt-item::before{
-  content:"";position:absolute;left:-30px;top:8px;width:22px;height:22px;
-  background:#fff;border:5px solid var(--pink);border-radius:50%;
+.board::after{ /* チョークの粉 */
+  content:"";position:absolute;left:8%;bottom:10px;width:60px;height:5px;border-radius:5px;
+  background:rgba(255,255,255,.22);filter:blur(1px);
 }
-.tt-item.night::before{border-color:var(--purple)}
-.tt-item .time{
-  font-family:var(--ff-en);font-weight:800;font-size:21px;color:var(--pink-deep);
-  letter-spacing:.03em;
+.board-title{
+  text-align:center;font-family:var(--ff-maru);font-weight:900;
+  font-size:clamp(21px,3.4vw,28px);letter-spacing:.14em;margin-bottom:6px;
 }
-.tt-item.night .time{color:#7b56c0}
-.tt-item h3{font-family:var(--ff-maru);font-weight:900;font-size:18.5px;margin:2px 0 4px}
-.tt-item p{font-size:14px;font-weight:500;color:#7d666b}
-.tt-note{text-align:center;font-size:12.5px;font-weight:700;color:#9a8286;margin-top:8px}
+.board-title .u{border-bottom:3px wavy underline;text-decoration:underline wavy rgba(255,201,60,.85) 3px;text-underline-offset:8px}
+.board-sub{text-align:center;font-size:12.5px;font-weight:700;color:rgba(253,246,232,.75);margin-bottom:24px;letter-spacing:.1em}
+.nikkyoku{
+  position:absolute;top:-16px;right:22px;transform:rotate(3deg);
+  background:#fff;color:var(--ink);border:2.5px solid var(--ink);border-radius:8px;
+  font-size:12px;font-weight:900;padding:3px 14px;box-shadow:2px 2px 0 rgba(74,58,61,.2);
+}
+.tt-row{
+  display:grid;grid-template-columns:96px 108px 1fr;gap:0 18px;align-items:baseline;
+  padding:13px 4px;border-bottom:2px dashed rgba(253,246,232,.28);
+}
+.tt-row:last-of-type{border-bottom:none}
+.tt-row .period{
+  font-family:var(--ff-maru);font-weight:900;font-size:15px;
+  background:rgba(255,255,255,.14);border-radius:999px;text-align:center;padding:1px 4px;
+}
+.tt-row.lunch .period{background:var(--yellow);color:var(--ink)}
+.tt-row.night .period{background:var(--pink);color:#fff}
+.tt-row .time{font-family:var(--ff-en);font-weight:700;font-size:16px;color:#ffd98a;letter-spacing:.04em}
+.tt-row h3{font-family:var(--ff-maru);font-weight:900;font-size:16.5px;line-height:1.55}
+.tt-row p{grid-column:3;font-size:12.5px;font-weight:500;color:rgba(253,246,232,.82)}
+.chalk-doodle{position:absolute;font-size:18px;opacity:.6}
+.cd1{top:16px;left:22px}
+.cd2{bottom:18px;right:26px}
+.chalk-tray{
+  display:flex;justify-content:center;gap:10px;margin-top:-4px;position:relative;z-index:2;
+}
+.chalk-tray span{
+  display:block;height:12px;border-radius:6px;border:2px solid var(--ink);
+  box-shadow:2px 2px 0 rgba(74,58,61,.18);
+}
+.chalk-tray .c1{width:52px;background:#fff}
+.chalk-tray .c2{width:52px;background:var(--pink-soft)}
+.chalk-tray .c3{width:52px;background:#ffe6a3}
+.chalk-tray .eraser{width:86px;height:22px;border-radius:6px;background:var(--sky);margin-top:-5px}
+.tt-note{text-align:center;font-size:12.5px;font-weight:700;color:#9a8286;margin-top:22px}
 
 /* ---------- 部活動(コンテンツ) ---------- */
-.bukatsu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bukatsu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 24px}
 .bukatsu-card{
   background:#fff;border:var(--line) solid var(--ink);border-radius:var(--radius);
-  overflow:hidden;box-shadow:6px 6px 0 rgba(74,58,61,.12);transition:.2s;
-  display:flex;flex-direction:column;
+  box-shadow:6px 6px 0 rgba(74,58,61,.12);transition:.2s;
+  display:flex;flex-direction:column;position:relative;
 }
-.bukatsu-card:hover{transform:translateY(-5px)}
-.bukatsu-card:nth-child(odd):hover{transform:translateY(-5px) rotate(.7deg)}
+.bukatsu-card:nth-child(odd){transform:rotate(-.7deg)}
+.bukatsu-card:nth-child(even){transform:rotate(.7deg)}
+.bukatsu-card:hover{transform:translateY(-6px) rotate(0)}
+.tape{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);
+  width:112px;height:26px;border-radius:3px;z-index:3;
+  background:rgba(244,86,140,.42);
+  box-shadow:0 1px 2px rgba(0,0,0,.08);
+}
+.bukatsu-card:nth-child(even) .tape{transform:translateX(-50%) rotate(3deg);background:rgba(110,198,234,.45)}
+.bukatsu-card:nth-child(3n) .tape{background:rgba(255,201,60,.5)}
 .bukatsu-head{
-  padding:20px 18px 16px;text-align:center;position:relative;
+  padding:26px 18px 14px;text-align:center;position:relative;
+  border-radius:19px 19px 0 0;
 }
-.bukatsu-head .emoji{font-size:46px;line-height:1;display:block}
+.bukatsu-head .chara-face{width:88px;height:88px;margin:0 auto}
 .bukatsu-head .club{
-  display:inline-block;margin-top:10px;background:#fff;border:2.5px solid var(--ink);
+  display:inline-block;margin-top:12px;background:#fff;border:2.5px solid var(--ink);
   border-radius:999px;padding:2px 20px;font-family:var(--ff-maru);
   font-weight:900;font-size:16.5px;
+}
+.bukatsu-head .recruit{
+  position:absolute;top:12px;right:10px;transform:rotate(8deg);
+  background:#e8455f;color:#fff;font-weight:900;font-size:10.5px;
+  border-radius:999px;padding:3px 10px;letter-spacing:.06em;
+  box-shadow:2px 2px 0 rgba(74,58,61,.2);
 }
 .bk-pink .bukatsu-head{background:var(--pink-pale)}
 .bk-sky .bukatsu-head{background:var(--sky-pale)}
@@ -333,8 +497,12 @@ ul{list-style:none}
     linear-gradient(165deg,var(--night) 0%, var(--night2) 60%, #59397e 100%);
   color:#fff;
 }
+.live .twinkle{position:absolute;color:#ffd98a;animation:tw 2.2s ease-in-out infinite;font-size:20px}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.85)}50%{opacity:1;transform:scale(1.15)}}
 .live .sec-head .en{color:#ffd7e6;text-shadow:0 0 22px rgba(255,140,180,.5)}
 .live .sec-head .ja{background:#ffd7e6;color:var(--night)}
+.live .sec-head .plate{background:var(--night2);color:#ffd7e6;border-color:#ffd7e6;box-shadow:2px 2px 0 rgba(255,215,230,.3)}
+.live .sec-head .plate::before,.live .sec-head .plate::after{background:#ffd7e6}
 .live-lead{text-align:center;font-weight:700;font-size:clamp(15px,2.2vw,17.5px);max-width:740px;margin:0 auto 44px;color:#f2ecff}
 .live-cards{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:44px}
 .live-card{
@@ -350,6 +518,9 @@ ul{list-style:none}
 .live-card:last-child .cat{background:var(--purple)}
 .live-card h3{font-family:var(--ff-maru);font-weight:900;font-size:clamp(19px,2.6vw,24px);margin-bottom:12px;color:#ffe1ec}
 .live-card p{font-size:14.5px;font-weight:500;color:#e9e2fa}
+.live-card .mini-charas{display:flex;justify-content:center;gap:10px;margin-bottom:16px}
+.live-card .mini-charas .chara-face{width:58px;height:58px;border-width:2.5px;box-shadow:0 0 16px rgba(255,180,210,.35)}
+.live-card .mic{font-size:44px;line-height:1;display:block;margin-bottom:10px;filter:drop-shadow(0 0 14px rgba(255,201,60,.5))}
 .coming{
   max-width:680px;margin:0 auto;text-align:center;
   border:3px dashed rgba(255,255,255,.5);border-radius:26px;padding:38px 24px;
@@ -364,7 +535,7 @@ ul{list-style:none}
 .fg-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .fg-card{
   background:#fff;border:var(--line) solid var(--ink);border-radius:26px;
-  padding:34px 30px;box-shadow:7px 7px 0 rgba(74,58,61,.12);
+  padding:34px 30px;box-shadow:7px 7px 0 rgba(74,58,61,.12);position:relative;
 }
 .fg-card .head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
 .fg-card .emoji{font-size:44px;line-height:1}
@@ -380,17 +551,19 @@ ul{list-style:none}
   content:"♥";position:absolute;left:2px;top:0;color:var(--pink);font-size:14px;
 }
 .fg-card.food li::before{content:"★";color:var(--yellow)}
+.fg-card .corner-face{position:absolute;top:-24px;right:18px;width:64px;height:64px;transform:rotate(6deg)}
 
 /* ---------- TICKET ---------- */
 .ticket{background:linear-gradient(180deg,var(--pink-pale),#fff0e6)}
 .ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:44px}
 .ticket-card{
   background:#fff;border:var(--line) solid var(--ink);border-radius:24px;
-  overflow:hidden;box-shadow:6px 6px 0 rgba(74,58,61,.14);
+  overflow:visible;box-shadow:6px 6px 0 rgba(74,58,61,.14);
   display:flex;flex-direction:column;text-align:center;position:relative;
 }
 .ticket-card .type{
   padding:13px 10px;font-family:var(--ff-maru);font-weight:900;font-size:17px;color:#fff;
+  border-radius:20px 20px 0 0;
 }
 .tk-free .type{background:var(--mint)}
 .tk-live .type{background:var(--pink)}
@@ -407,10 +580,34 @@ ul{list-style:none}
   color:#a06e00;border-radius:999px;padding:3px 16px;
 }
 .osusume{
-  position:absolute;top:-13px;right:-9px;background:var(--yellow);border:3px solid var(--ink);
+  position:absolute;top:-15px;right:-10px;background:var(--yellow);border:3px solid var(--ink);
   color:var(--ink);font-weight:900;font-size:12px;border-radius:999px;padding:3px 14px;
-  transform:rotate(7deg);
+  transform:rotate(7deg);z-index:3;
 }
+/* 生徒手帳ふう */
+.techo{
+  max-width:720px;margin:0 auto 44px;background:#fff;border:var(--line) solid var(--ink);
+  border-radius:18px;box-shadow:6px 6px 0 rgba(74,58,61,.14);overflow:hidden;
+}
+.techo-head{
+  background:var(--pink);color:#fff;text-align:center;
+  font-family:var(--ff-maru);font-weight:900;font-size:16px;letter-spacing:.28em;
+  padding:9px 10px;
+}
+.techo-body{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:24px 28px;align-items:center}
+.techo-photo{
+  border:2.5px dashed var(--ink);border-radius:12px;aspect-ratio:3/3.4;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  background:var(--sky-pale);
+}
+.techo-photo .chara-face{width:76px;height:76px;box-shadow:none}
+.techo-photo span{font-size:10.5px;font-weight:800;color:#2e97c4}
+.techo-lines .row{
+  display:flex;gap:12px;align-items:baseline;border-bottom:2px solid #f0e4da;padding:7px 0;
+}
+.techo-lines .row .k{font-size:11.5px;font-weight:800;color:#9a8286;min-width:84px;letter-spacing:.14em}
+.techo-lines .row .v{font-weight:900;font-family:var(--ff-maru);font-size:15.5px}
+.techo-lines .row .v .accent{color:var(--pink-deep)}
 .dpoint{
   background:#fff;border:var(--line) solid var(--pink);border-radius:26px;
   padding:32px 34px;box-shadow:6px 6px 0 rgba(224,53,111,.18);
@@ -428,7 +625,7 @@ ul{list-style:none}
 .dpoint .note{grid-column:1/-1;font-size:11.5px;color:#9a8286;font-weight:600;padding-left:0}
 .dpoint .note::before{content:none}
 .ticket-flow{margin-top:44px}
-.ticket-flow h3{text-align:center;font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:22px}
+.ticket-flow h3{text-align:center;font-family:var(--ff-maru);font-weight:900;font-size:19px;margin-bottom:26px}
 .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;counter-reset:step}
 .flow-item{
   background:#fff;border:2.5px solid var(--ink);border-radius:20px;padding:24px 20px 20px;
@@ -507,7 +704,7 @@ ul{list-style:none}
 }
 .faq-item.open .faq-q::after{content:"−";transform:translateY(-50%) rotate(180deg)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
-.faq-a-inner{padding:0 22px 20px;font-size:14px;font-weight:500;border-top:2px dashed #f0e4da;margin:0 22px;padding:14px 0 20px}
+.faq-a-inner{font-size:14px;font-weight:500;border-top:2px dashed #f0e4da;margin:0 22px;padding:14px 0 20px}
 .faq-a-inner::before{content:"A.";color:#2e97c4;font-family:var(--ff-en);font-weight:800;margin-right:10px;font-size:16px}
 
 /* ---------- OUTRO ---------- */
@@ -517,19 +714,35 @@ ul{list-style:none}
     radial-gradient(circle at 15% 30%, rgba(244,86,140,.12), transparent 34%),
     radial-gradient(circle at 85% 65%, rgba(110,198,234,.14), transparent 36%),
     var(--cream);
+  padding-bottom:100px;
 }
 .outro-copy{
   font-family:var(--ff-maru);font-weight:900;
-  font-size:clamp(21px,3.8vw,32px);line-height:1.8;margin-bottom:30px;
+  font-size:clamp(21px,3.8vw,32px);line-height:1.8;margin-bottom:26px;
 }
 .outro-copy .pink{color:var(--pink-deep)}
+.outro-charas{display:flex;justify-content:center;gap:10px;margin-bottom:30px;flex-wrap:wrap}
+.outro-charas .chara-face{width:64px;height:64px;animation:bob 2.6s ease-in-out infinite}
+.outro-charas .chara-face:nth-child(2){animation-delay:.15s}
+.outro-charas .chara-face:nth-child(3){animation-delay:.3s}
+.outro-charas .chara-face:nth-child(4){animation-delay:.45s}
+.outro-charas .chara-face:nth-child(5){animation-delay:.6s}
+.outro-charas .chara-face:nth-child(6){animation-delay:.75s}
 
 /* ---------- フッター ---------- */
-.footer{background:var(--night);color:#fff;padding:56px 16px 30px}
+.footer{background:var(--night);color:#fff;padding:56px 16px 30px;position:relative}
 .footer-inner{max-width:1080px;margin:0 auto}
-.footer-logo{text-align:center;margin-bottom:34px}
+.footer-logo{text-align:center;margin-bottom:30px}
 .footer-logo .en{font-family:var(--ff-en);font-weight:800;font-size:26px;color:#ffd7e6}
 .footer-logo .ja{font-size:12px;font-weight:700;letter-spacing:.2em;color:#cfc6ee}
+.partner-row{
+  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:34px;
+}
+.partner-row span{
+  border:2px solid rgba(255,255,255,.4);border-radius:12px;
+  padding:8px 22px;font-weight:800;font-size:13.5px;letter-spacing:.06em;
+  background:rgba(255,255,255,.06);
+}
 .orgs{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;
   max-width:720px;margin:0 auto 36px;
@@ -545,19 +758,21 @@ ul{list-style:none}
   width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
   font-family:var(--ff-en);font-weight:800;font-size:13px;transition:.2s;
 }
-.footer-sns a:hover{background:var(--pink)}
+.footer-sns a:hover{background:var(--pink);transform:translateY(-3px)}
 .footer-note{text-align:center;font-size:11px;color:#a99fce;margin-bottom:18px;font-weight:500}
 .copyright{text-align:center;font-size:11.5px;color:#cfc6ee;font-weight:600;letter-spacing:.04em}
 
 /* ---------- ページトップ ---------- */
 .totop{
   position:fixed;right:18px;bottom:18px;z-index:90;
-  width:54px;height:54px;border-radius:50%;border:3px solid var(--ink);
-  background:var(--yellow);color:var(--ink);font-size:20px;font-weight:900;
+  width:58px;height:58px;border-radius:50%;border:3px solid var(--ink);
+  background:var(--yellow);color:var(--ink);font-size:12px;font-weight:900;
   cursor:pointer;box-shadow:3px 3px 0 rgba(74,58,61,.25);
   opacity:0;pointer-events:none;transition:.3s;
+  font-family:var(--ff-maru);line-height:1.2;
 }
 .totop.show{opacity:1;pointer-events:auto}
+.totop:hover{transform:translateY(-3px)}
 
 /* ---------- スクロールで表示 ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
@@ -571,43 +786,167 @@ ul{list-style:none}
 }
 @media (max-width:840px){
   .gnav{
-    display:none;position:fixed;top:66px;left:0;right:0;
+    display:none;position:fixed;top:64px;left:0;right:0;
     background:#fff;border-bottom:var(--line) solid var(--pink);
     padding:14px 16px 20px;box-shadow:0 12px 24px rgba(0,0,0,.08);
   }
   .gnav.open{display:block}
   .gnav ul{flex-direction:column;gap:4px}
   .gnav a{font-size:15px;padding:11px 16px}
-  .nav-ticket{text-align:center;margin-top:8px}
+  .nav-ticket{text-align:center;margin:8px 0 0}
   .menu-btn{display:flex}
   .area-card{grid-template-columns:1fr}
   .area-visual{padding:26px 18px}
   .live-cards,.fg-grid,.access-grid{grid-template-columns:1fr}
   .dpoint ul{grid-template-columns:1fr}
+  .chara .chara-face{width:72px;height:72px}
+  .tt-row{grid-template-columns:82px 1fr;gap:2px 12px}
+  .tt-row h3{grid-column:1/-1}
+  .tt-row p{grid-column:1/-1}
+  .board{padding:30px 22px 26px}
+  .techo-body{grid-template-columns:1fr;justify-items:center}
+  .techo-photo{width:150px}
+  .techo-lines{width:100%}
 }
 @media (max-width:560px){
   .about-points,.bukatsu-grid,.ticket-grid{grid-template-columns:1fr}
+  .bukatsu-card:nth-child(odd),.bukatsu-card:nth-child(even){transform:none}
   .section{padding:66px 14px}
   .hero-date,.hero-place{min-width:0;width:100%}
+  .chara-line{gap:8px}
+  .chara .chara-face{width:62px;height:62px}
+  .chara .name{font-size:9.5px}
 }
 </style>
 </head>
 <body>
 
+<!-- ▼ キャラクターSVGスプライト(オリジナル描き起こし) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- キティ -->
+    <symbol id="ch-kitty" viewBox="0 0 100 100">
+      <path d="M26 40 C16 12 24 8 42 24" fill="#fff" stroke="#4a3a3d" stroke-width="3.4" stroke-linejoin="round"/>
+      <path d="M74 40 C84 12 76 8 58 24" fill="#fff" stroke="#4a3a3d" stroke-width="3.4" stroke-linejoin="round"/>
+      <ellipse cx="50" cy="56" rx="35" ry="29" fill="#fff" stroke="#4a3a3d" stroke-width="3.4"/>
+      <g fill="#e8455f" stroke="#4a3a3d" stroke-width="2.6" stroke-linejoin="round">
+        <path d="M70 26 C62 24 60 32 66 36 C60 40 64 48 71 45 C74 44 76 42 77 39 Z"/>
+        <path d="M84 30 C92 32 92 40 85 42 C89 46 84 52 78 48 C76 46 75 44 75 41 Z"/>
+        <circle cx="76" cy="38" r="6"/>
+      </g>
+      <ellipse cx="37" cy="58" rx="3.6" ry="5" fill="#4a3a3d"/>
+      <ellipse cx="63" cy="58" rx="3.6" ry="5" fill="#4a3a3d"/>
+      <ellipse cx="50" cy="66" rx="5" ry="4" fill="#f9be38" stroke="#4a3a3d" stroke-width="2.4"/>
+      <g stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round">
+        <line x1="10" y1="52" x2="24" y2="55"/>
+        <line x1="9"  y1="62" x2="23" y2="62"/>
+        <line x1="11" y1="72" x2="24" y2="69"/>
+        <line x1="90" y1="52" x2="76" y2="55"/>
+        <line x1="91" y1="62" x2="77" y2="62"/>
+        <line x1="89" y1="72" x2="76" y2="69"/>
+      </g>
+    </symbol>
+    <!-- マイメロディ -->
+    <symbol id="ch-melody" viewBox="0 0 100 100">
+      <g fill="#f7a8c4" stroke="#4a3a3d" stroke-width="3.2" stroke-linejoin="round">
+        <path d="M30 34 C10 8 24 2 38 26"/>
+        <path d="M70 34 C90 8 76 2 62 26"/>
+        <circle cx="50" cy="56" r="33"/>
+      </g>
+      <path d="M50 30 C68 30 76 44 74 58 C72 72 62 80 50 80 C38 80 28 72 26 58 C24 44 32 30 50 30Z" fill="#fff"/>
+      <circle cx="39" cy="57" r="3.4" fill="#4a3a3d"/>
+      <circle cx="61" cy="57" r="3.4" fill="#4a3a3d"/>
+      <path d="M46 67 Q50 71 54 67" fill="none" stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round"/>
+      <g>
+        <circle cx="73" cy="31" r="4.6" fill="#e8455f"/>
+        <circle cx="80" cy="26" r="4.6" fill="#e8455f"/>
+        <circle cx="81" cy="35" r="4.6" fill="#e8455f"/>
+        <circle cx="78" cy="30.5" r="2.6" fill="#f9be38"/>
+      </g>
+      <circle cx="31" cy="64" r="4.5" fill="#ffc7da" opacity=".85"/>
+      <circle cx="69" cy="64" r="4.5" fill="#ffc7da" opacity=".85"/>
+    </symbol>
+    <!-- クロミ -->
+    <symbol id="ch-kuromi" viewBox="0 0 100 100">
+      <g fill="#3d3644" stroke="#4a3a3d" stroke-width="3.2" stroke-linejoin="round">
+        <path d="M29 36 C6 10 22 0 39 26"/>
+        <path d="M71 36 C94 10 78 0 61 26"/>
+        <circle cx="50" cy="57" r="33"/>
+      </g>
+      <path d="M50 33 C67 33 75 46 73 59 C71 72 61 80 50 80 C39 80 29 72 27 59 C25 46 33 33 50 33Z" fill="#fff"/>
+      <g fill="#f7a8c4" stroke="#4a3a3d" stroke-width="2.2" stroke-linejoin="round">
+        <ellipse cx="50" cy="26" rx="8.5" ry="7"/>
+        <circle cx="46.5" cy="25" r="1.6" fill="#4a3a3d" stroke="none"/>
+        <circle cx="53.5" cy="25" r="1.6" fill="#4a3a3d" stroke="none"/>
+      </g>
+      <ellipse cx="39" cy="56" rx="3.6" ry="4.6" fill="#4a3a3d"/>
+      <ellipse cx="61" cy="56" rx="3.6" ry="4.6" fill="#4a3a3d"/>
+      <path d="M44 67 Q50 72 56 67" fill="none" stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M56 67 Q58 70 61 69" fill="none" stroke="#4a3a3d" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <!-- シナモロール -->
+    <symbol id="ch-cinnamon" viewBox="0 0 100 100">
+      <g fill="#fff" stroke="#4a3a3d" stroke-width="3.2" stroke-linejoin="round">
+        <path d="M28 40 C4 34 2 56 22 62 C14 52 18 44 28 40Z"/>
+        <path d="M72 40 C96 34 98 56 78 62 C86 52 82 44 72 40Z"/>
+        <ellipse cx="50" cy="55" rx="31" ry="27"/>
+      </g>
+      <ellipse cx="40" cy="55" rx="4" ry="5.4" fill="#35507e"/>
+      <ellipse cx="60" cy="55" rx="4" ry="5.4" fill="#35507e"/>
+      <circle cx="40" cy="53" r="1.4" fill="#fff"/>
+      <circle cx="60" cy="53" r="1.4" fill="#fff"/>
+      <path d="M46 65 Q50 69 54 65" fill="none" stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="31" cy="62" r="4.5" fill="#ffc7da" opacity=".9"/>
+      <circle cx="69" cy="62" r="4.5" fill="#ffc7da" opacity=".9"/>
+      <path d="M42 34 Q50 28 58 34" fill="none" stroke="#e9dccb" stroke-width="3" stroke-linecap="round"/>
+    </symbol>
+    <!-- ポムポムプリン -->
+    <symbol id="ch-purin" viewBox="0 0 100 100">
+      <g fill="#f9d548" stroke="#4a3a3d" stroke-width="3.2" stroke-linejoin="round">
+        <path d="M24 46 C12 38 16 26 28 32"/>
+        <path d="M76 46 C88 38 84 26 72 32"/>
+        <ellipse cx="50" cy="56" rx="33" ry="28"/>
+      </g>
+      <path d="M36 22 C36 14 62 12 64 22 C66 30 58 34 50 34 C42 34 36 30 36 22Z" fill="#8a5a3b" stroke="#4a3a3d" stroke-width="3" stroke-linejoin="round"/>
+      <ellipse cx="38" cy="56" rx="3.4" ry="4.6" fill="#4a3a3d"/>
+      <ellipse cx="62" cy="56" rx="3.4" ry="4.6" fill="#4a3a3d"/>
+      <ellipse cx="50" cy="64" rx="4.4" ry="3.4" fill="#8a5a3b"/>
+      <path d="M42 70 Q50 76 58 70" fill="none" stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="30" cy="63" r="4.4" fill="#ffb98a" opacity=".8"/>
+      <circle cx="70" cy="63" r="4.4" fill="#ffb98a" opacity=".8"/>
+    </symbol>
+    <!-- ポチャッコ -->
+    <symbol id="ch-pochacco" viewBox="0 0 100 100">
+      <ellipse cx="50" cy="55" rx="32" ry="28" fill="#fff" stroke="#4a3a3d" stroke-width="3.2"/>
+      <path d="M27 44 C10 40 8 58 24 64 C20 56 22 48 27 44Z" fill="#4a3a3d"/>
+      <path d="M73 44 C90 40 92 58 76 64 C80 56 78 48 73 44Z" fill="#4a3a3d"/>
+      <ellipse cx="40" cy="54" rx="3.4" ry="4.6" fill="#4a3a3d"/>
+      <ellipse cx="60" cy="54" rx="3.4" ry="4.6" fill="#4a3a3d"/>
+      <ellipse cx="50" cy="63" rx="4.6" ry="3.6" fill="#4a3a3d"/>
+      <path d="M45 70 Q50 74 55 70" fill="none" stroke="#4a3a3d" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="31" cy="61" r="4.4" fill="#ffc7da" opacity=".85"/>
+      <circle cx="69" cy="61" r="4.4" fill="#ffc7da" opacity=".85"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ヘッダー -->
 <header class="header">
   <div class="header-inner">
     <a href="#top" class="header-logo">
-      <span class="en">SANRIO SCHOOL FES 2026</span>
-      <span class="ja">サンリオ学園祭 in 渋谷・代々木公園</span>
+      <span class="chara-face mini-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+      <span>
+        <span class="en">SANRIO SCHOOL FES 2026</span>
+        <span class="ja">サンリオ学園祭 in 渋谷・代々木公園</span>
+      </span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
     <nav class="gnav" id="gnav">
       <ul>
         <li><a href="#about">開催概要</a></li>
         <li><a href="#area">エリア</a></li>
-        <li><a href="#timetable">1日の流れ</a></li>
-        <li><a href="#bukatsu">部活動ブース</a></li>
+        <li><a href="#timetable">時間割</a></li>
+        <li><a href="#bukatsu">部活動</a></li>
         <li><a href="#live">ライブ</a></li>
         <li><a href="#food">フード&グッズ</a></li>
         <li><a href="#access">アクセス</a></li>
@@ -634,7 +973,18 @@ ul{list-style:none}
       <polygon points="1110,22 1140,22 1125,58" fill="#a685e0"/>
     </g>
   </svg>
+  <!-- 降ってくるハート -->
+  <span class="confetti" style="left:6%;color:#f4568c;animation-duration:9s">♥</span>
+  <span class="confetti" style="left:16%;color:#ffc93c;animation-duration:12s;animation-delay:2s">★</span>
+  <span class="confetti" style="left:28%;color:#6ec6ea;animation-duration:10s;animation-delay:4s">♪</span>
+  <span class="confetti" style="left:41%;color:#f7a8c4;animation-duration:13s;animation-delay:1s">♥</span>
+  <span class="confetti" style="left:55%;color:#a685e0;animation-duration:9.5s;animation-delay:3s">♥</span>
+  <span class="confetti" style="left:66%;color:#ffc93c;animation-duration:11.5s;animation-delay:5s">★</span>
+  <span class="confetti" style="left:78%;color:#f4568c;animation-duration:10.5s;animation-delay:2.5s">♪</span>
+  <span class="confetti" style="left:90%;color:#6ec6ea;animation-duration:12.5s;animation-delay:.5s">♥</span>
+
   <div class="hero-inner">
+    <div class="class-plate">サンリオ学園 文化祭実行委員会</div>
     <span class="hero-badge">WINTER FES 2026</span>
     <h1 class="hero-title">
       SANRIO<br>SCHOOL FES
@@ -642,6 +992,35 @@ ul{list-style:none}
     </h1>
     <p class="hero-catch"><span class="marker">キミの"スキ"が、まちを染める。</span></p>
     <p class="hero-sub">街まるごとがキャンパスになる、いちばんカワイイ学園祭。</p>
+
+    <div class="chara-line" aria-label="登場キャラクター">
+      <div class="chara">
+        <span class="bubble">まってるよ♪</span>
+        <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+        <span class="name">ハローキティ</span>
+      </div>
+      <div class="chara">
+        <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+        <span class="name">シナモロール</span>
+      </div>
+      <div class="chara">
+        <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+        <span class="name">クロミ</span>
+      </div>
+      <div class="chara">
+        <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+        <span class="name">マイメロディ</span>
+      </div>
+      <div class="chara">
+        <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
+        <span class="name">ポムポムプリン</span>
+      </div>
+      <div class="chara">
+        <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+        <span class="name">ポチャッコ</span>
+      </div>
+    </div>
+
     <div class="hero-info">
       <div class="hero-date">
         <span class="label">DATE</span>
@@ -653,12 +1032,16 @@ ul{list-style:none}
         <div class="big">渋谷駅周辺エリア &<br>代々木公園</div>
         <div class="note">冬のイルミネーションと同時開催</div>
       </div>
+      <div class="stamp" aria-label="街なかエリアは入場無料">
+        <span class="l1">街なか</span>
+        <span class="l2">入場無料</span>
+        <span class="l3">実行委員会 認定</span>
+      </div>
     </div>
     <div class="hero-btns">
-      <a href="#ticket" class="btn btn-primary">♥ チケット先行抽選にエントリー</a>
+      <a href="#ticket" class="btn btn-primary"><span class="hbeat">♥</span> チケット先行抽選にエントリー</a>
       <a href="#about" class="btn btn-outline">フェスについて知る</a>
     </div>
-    <div class="hero-free">街なかエリアは入場無料!学生証があるともっとおトク♪</div>
   </div>
   <svg class="hero-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0,40 C240,90 480,-10 720,30 C960,70 1200,0 1440,40 L1440,70 L0,70 Z" fill="#2b2350"/>
@@ -685,7 +1068,7 @@ ul{list-style:none}
 <section class="section dots-bg" id="about">
   <div class="section-inner">
     <div class="sec-head c-pink reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <div class="plate">1じかんめ</div>
       <h2 class="en">ABOUT</h2>
       <span class="ja">サンリオ学園祭って?</span>
     </div>
@@ -702,19 +1085,19 @@ ul{list-style:none}
     <div class="about-points">
       <div class="point-card reveal">
         <span class="num">POINT 1</span>
-        <span class="icon">🏫</span>
+        <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
         <h3>街まるごとキャンパス</h3>
         <p>渋谷駅周辺の商業施設・ストリートに「教室」が出現。参加無料のスタンプラリーで、まちを歩くほどフェスが楽しくなる!</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 2</span>
-        <span class="icon">✨</span>
+        <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
         <h3>イルミ×キャラクター</h3>
         <p>この冬はじまる代々木公園の大規模イルミネーションとコラボ。キャラクターたちと光に包まれる、ここだけの冬景色。</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 3</span>
-        <span class="icon">🎤</span>
+        <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
         <h3>フィナーレはライブ</h3>
         <p>一日のさいごは、人気アーティストとキャラクターが共演するスペシャルライブ。青春のBGMを、みんなで大合唱しよう。</p>
       </div>
@@ -723,10 +1106,10 @@ ul{list-style:none}
 </section>
 
 <!-- AREA -->
-<section class="section" id="area">
+<section class="section grid-bg" id="area">
   <div class="section-inner">
     <div class="sec-head c-sky reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 2 L36 16 L52 16 L39 24 L44 40 L30 30 L16 40 L21 24 L8 16 L24 16 Z" transform="scale(.6) translate(20,-2)" fill="#6ec6ea"/></svg>
+      <div class="plate">2じかんめ</div>
       <h2 class="en">AREA MAP</h2>
       <span class="ja">3つのエリアをめぐろう</span>
     </div>
@@ -734,6 +1117,7 @@ ul{list-style:none}
       <div class="area-card a-pink reveal">
         <div class="area-visual">
           <span class="emoji">🎪</span>
+          <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
           <span class="tag">AREA 1</span>
         </div>
         <div class="area-body">
@@ -748,6 +1132,7 @@ ul{list-style:none}
       <div class="area-card a-night reveal">
         <div class="area-visual">
           <span class="emoji">🌃</span>
+          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
           <span class="tag">AREA 2</span>
         </div>
         <div class="area-body">
@@ -762,6 +1147,7 @@ ul{list-style:none}
       <div class="area-card a-sky reveal">
         <div class="area-visual">
           <span class="emoji">🎸</span>
+          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
           <span class="tag">AREA 3</span>
         </div>
         <div class="area-body">
@@ -777,67 +1163,97 @@ ul{list-style:none}
   </div>
 </section>
 
-<!-- タイムテーブル -->
+<!-- 時間割(黒板) -->
 <section class="section dots-bg" id="timetable">
   <div class="section-inner">
     <div class="sec-head c-yellow reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><circle cx="30" cy="12" r="10" fill="none" stroke="#ffc93c" stroke-width="4"/><line x1="30" y1="12" x2="30" y2="6" stroke="#ffc93c" stroke-width="3" stroke-linecap="round"/><line x1="30" y1="12" x2="35" y2="14" stroke="#ffc93c" stroke-width="3" stroke-linecap="round"/></svg>
+      <div class="plate">3じかんめ</div>
       <h2 class="en">TIME TABLE</h2>
-      <span class="ja">フェスの1日</span>
+      <span class="ja">フェス当日の時間割</span>
     </div>
-    <div class="tt reveal">
-      <div class="tt-item">
-        <span class="time">11:00</span>
-        <h3>開祭式(オープニングセレモニー)</h3>
-        <p>キャラクターたちの「開祭宣言」でフェスがスタート!街なかの各教室ブースも一斉オープン。</p>
+    <div class="board-wrap reveal">
+      <div class="nikkyoku">日直:キティ &amp; クロミ</div>
+      <div class="board">
+        <span class="chalk-doodle cd1">♪</span>
+        <span class="chalk-doodle cd2">☆</span>
+        <h3 class="board-title"><span class="u">本日の時間割</span></h3>
+        <p class="board-sub">サンリオ学園 文化祭 プログラム</p>
+        <div class="tt-row">
+          <span class="period">1時間目</span>
+          <span class="time">11:00</span>
+          <h3>開祭式(オープニングセレモニー)</h3>
+          <p>キャラクターたちの「開祭宣言」でフェスがスタート!街なかの教室ブースも一斉オープン。</p>
+        </div>
+        <div class="tt-row">
+          <span class="period">2時間目</span>
+          <span class="time">11:30</span>
+          <h3>部活動ブースめぐり</h3>
+          <p>シブヤ・キャンパスエリアで好きな部活に"入部"して体験しよう。</p>
+        </div>
+        <div class="tt-row lunch">
+          <span class="period">昼休み</span>
+          <span class="time">12:00</span>
+          <h3>学食タイム 🍞</h3>
+          <p>"購買部"風コラボパンやあったかフードでお昼ごはん。売り切れ注意!</p>
+        </div>
+        <div class="tt-row">
+          <span class="period">3時間目</span>
+          <span class="time">13:00</span>
+          <h3>スタンプラリー&amp;グリーティング</h3>
+          <p>まちを歩いてスタンプあつめ。キャラクターに会えるグリーティングも随時開催。</p>
+        </div>
+        <div class="tt-row night">
+          <span class="period">4時間目</span>
+          <span class="time">16:30</span>
+          <h3>イルミネーション点灯式 ✨</h3>
+          <p>キャラクターと一緒にカウントダウン。代々木公園が一気に光の世界へ。</p>
+        </div>
+        <div class="tt-row night">
+          <span class="period">5時間目</span>
+          <span class="time">17:30</span>
+          <h3>キャラクタースペシャルステージ</h3>
+          <p>ハローキティ、シナモロール、クロミたちが日替わりで登場するステージショー。</p>
+        </div>
+        <div class="tt-row night">
+          <span class="period">6時間目</span>
+          <span class="time">18:30</span>
+          <h3>放課後ナイトライブ 🎤</h3>
+          <p>人気アーティストが登場するメインライブ。キャラクターとのコラボも…?</p>
+        </div>
+        <div class="tt-row night">
+          <span class="period">放課後</span>
+          <span class="time">20:15</span>
+          <h3>フィナーレ「光と音のスペシャルショー」</h3>
+          <p>イルミネーション×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
+        </div>
       </div>
-      <div class="tt-item">
-        <span class="time">11:30 - 16:00</span>
-        <h3>街なか学園祭タイム</h3>
-        <p>シブヤ・キャンパスエリアで部活動ブースめぐり&スタンプラリー。コラボフードでお昼ごはんも♪</p>
-      </div>
-      <div class="tt-item night">
-        <span class="time">16:30</span>
-        <h3>イルミネーション点灯式</h3>
-        <p>キャラクターたちと一緒にカウントダウン。代々木公園が一気に光の世界へ。</p>
-      </div>
-      <div class="tt-item night">
-        <span class="time">17:30</span>
-        <h3>キャラクタースペシャルステージ</h3>
-        <p>ハローキティ、シナモロール、クロミたちが日替わりで登場するステージショー。</p>
-      </div>
-      <div class="tt-item night">
-        <span class="time">18:30</span>
-        <h3>放課後ナイトライブ</h3>
-        <p>人気アーティストが登場するフェスのメインライブ。キャラクターとのスペシャルコラボも…?</p>
-      </div>
-      <div class="tt-item night">
-        <span class="time">20:15</span>
-        <h3>フィナーレ「光と音のスペシャルショー」</h3>
-        <p>イルミネーション×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
+      <div class="chalk-tray" aria-hidden="true">
+        <span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="eraser"></span>
       </div>
     </div>
-    <p class="tt-note">※タイムテーブルは予定です。内容・時間は変更になる場合があります。</p>
+    <p class="tt-note">※時間割は予定です。内容・時間は変更になる場合があります。</p>
   </div>
 </section>
 
 <!-- 部活動ブース -->
-<section class="section" id="bukatsu">
+<section class="section grid-bg" id="bukatsu">
   <div class="section-inner">
     <div class="sec-head c-pink reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <div class="plate">4じかんめ</div>
       <h2 class="en">CLUB ACTIVITIES</h2>
       <span class="ja">キャラクター部活動ブース</span>
     </div>
-    <p class="lead reveal" style="margin-bottom:44px">
+    <p class="lead reveal" style="margin-bottom:50px">
       キャラクターたちが「部長」をつとめる部活動ブースが街なかに登場。
       好きな部活に"入部"して、体験してあそぼう!
     </p>
     <div class="bukatsu-grid">
-      <div class="bukatsu-card bk-pink reveal">
+      <div class="bukatsu-card bk-purple reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">🎸</span>
-          <span class="club">軽音部</span>
+          <span class="recruit">部員大募集!</span>
+          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+          <span class="club">🎸 軽音部</span>
         </div>
         <div class="bukatsu-body">
           <h3>部長:クロミ</h3>
@@ -846,9 +1262,11 @@ ul{list-style:none}
         </div>
       </div>
       <div class="bukatsu-card bk-sky reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">📸</span>
-          <span class="club">写真部</span>
+          <span class="recruit">部員大募集!</span>
+          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+          <span class="club">📸 写真部</span>
         </div>
         <div class="bukatsu-body">
           <h3>部長:シナモロール</h3>
@@ -857,9 +1275,11 @@ ul{list-style:none}
         </div>
       </div>
       <div class="bukatsu-card bk-yellow reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">🧁</span>
-          <span class="club">家庭科部</span>
+          <span class="recruit">部員大募集!</span>
+          <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
+          <span class="club">🧁 家庭科部</span>
         </div>
         <div class="bukatsu-body">
           <h3>部長:ポムポムプリン</h3>
@@ -867,10 +1287,12 @@ ul{list-style:none}
           <div class="with">コラボフードはエリア各所でも販売</div>
         </div>
       </div>
-      <div class="bukatsu-card bk-purple reveal">
+      <div class="bukatsu-card bk-pink reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">🎨</span>
-          <span class="club">美術部</span>
+          <span class="recruit">部員大募集!</span>
+          <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+          <span class="club">🎨 美術部</span>
         </div>
         <div class="bukatsu-body">
           <h3>部長:マイメロディ</h3>
@@ -879,9 +1301,11 @@ ul{list-style:none}
         </div>
       </div>
       <div class="bukatsu-card bk-mint reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">📺</span>
-          <span class="club">放送部</span>
+          <span class="recruit">部員大募集!</span>
+          <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+          <span class="club">📺 放送部</span>
         </div>
         <div class="bukatsu-body">
           <h3>部長:ポチャッコ</h3>
@@ -890,9 +1314,11 @@ ul{list-style:none}
         </div>
       </div>
       <div class="bukatsu-card bk-pink reveal">
+        <span class="tape"></span>
         <div class="bukatsu-head">
-          <span class="emoji">💌</span>
-          <span class="club">生徒会</span>
+          <span class="recruit">メンバー募集!</span>
+          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+          <span class="club">💌 生徒会</span>
         </div>
         <div class="bukatsu-body">
           <h3>会長:ハローキティ</h3>
@@ -906,9 +1332,13 @@ ul{list-style:none}
 
 <!-- LIVE -->
 <section class="section live" id="live">
+  <span class="twinkle" style="top:8%;left:6%">✦</span>
+  <span class="twinkle" style="top:16%;right:9%;animation-delay:.6s">✧</span>
+  <span class="twinkle" style="bottom:20%;left:11%;animation-delay:1.1s">✧</span>
+  <span class="twinkle" style="bottom:12%;right:6%;animation-delay:.3s">✦</span>
   <div class="section-inner">
     <div class="sec-head reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M22 20 V4 L44 0 V16" fill="none" stroke="#ffd7e6" stroke-width="3"/><circle cx="18" cy="20" r="4" fill="#ffd7e6"/><circle cx="40" cy="16" r="4" fill="#ffd7e6"/></svg>
+      <div class="plate">5じかんめ</div>
       <h2 class="en">NIGHT LIVE</h2>
       <span class="ja">放課後ナイトライブ</span>
     </div>
@@ -920,11 +1350,17 @@ ul{list-style:none}
     <div class="live-cards">
       <div class="live-card reveal">
         <span class="cat">CHARACTER STAGE</span>
+        <div class="mini-charas">
+          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+        </div>
         <h3>キャラクタースペシャルステージ</h3>
-        <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりランナップで登場。歌って踊れるステージショーをお届けします。</p>
+        <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりラインナップで登場。歌って踊れるステージショーをお届けします。</p>
       </div>
       <div class="live-card reveal">
         <span class="cat">ARTIST LIVE</span>
+        <span class="mic">🎤</span>
         <h3>アーティストライブ&コラボ演出</h3>
         <p>いま聴きたいアーティストが集結するスペシャルライブ。キャラクターとのコラボパフォーマンスや、この日だけの演出は現地でしか見られません。</p>
       </div>
@@ -937,15 +1373,16 @@ ul{list-style:none}
 </section>
 
 <!-- FOOD & GOODS -->
-<section class="section dots-bg" id="food">
+<section class="section heart-bg" id="food">
   <div class="section-inner">
     <div class="sec-head c-yellow reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#ffc93c"/></svg>
-      <h2 class="en">FOOD & GOODS</h2>
+      <div class="plate">昼やすみ</div>
+      <h2 class="en">FOOD &amp; GOODS</h2>
       <span class="ja">フード&限定グッズ</span>
     </div>
     <div class="fg-grid">
       <div class="fg-card food reveal">
+        <span class="chara-face f-yellow corner-face"><svg><use href="#ch-purin"/></svg></span>
         <div class="head">
           <span class="emoji">🍫</span>
           <h3>あったか学食フード</h3>
@@ -959,6 +1396,7 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="fg-card goods reveal">
+        <span class="chara-face f-pink corner-face"><svg><use href="#ch-melody"/></svg></span>
         <div class="head">
           <span class="emoji">🎒</span>
           <h3>フェス限定グッズ</h3>
@@ -979,10 +1417,28 @@ ul{list-style:none}
 <section class="section ticket" id="ticket">
   <div class="section-inner">
     <div class="sec-head c-pink reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#f4568c"/></svg>
+      <div class="plate">6じかんめ</div>
       <h2 class="en">TICKET</h2>
       <span class="ja">チケット情報</span>
     </div>
+
+    <!-- 生徒手帳ふう -->
+    <div class="techo reveal">
+      <div class="techo-head">サンリオ学園 生徒手帳</div>
+      <div class="techo-body">
+        <div class="techo-photo">
+          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+          <span>キミの写真をここに</span>
+        </div>
+        <div class="techo-lines">
+          <div class="row"><span class="k">所属</span><span class="v">サンリオ学園 2年C組(仮)</span></div>
+          <div class="row"><span class="k">登校日</span><span class="v">2026年12月19日(土)・20日(日)</span></div>
+          <div class="row"><span class="k">登校場所</span><span class="v">渋谷駅周辺エリア&代々木公園</span></div>
+          <div class="row"><span class="k">とくてん</span><span class="v"><span class="accent">中高生は学生証提示でライブが半額以下!</span></span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="ticket-grid">
       <div class="ticket-card tk-free reveal">
         <div class="type">街なかエリア</div>
@@ -1046,7 +1502,7 @@ ul{list-style:none}
 <section class="section" id="access">
   <div class="section-inner">
     <div class="sec-head c-mint reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 2 C20 2 14 9 14 16 C14 26 30 38 30 38 C30 38 46 26 46 16 C46 9 40 2 30 2Z" transform="scale(.55) translate(24,0)" fill="#5fc9a7"/></svg>
+      <div class="plate">つうがくろ</div>
       <h2 class="en">ACCESS</h2>
       <span class="ja">アクセス</span>
     </div>
@@ -1078,7 +1534,7 @@ ul{list-style:none}
 <section class="section dots-bg" id="news">
   <div class="section-inner">
     <div class="sec-head c-purple reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><path d="M30 22 C10 8 14 -4 30 8 C46 -4 50 8 30 22Z" fill="#a685e0"/></svg>
+      <div class="plate">がっきゅう通信</div>
       <h2 class="en">NEWS</h2>
       <span class="ja">お知らせ</span>
     </div>
@@ -1111,7 +1567,7 @@ ul{list-style:none}
 <section class="section" id="faq">
   <div class="section-inner">
     <div class="sec-head c-sky reveal">
-      <svg class="deco" viewBox="0 0 60 24" aria-hidden="true"><text x="30" y="20" text-anchor="middle" font-size="24" font-weight="bold" fill="#6ec6ea">?</text></svg>
+      <div class="plate">しょくいん室</div>
       <h2 class="en">FAQ</h2>
       <span class="ja">よくあるご質問</span>
     </div>
@@ -1147,16 +1603,33 @@ ul{list-style:none}
       この冬、いちばんカワイイ放課後を。<br>
       <span class="pink">まちで、待ってるね。</span>
     </p>
-    <a href="#ticket" class="btn btn-primary">♥ チケット先行抽選にエントリー</a>
+    <div class="outro-charas" aria-hidden="true">
+      <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+      <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+      <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+      <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+      <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
+      <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+    </div>
+    <a href="#ticket" class="btn btn-primary"><span class="hbeat">♥</span> チケット先行抽選にエントリー</a>
   </div>
 </section>
 
 <!-- フッター -->
 <footer class="footer">
+  <svg class="scallop" style="position:absolute;top:-33px;left:0" viewBox="0 0 1440 40" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#2b2350" d="M0,40 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 a40,40 0 0 1 80,0 Z"/>
+  </svg>
   <div class="footer-inner">
     <div class="footer-logo">
       <div class="en">SANRIO SCHOOL FES 2026</div>
       <div class="ja">サンリオ学園祭 in 渋谷・代々木公園</div>
+    </div>
+    <div class="partner-row" aria-label="主催・協力社">
+      <span>SANRIO</span>
+      <span>日本テレビ</span>
+      <span>NTT docomo</span>
+      <span>docomo STUDIO &amp; LIVE</span>
     </div>
     <dl class="orgs">
       <div>
@@ -1179,7 +1652,7 @@ ul{list-style:none}
   </div>
 </footer>
 
-<button class="totop" id="totop" aria-label="ページの先頭へ">↑</button>
+<button class="totop" id="totop" aria-label="ページの先頭へ">上へ<br>♥</button>
 
 <script>
 // モバイルメニュー
