@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SANRIO SCHOOL FES 2026 WINTER|サンリオ学園祭 in 渋谷・代々木公園</title>
-<meta name="description" content="街全体がサンリオの学園祭になる2日間。2026年12月19日(土)・20日(日)、渋谷の街と代々木公園イルミネーションを舞台に、部活動ブース・グリーティング・そして放課後ナイトライブまで、一日中あそべるウィンターフェス開催!">
+<title>SANRIO SCHOOL FES 2026 AUTUMN|サンリオ学園祭 in パシフィコ横浜・みなとみらい</title>
+<meta name="description" content="あの「サンリオFes」の会場が、まるごと学園になる2日間。2026年11月21日(土)・22日(日)、パシフィコ横浜とみなとみらいの街を舞台に、部活動ブース・グリーティング・そして国立大ホールでの後夜祭ナイトライブまで、一日中あそべるオータムフェス開催!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@500;700;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
@@ -136,6 +136,11 @@ ul{list-style:none}
   padding:7px 14px !important;margin-left:4px;background:var(--sky-pale);
 }
 .nav-switch:hover{background:#fff;color:var(--sky-deep)}
+/* みなとみらいの観覧車 */
+.wheel{position:absolute;right:2.5%;top:20%;width:170px;opacity:.6;pointer-events:none;z-index:0}
+.wheel .rot{transform-origin:85px 85px;animation:wheelspin 46s linear infinite}
+@keyframes wheelspin{to{transform:rotate(360deg)}}
+@media (max-width:840px){.wheel{width:104px;top:12%;right:1%}}
 .menu-btn{
   display:none;background:linear-gradient(135deg,var(--pink),var(--lav));border:none;border-radius:14px;
   width:46px;height:46px;cursor:pointer;flex-direction:column;
@@ -1022,7 +1027,7 @@ ul{list-style:none}
       <span class="chara-face mini-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="" data-fb="#ch-kitty"></span>
       <span>
         <span class="en">SANRIO SCHOOL FES 2026</span>
-        <span class="ja">サンリオ学園祭 in 渋谷・代々木公園</span>
+        <span class="ja">サンリオ学園祭 in パシフィコ横浜・みなとみらい</span>
       </span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-label="メニュー"><span></span><span></span><span></span></button>
@@ -1032,12 +1037,12 @@ ul{list-style:none}
         <li><a href="#area">エリア</a></li>
         <li><a href="#timetable">時間割</a></li>
         <li><a href="#bukatsu">部活動</a></li>
-        <li><a href="#live">ライブ</a></li>
+        <li><a href="#live">後夜祭ライブ</a></li>
         <li><a href="#food">フード&グッズ</a></li>
         <li><a href="#access">アクセス</a></li>
         <li><a href="#news">お知らせ</a></li>
         <li><a href="#ticket" class="nav-ticket">チケット</a></li>
-        <li><a href="yokohama.html" class="nav-switch">横浜会場ver. →</a></li>
+        <li><a href="index.html" class="nav-switch">渋谷会場ver. →</a></li>
       </ul>
     </nav>
   </div>
@@ -1058,6 +1063,38 @@ ul{list-style:none}
       <polygon points="1000,38 1030,38 1015,74" fill="#9fd8f5"/>
       <polygon points="1110,22 1140,22 1125,58" fill="#c3aef0"/>
     </g>
+  </svg>
+  <!-- みなとみらいの観覧車 -->
+  <svg class="wheel" viewBox="0 0 170 175" aria-hidden="true">
+    <g stroke="#f2a3c6" stroke-width="5" stroke-linecap="round">
+      <line x1="85" y1="85" x2="52" y2="168"/>
+      <line x1="85" y1="85" x2="118" y2="168"/>
+    </g>
+    <g class="rot">
+      <circle cx="85" cy="85" r="62" fill="none" stroke="#ffb3d4" stroke-width="5"/>
+      <circle cx="85" cy="85" r="42" fill="none" stroke="#c3aef0" stroke-width="3" opacity=".7"/>
+      <g stroke="#c3aef0" stroke-width="3" opacity=".8">
+        <line x1="85" y1="85" x2="147" y2="85"/>
+        <line x1="85" y1="85" x2="128.8" y2="128.8"/>
+        <line x1="85" y1="85" x2="85" y2="147"/>
+        <line x1="85" y1="85" x2="41.2" y2="128.8"/>
+        <line x1="85" y1="85" x2="23" y2="85"/>
+        <line x1="85" y1="85" x2="41.2" y2="41.2"/>
+        <line x1="85" y1="85" x2="85" y2="23"/>
+        <line x1="85" y1="85" x2="128.8" y2="41.2"/>
+      </g>
+      <g stroke="#fff" stroke-width="2.5">
+        <circle cx="147" cy="85" r="8" fill="#ffb3d4"/>
+        <circle cx="128.8" cy="128.8" r="8" fill="#ffe49a"/>
+        <circle cx="85" cy="147" r="8" fill="#9fd8f5"/>
+        <circle cx="41.2" cy="128.8" r="8" fill="#c3aef0"/>
+        <circle cx="23" cy="85" r="8" fill="#98e0c6"/>
+        <circle cx="41.2" cy="41.2" r="8" fill="#ffb3d4"/>
+        <circle cx="85" cy="23" r="8" fill="#ffe49a"/>
+        <circle cx="128.8" cy="41.2" r="8" fill="#9fd8f5"/>
+      </g>
+    </g>
+    <circle cx="85" cy="85" r="9" fill="#fff" stroke="#f26ba5" stroke-width="4"/>
   </svg>
   <!-- ふわふわ雲 -->
   <div class="cloud c1" aria-hidden="true"></div>
@@ -1083,13 +1120,13 @@ ul{list-style:none}
 
   <div class="hero-inner">
     <div class="class-plate">サンリオ学園 文化祭実行委員会</div>
-    <span class="hero-badge">WINTER FES 2026</span>
+    <span class="hero-badge">AUTUMN FES 2026 — YOKOHAMA</span>
     <h1 class="hero-title">
       SANRIO<br>SCHOOL FES
-      <span class="small">サンリオ学園祭 in 渋谷・代々木公園</span>
+      <span class="small">サンリオ学園祭 in パシフィコ横浜・みなとみらい</span>
     </h1>
-    <p class="hero-catch"><span class="marker">キミの"スキ"が、まちを染める。</span></p>
-    <p class="hero-sub">街まるごとがキャンパスになる、いちばんカワイイ学園祭。</p>
+    <p class="hero-catch"><span class="marker">あの"サンリオFes"の会場が、まるごと学園になる。</span></p>
+    <p class="hero-sub">港町みなとみらいがキャンパスになる、いちばんカワイイ文化祭。</p>
 
     <div class="chara-line" aria-label="登場キャラクター">
       <!-- にじ -->
@@ -1101,7 +1138,7 @@ ul{list-style:none}
         <path d="M68 150 A82 82 0 0 1 232 150" stroke="#c3aef0" stroke-width="11" fill="none" stroke-linecap="round"/>
       </svg>
       <div class="chara">
-        <span class="bubble">まってるよ♪</span>
+        <span class="bubble">横浜でまってるよ♪</span>
         <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" data-fb="#ch-kitty"></span>
         <span class="name">ハローキティ</span>
       </div>
@@ -1130,13 +1167,13 @@ ul{list-style:none}
     <div class="hero-info">
       <div class="hero-date">
         <span class="label">DATE</span>
-        <div class="big">2026.<em>12.19</em><span class="dow">SAT</span> - <em>12.20</em><span class="dow">SUN</span></div>
-        <div class="note">11:00 開祭 / 20:30 閉祭(予定)</div>
+        <div class="big">2026.<em>11.21</em><span class="dow">SAT</span> - <em>11.22</em><span class="dow">SUN</span></div>
+        <div class="note">10:00 開祭 / 20:00 閉祭(予定)</div>
       </div>
       <div class="hero-place">
         <span class="label">PLACE</span>
-        <div class="big">渋谷駅周辺エリア &<br>代々木公園</div>
-        <div class="note">冬のイルミネーションと同時開催</div>
+        <div class="big">パシフィコ横浜 &<br>みなとみらい街なかエリア</div>
+        <div class="note">「サンリオFes 2026」と同じ会場で開催!</div>
       </div>
       <div class="stamp" aria-label="街なかエリアは入場無料">
         <span class="l1">街なか</span>
@@ -1165,15 +1202,15 @@ ul{list-style:none}
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
     <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
-    <span><span class="star">★</span> ライブ観覧チケット先行抽選は10月スタート</span>
-    <span><span class="star">★</span> 街なかエリアは入場無料</span>
-    <span><span class="star">★</span> 中高生は学生証提示でライブチケットが半額以下に</span>
-    <span><span class="star">★</span> 代々木公園イルミネーションとコラボ決定</span>
+    <span><span class="star">★</span> 後夜祭ナイトライブは国立大ホール・全席指定で開催</span>
+    <span><span class="star">★</span> メイン会場は屋内!雨の日も安心</span>
+    <span><span class="star">★</span> 中高生は学生証提示でチケットが半額以下に</span>
+    <span><span class="star">★</span> みなとみらいの街なかエリアは入場無料</span>
     <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
-    <span><span class="star">★</span> ライブ観覧チケット先行抽選は10月スタート</span>
-    <span><span class="star">★</span> 街なかエリアは入場無料</span>
-    <span><span class="star">★</span> 中高生は学生証提示でライブチケットが半額以下に</span>
-    <span><span class="star">★</span> 代々木公園イルミネーションとコラボ決定</span>
+    <span><span class="star">★</span> 後夜祭ナイトライブは国立大ホール・全席指定で開催</span>
+    <span><span class="star">★</span> メイン会場は屋内!雨の日も安心</span>
+    <span><span class="star">★</span> 中高生は学生証提示でチケットが半額以下に</span>
+    <span><span class="star">★</span> みなとみらいの街なかエリアは入場無料</span>
   </div>
 </div>
 
@@ -1186,33 +1223,33 @@ ul{list-style:none}
       <span class="ja">サンリオ学園祭って?</span>
     </div>
     <p class="about-copy reveal">
-      教室じゃなくて、<span class="pink">まちが会場。</span><br>
-      放課後よりも、ずっと自由。
+      あの<span class="pink">"サンリオFes"の会場</span>が、<br>
+      今度は、学園祭になる。
     </p>
     <p class="lead reveal">
-      サンリオキャラクターたちが「生徒」になって、渋谷のまちをまるごと学園祭に!
-      昼は街なかで部活動ブースやスタンプラリーをめぐって、
-      夜は代々木公園のイルミネーションの中で<span class="strong">アーティストによる「放課後ナイトライブ」</span>へ。
-      朝から夜まで、友だちと一日中あそびつくせるウィンターフェスです。
+      2026年6月に「サンリオFes 2026」が開催されたパシフィコ横浜が、この秋「サンリオ学園」のキャンパスに大変身!
+      昼は展示ホールの教室ブースとみなとみらいの街なかスタンプラリーをめぐって、
+      夜は国立大ホールで<span class="strong">アーティストによる「後夜祭ナイトライブ」</span>へ。
+      朝から夜まで、友だちと一日中あそびつくせるオータムフェスです。
     </p>
     <div class="about-points">
       <div class="point-card reveal">
         <span class="num">POINT 1</span>
         <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
-        <h3>街まるごとキャンパス</h3>
-        <p>渋谷駅周辺の商業施設・ストリートに「教室」が出現。参加無料のスタンプラリーで、まちを歩くほどフェスが楽しくなる!</p>
+        <h3>会場まるごとキャンパス</h3>
+        <p>パシフィコ横浜の展示ホールに「教室」と部活動ブースがずらり。屋根つきの屋内キャンパスだから、雨の日も一日中ゆっくりあそべます。</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 2</span>
         <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
-        <h3>イルミ×キャラクター</h3>
-        <p>この冬はじまる代々木公園の大規模イルミネーションとコラボ。キャラクターたちと光に包まれる、ここだけの冬景色。</p>
+        <h3>みなとみらいも学園に</h3>
+        <p>観覧車や商業施設など、みなとみらいの街なかに参加無料のスタンプラリーとフォトスポットが出現。港をながめる"つうがくろ"をおさんぽしよう。</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 3</span>
         <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
-        <h3>フィナーレはライブ</h3>
-        <p>一日のさいごは、人気アーティストとキャラクターが共演するスペシャルライブ。青春のBGMを、みんなで大合唱しよう。</p>
+        <h3>フィナーレは後夜祭ライブ</h3>
+        <p>一日のさいごは、国立大ホールで人気アーティストとキャラクターが共演する「後夜祭ナイトライブ」。全席指定のホールで、青春のBGMを大合唱しよう。</p>
       </div>
     </div>
   </div>
@@ -1229,46 +1266,46 @@ ul{list-style:none}
     <div class="area-wrap">
       <div class="area-card a-pink reveal">
         <div class="area-visual">
-          <span class="emoji">🎪</span>
+          <span class="emoji">🏫</span>
           <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" loading="lazy" data-fb="#ch-melody"></span>
           <span class="tag">AREA 1</span>
         </div>
         <div class="area-body">
-          <h3>シブヤ・キャンパスエリア</h3>
-          <span class="place">渋谷駅周辺の街なか各所|入場無料</span>
-          <p>渋谷の商業施設やストリートに、キャラクターごとの「教室」ブースが点在。デジタルスタンプラリーで全教室をめぐって、限定ノベルティをゲットしよう。制服・なりきりコーデでの来場も大歓迎!</p>
+          <h3>パシフィコ・キャンパスエリア</h3>
+          <span class="place">パシフィコ横浜 展示ホール|キャンパス入場券</span>
+          <p>「サンリオFes 2026」の会場そのままに、広〜い展示ホールが学園の校舎に大変身。キャラクターごとの教室ブース、部活動体験、グリーティング、学食フードコート、限定グッズショップが大集合。全部屋内だから、天気を気にせず一日中あそべます。</p>
           <ul>
-            <li>デジタルスタンプラリー</li><li>フォトスポット</li><li>コラボ店舗めぐり</li><li>入場無料</li>
-          </ul>
-        </div>
-      </div>
-      <div class="area-card a-night reveal">
-        <div class="area-visual">
-          <span class="emoji">🌃</span>
-          <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
-          <span class="tag">AREA 2</span>
-        </div>
-        <div class="area-body">
-          <h3>ヨヨギ・イルミネーションエリア</h3>
-          <span class="place">代々木公園|一部有料</span>
-          <p>この冬、代々木公園ではじまる大規模イルミネーションとスペシャルコラボ。キャラクターモチーフの光の装飾、グリーティング、あったかフード屋台がならぶ、夜が主役のエリアです。</p>
-          <ul>
-            <li>コラボイルミネーション</li><li>キャラクターグリーティング</li><li>フード屋台</li><li>点灯式セレモニー</li>
+            <li>教室・部活動ブース</li><li>キャラクターグリーティング</li><li>学食フードコート</li><li>限定グッズショップ</li>
           </ul>
         </div>
       </div>
       <div class="area-card a-sky reveal">
         <div class="area-visual">
-          <span class="emoji">🎸</span>
+          <span class="emoji">🎡</span>
           <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
+          <span class="tag">AREA 2</span>
+        </div>
+        <div class="area-body">
+          <h3>みなとみらい・タウンエリア</h3>
+          <span class="place">みなとみらいの街なか各所|入場無料</span>
+          <p>クイーンズスクエアや観覧車周辺など、みなとみらいの街なかに「課外授業」スポットが点在。デジタルスタンプラリーで海の見える"つうがくろ"をめぐって、限定ノベルティをゲット。夜は観覧車がキャラクターカラーに輝く特別ライトアップも!</p>
+          <ul>
+            <li>デジタルスタンプラリー</li><li>フォトスポット</li><li>観覧車 特別ライトアップ</li><li>入場無料</li>
+          </ul>
+        </div>
+      </div>
+      <div class="area-card a-night reveal">
+        <div class="area-visual">
+          <span class="emoji">🎤</span>
+          <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
           <span class="tag">AREA 3</span>
         </div>
         <div class="area-body">
-          <h3>ナイトライブ・ステージ</h3>
-          <span class="place">代々木公園 特設ステージ|チケット制</span>
-          <p>フェスのフィナーレを飾る特設ライブステージ。昼はキャラクターステージ、日が暮れたらアーティストによる「放課後ナイトライブ」へ。イルミネーションに包まれた、ここだけのライブ体験を。</p>
+          <h3>後夜祭ライブホール</h3>
+          <span class="place">パシフィコ横浜 国立大ホール|チケット制</span>
+          <p>フェスのフィナーレを飾るのは、約5,000席の大ホールでの「後夜祭ナイトライブ」。昼はキャラクターステージ、日が暮れたらアーティストライブへ。全席指定の屋内ホールだから、ゆったり安心してクライマックスを楽しめます。</p>
           <ul>
-            <li>キャラクターステージ</li><li>放課後ナイトライブ</li><li>フィナーレ 光と音のショー</li>
+            <li>キャラクターステージ</li><li>後夜祭ナイトライブ</li><li>フィナーレ 光と音のショー</li><li>全席指定</li>
           </ul>
         </div>
       </div>
@@ -1290,54 +1327,54 @@ ul{list-style:none}
         <span class="chalk-doodle cd1">♪</span>
         <span class="chalk-doodle cd2">☆</span>
         <h3 class="board-title"><span class="u">本日の時間割</span></h3>
-        <p class="board-sub">サンリオ学園 文化祭 プログラム</p>
+        <p class="board-sub">サンリオ学園 文化祭 プログラム(横浜校)</p>
         <div class="tt-row">
           <span class="period">1時間目</span>
-          <span class="time">11:00</span>
+          <span class="time">10:00</span>
           <h3>開祭式(オープニングセレモニー)</h3>
-          <p>キャラクターたちの「開祭宣言」でフェスがスタート!街なかの教室ブースも一斉オープン。</p>
+          <p>展示ホールのメインステージで、キャラクターたちが「開祭宣言」!教室ブースも一斉オープン。</p>
         </div>
         <div class="tt-row">
           <span class="period">2時間目</span>
-          <span class="time">11:30</span>
+          <span class="time">10:30</span>
           <h3>部活動ブースめぐり</h3>
-          <p>シブヤ・キャンパスエリアで好きな部活に"入部"して体験しよう。</p>
+          <p>キャンパスエリアで好きな部活に"入部"して体験しよう。グリーティングも随時開催。</p>
         </div>
         <div class="tt-row lunch">
           <span class="period">昼休み</span>
           <span class="time">12:00</span>
           <h3>学食タイム 🍞</h3>
-          <p>"購買部"風コラボパンやあったかフードでお昼ごはん。売り切れ注意!</p>
+          <p>学食フードコートで"購買部"風コラボパンやキャラクターメニューをどうぞ。売り切れ注意!</p>
         </div>
         <div class="tt-row">
           <span class="period">3時間目</span>
           <span class="time">13:00</span>
-          <h3>スタンプラリー&amp;グリーティング</h3>
-          <p>まちを歩いてスタンプあつめ。キャラクターに会えるグリーティングも随時開催。</p>
+          <h3>街なかスタンプラリー(課外授業)</h3>
+          <p>みなとみらいの街へおでかけ。海の見える"つうがくろ"でスタンプをあつめよう。</p>
         </div>
-        <div class="tt-row night">
+        <div class="tt-row">
           <span class="period">4時間目</span>
-          <span class="time">16:30</span>
-          <h3>イルミネーション点灯式 ✨</h3>
-          <p>キャラクターと一緒にカウントダウン。代々木公園が一気に光の世界へ。</p>
+          <span class="time">15:00</span>
+          <h3>クラス対抗ステージ発表会</h3>
+          <p>キャラクターたちがクラス対抗でダンスや出しものを披露。声援で"推しクラス"を応援してね。</p>
         </div>
         <div class="tt-row night">
           <span class="period">5時間目</span>
-          <span class="time">17:30</span>
-          <h3>キャラクタースペシャルステージ</h3>
-          <p>ハローキティ、シナモロール、クロミたちが日替わりで登場するステージショー。</p>
+          <span class="time">17:00</span>
+          <h3>観覧車 特別ライトアップ点灯 ✨</h3>
+          <p>日が暮れたら、みなとみらいの観覧車がキャラクターカラーに。港の夜景ごとフォトタイム。</p>
         </div>
         <div class="tt-row night">
           <span class="period">6時間目</span>
-          <span class="time">18:30</span>
-          <h3>放課後ナイトライブ 🎤</h3>
-          <p>人気アーティストが登場するメインライブ。キャラクターとのコラボも…?</p>
+          <span class="time">18:00</span>
+          <h3>後夜祭ナイトライブ 🎤</h3>
+          <p>国立大ホールで人気アーティストが登場するメインライブ。キャラクターとのコラボも…?</p>
         </div>
         <div class="tt-row night">
           <span class="period">放課後</span>
-          <span class="time">20:15</span>
+          <span class="time">19:45</span>
           <h3>フィナーレ「光と音のスペシャルショー」</h3>
-          <p>イルミネーション×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
+          <p>ホールいっぱいの光×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
         </div>
       </div>
       <div class="chalk-tray" aria-hidden="true">
@@ -1357,7 +1394,7 @@ ul{list-style:none}
       <span class="ja">キャラクター部活動ブース</span>
     </div>
     <p class="lead reveal" style="margin-bottom:50px">
-      キャラクターたちが「部長」をつとめる部活動ブースが街なかに登場。
+      キャラクターたちが「部長」をつとめる部活動ブースが、展示ホールのキャンパスに登場。
       好きな部活に"入部"して、体験してあそぼう!
     </p>
     <div class="bukatsu-grid">
@@ -1370,7 +1407,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:クロミ</h3>
-          <p>バンド体験&リズムゲームで盛り上がる音楽ブース。ナイトライブ出演アーティストのスペシャル映像も先行公開!</p>
+          <p>バンド体験&リズムゲームで盛り上がる音楽ブース。後夜祭ライブ出演アーティストのスペシャル映像も先行公開!</p>
           <div class="with">Supported by ドコモ・スタジオ&ライブ</div>
         </div>
       </div>
@@ -1383,7 +1420,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:シナモロール</h3>
-          <p>"映え"が止まらないフォトスポットが大集合。撮った写真はその場でオリジナルフレーム加工して、SNSでシェアしよう。</p>
+          <p>海と観覧車をバックにした"映え"フォトスポットが大集合。撮った写真はオリジナルフレーム加工して、SNSでシェアしよう。</p>
           <div class="with">オリジナルARフォトフレーム配信中</div>
         </div>
       </div>
@@ -1396,8 +1433,8 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:ポムポムプリン</h3>
-          <p>キャラクターモチーフのスイーツデコ体験や、あったかコラボフードの食べくらべ。冬のまち歩きのおともにどうぞ。</p>
-          <div class="with">コラボフードはエリア各所でも販売</div>
+          <p>キャラクターモチーフのスイーツデコ体験や、学食フードコートの限定メニュー食べくらべ。秋の味覚コラボも見のがせない!</p>
+          <div class="with">コラボフードは学食フードコートで販売</div>
         </div>
       </div>
       <div class="bukatsu-card bk-pink reveal">
@@ -1409,7 +1446,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:マイメロディ</h3>
-          <p>みんなで完成させる巨大アート企画や、痛バ・推し活グッズのデコ体験コーナー。世界にひとつの推しグッズを作ろう。</p>
+          <p>みんなで完成させる巨大黒板アート企画や、痛バ・推し活グッズのデコ体験コーナー。世界にひとつの推しグッズを作ろう。</p>
           <div class="with">デコ体験は当日整理券制</div>
         </div>
       </div>
@@ -1422,7 +1459,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:ポチャッコ</h3>
-          <p>フェスの様子を生配信する公開スタジオ。アナウンサー体験やキャラクターへの公開インタビューを間近で見られるかも!</p>
+          <p>フェスの様子を生配信する公開スタジオ。アナウンサー体験や、キャラクターへの公開インタビューを間近で見られるかも!</p>
           <div class="with">Supported by 日本テレビ</div>
         </div>
       </div>
@@ -1435,7 +1472,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>会長:ハローキティ</h3>
-          <p>フェスの総合案内&スタンプラリーのゴール地点。全教室をめぐった人には、生徒会から"卒業証書"風の限定ノベルティを進呈♪</p>
+          <p>フェスの総合案内&スタンプラリーのゴール地点。街なかと教室、すべてめぐった人には"卒業証書"風の限定ノベルティを進呈♪</p>
           <div class="with">ノベルティは数量限定・なくなり次第終了</div>
         </div>
       </div>
@@ -1456,12 +1493,13 @@ ul{list-style:none}
     <div class="sec-head reveal">
       <div class="plate">5じかんめ</div>
       <h2 class="en">NIGHT LIVE</h2>
-      <span class="ja">放課後ナイトライブ</span>
+      <span class="ja">後夜祭ナイトライブ</span>
     </div>
     <p class="live-lead reveal">
       日が暮れたら、フェスはクライマックスへ。<br>
-      イルミネーションきらめく代々木公園の特設ステージで、
-      人気アーティストとサンリオキャラクターが夢の共演。
+      「サンリオFes」の感動をそのままに、パシフィコ横浜 国立大ホールで、
+      人気アーティストとサンリオキャラクターが夢の共演。<br>
+      約5,000席・全席指定の屋内ホールだから、天気を気にせずゆったり楽しめます。
     </p>
     <div class="live-cards">
       <div class="live-card reveal">
@@ -1472,13 +1510,13 @@ ul{list-style:none}
           <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
         </div>
         <h3>キャラクタースペシャルステージ</h3>
-        <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりラインナップで登場。歌って踊れるステージショーをお届けします。</p>
+        <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりラインナップで登場。大ホールならではのスケールで、歌って踊れるステージショーをお届けします。</p>
       </div>
       <div class="live-card reveal">
         <span class="cat">ARTIST LIVE</span>
         <span class="mic">🎤</span>
         <h3>アーティストライブ&コラボ演出</h3>
-        <p>いま聴きたいアーティストが集結するスペシャルライブ。キャラクターとのコラボパフォーマンスや、この日だけの演出は現地でしか見られません。</p>
+        <p>いま聴きたいアーティストが集結するスペシャルライブ。キャラクターとのコラボパフォーマンスや、この日だけの光と音の演出は現地でしか見られません。</p>
       </div>
     </div>
     <div class="coming reveal">
@@ -1500,15 +1538,15 @@ ul{list-style:none}
       <div class="fg-card food reveal">
         <span class="chara-face f-yellow corner-face"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png" alt="ポムポムプリン" loading="lazy" data-fb="#ch-purin"></span>
         <div class="head">
-          <span class="emoji">🍫</span>
-          <h3>あったか学食フード</h3>
+          <span class="emoji">🍮</span>
+          <h3>学食フードコート</h3>
         </div>
-        <p>冬のまち歩きにぴったりな、キャラクターモチーフのあったかメニューが大集合。「学食」がテーマの、どこか懐かしくてカワイイラインナップです。</p>
+        <p>展示ホール内に「学食」がテーマのフードコートが登場。キャラクターモチーフの秋メニューが大集合の、どこか懐かしくてカワイイラインナップです。</p>
         <ul>
-          <li>キャラクターホットドリンク&ラテアート</li>
+          <li>キャラクタードリンク&ラテアート</li>
           <li>"購買部"風のコラボパン&ホットスナック</li>
-          <li>イルミネーションカラーの限定スイーツ</li>
-          <li>キャラクターおでこカイロ付きフードセット</li>
+          <li>秋の味覚×キャラクターの限定スイーツ</li>
+          <li>ランチョンマット付きコラボフードセット</li>
         </ul>
       </div>
       <div class="fg-card goods reveal">
@@ -1517,12 +1555,12 @@ ul{list-style:none}
           <span class="emoji">🎒</span>
           <h3>フェス限定グッズ</h3>
         </div>
-        <p>「学園祭」をテーマにした描き起こしデザインのフェス限定グッズを販売。推し活にも普段使いにもぴったりなアイテムがそろいます。</p>
+        <p>「学園祭×港町ヨコハマ」をテーマにした描き起こしデザインのフェス限定グッズを販売。推し活にも普段使いにもぴったりなアイテムがそろいます。</p>
         <ul>
-          <li>制服風キャラクター描き起こしグッズ</li>
+          <li>セーラー制服風キャラクター描き起こしグッズ</li>
           <li>スクールバッグ風トート&缶バッジ</li>
           <li>ライブ仕様のペンライト&マフラータオル</li>
-          <li>フェス会場限定カプセルトイ</li>
+          <li>フェス会場限定カプセルトイ&ガラポン</li>
         </ul>
       </div>
     </div>
@@ -1547,10 +1585,10 @@ ul{list-style:none}
           <span>キミの写真をここに</span>
         </div>
         <div class="techo-lines">
-          <div class="row"><span class="k">所属</span><span class="v">サンリオ学園 2年C組(仮)</span></div>
-          <div class="row"><span class="k">登校日</span><span class="v">2026年12月19日(土)・20日(日)</span></div>
-          <div class="row"><span class="k">登校場所</span><span class="v">渋谷駅周辺エリア&代々木公園</span></div>
-          <div class="row"><span class="k">とくてん</span><span class="v"><span class="accent">中高生は学生証提示でライブが半額以下!</span></span></div>
+          <div class="row"><span class="k">所属</span><span class="v">サンリオ学園 横浜校 2年C組(仮)</span></div>
+          <div class="row"><span class="k">登校日</span><span class="v">2026年11月21日(土)・22日(日)</span></div>
+          <div class="row"><span class="k">登校場所</span><span class="v">パシフィコ横浜&みなとみらい</span></div>
+          <div class="row"><span class="k">とくてん</span><span class="v"><span class="accent">中高生は学生証提示でチケットが半額以下!</span></span></div>
         </div>
       </div>
     </div>
@@ -1560,25 +1598,25 @@ ul{list-style:none}
         <div class="type">街なかエリア</div>
         <div class="body">
           <div class="price">FREE<span class="unit"></span></div>
-          <p class="desc">シブヤ・キャンパスエリアの部活動ブース、スタンプラリー、フォトスポットは入場無料で楽しめます。※一部体験は有料・整理券制です。</p>
+          <p class="desc">みなとみらい・タウンエリアのスタンプラリー、フォトスポット、観覧車ライトアップ観覧は入場無料で楽しめます。※一部体験・観覧車の乗車は有料です。</p>
           <span class="chip">チケット不要でOK!</span>
         </div>
       </div>
       <div class="ticket-card tk-live reveal">
-        <div class="type">ナイトライブ観覧(一般)</div>
+        <div class="type">キャンパス入場券</div>
         <div class="body">
-          <div class="price">¥8,500<span class="unit">(税込)</span></div>
-          <p class="desc">キャラクターステージ+放課後ナイトライブ+フィナーレショーの観覧エリアチケット。イルミネーションエリアの入場を含みます。抽選販売です。</p>
-          <span class="chip">フェス限定特典付き</span>
+          <div class="price">¥1,800<span class="unit">(税込)</span></div>
+          <p class="desc">パシフィコ横浜 展示ホールのキャンパスエリア(教室・部活動ブース・グリーティング・学食・グッズ)に一日入場できるチケット。中高生は学生証提示で¥900、小学生以下は無料です。</p>
+          <span class="chip">中高生は半額の¥900!</span>
         </div>
       </div>
       <div class="ticket-card tk-student reveal">
         <span class="osusume">中高生おトク!</span>
-        <div class="type">ナイトライブ観覧(中高生)</div>
+        <div class="type">後夜祭ライブつき 1DAYパス</div>
         <div class="body">
-          <div class="price">¥3,900<span class="unit">(税込)</span></div>
-          <p class="desc">中学生・高校生は半額以下のスペシャルプライス!当日、入場時に学生証をご提示ください。友だちを誘って"放課後"の続きへ。</p>
-          <span class="chip">学生証の提示が必要です</span>
+          <div class="price">¥8,500<span class="unit">(税込)</span></div>
+          <p class="desc">キャンパス入場+国立大ホールでの後夜祭ナイトライブ(全席指定)+フィナーレショーがセットになった一日パス。中高生は学生証提示で<strong>¥3,900</strong>のスペシャルプライス!抽選販売です。</p>
+          <span class="chip">中高生は¥3,900・フェス限定特典付き</span>
         </div>
       </div>
     </div>
@@ -1586,10 +1624,10 @@ ul{list-style:none}
     <div class="dpoint reveal">
       <h3>📱 dポイントクラブ会員はもっとおトク!</h3>
       <ul>
-        <li>会員限定の最速先行抽選エントリー(10月上旬受付開始)</li>
+        <li>会員限定の最速先行抽選エントリー(9月上旬受付開始)</li>
         <li>d払いでのグッズ購入でdポイント還元率アップ</li>
         <li>スタンプラリー達成で限定dポイントプレゼント</li>
-        <li>会員限定・出演アーティストのライブ配信視聴特典</li>
+        <li>会員限定・後夜祭ライブのオンライン配信視聴特典</li>
         <li class="note">※特典内容は予定です。詳細はチケット販売開始時にご案内します。dポイントクラブへの入会は無料です。</li>
       </ul>
     </div>
@@ -1598,15 +1636,15 @@ ul{list-style:none}
       <h3>チケット販売スケジュール</h3>
       <div class="flow">
         <div class="flow-item">
-          <p class="when">10月上旬〜</p>
+          <p class="when">9月上旬〜</p>
           <p>dポイントクラブ会員 最速先行抽選エントリー</p>
         </div>
         <div class="flow-item">
-          <p class="when">10月下旬〜</p>
+          <p class="when">9月下旬〜</p>
           <p>公式先行抽選(どなたでもエントリーOK)</p>
         </div>
         <div class="flow-item">
-          <p class="when">11月下旬〜</p>
+          <p class="when">10月下旬〜</p>
           <p>一般販売(先着・枚数がなくなり次第終了)</p>
         </div>
       </div>
@@ -1624,25 +1662,25 @@ ul{list-style:none}
     </div>
     <div class="access-grid">
       <div class="access-card ac-shibuya reveal">
-        <h3><span class="pin">📍</span>シブヤ・キャンパスエリア</h3>
-        <p>渋谷駅周辺の商業施設・ストリート各所</p>
+        <h3><span class="pin">📍</span>パシフィコ横浜(キャンパス&後夜祭ホール)</h3>
+        <p>神奈川県横浜市西区みなとみらい1-1-1(展示ホール・国立大ホール)</p>
         <ul>
-          <li>JR山手線・埼京線・湘南新宿ライン「渋谷駅」すぐ</li>
-          <li>東京メトロ銀座線・半蔵門線・副都心線「渋谷駅」すぐ</li>
-          <li>東急東横線・田園都市線/京王井の頭線「渋谷駅」すぐ</li>
+          <li>みなとみらい線「みなとみらい駅」から徒歩約5分</li>
+          <li>JR・市営地下鉄「桜木町駅」から徒歩約12分</li>
+          <li>みなとみらい駅からは屋根つきの通路で雨の日も安心</li>
         </ul>
       </div>
       <div class="access-card ac-yoyogi reveal">
-        <h3><span class="pin">📍</span>ヨヨギ・イルミネーション&ライブエリア</h3>
-        <p>代々木公園(イベント広場・特設ステージ)</p>
+        <h3><span class="pin">📍</span>みなとみらい・タウンエリア</h3>
+        <p>クイーンズスクエア横浜・観覧車周辺ほか、みなとみらいの街なか各所</p>
         <ul>
-          <li>JR山手線「原宿駅」から徒歩約3分</li>
-          <li>東京メトロ千代田線「代々木公園駅」から徒歩約3分</li>
-          <li>東京メトロ千代田線・副都心線「明治神宮前〈原宿〉駅」から徒歩約3分</li>
+          <li>みなとみらい線「みなとみらい駅」直結・周辺すぐ</li>
+          <li>JR・市営地下鉄「桜木町駅」から徒歩約5分〜</li>
+          <li>パシフィコ横浜とは徒歩約5〜10分でぐるっと回遊OK</li>
         </ul>
       </div>
     </div>
-    <p class="access-note">※駐車場のご用意はありません。公共交通機関をご利用ください。渋谷⇔代々木公園間は徒歩約15分、スタンプラリーを楽しみながらの移動がおすすめです♪</p>
+    <p class="access-note">※駐車場の台数には限りがあります。公共交通機関のご利用がおすすめです。会場⇔街なかはスタンプラリーを楽しみながらの移動がおすすめですよ♪</p>
   </div>
 </section>
 
@@ -1655,30 +1693,30 @@ ul{list-style:none}
       <span class="ja">お知らせ</span>
     </div>
     <div class="news-list reveal">
-      <a class="news-item" href="yokohama.html">
+      <a class="news-item" href="#top">
+        <span class="date">2026.07.08</span>
+        <span class="cat">お知らせ</span>
+        <span class="txt">「SANRIO SCHOOL FES 2026 AUTUMN」公式サイトオープン!開催概要を公開しました</span>
+      </a>
+      <a class="news-item" href="#about">
         <span class="date">2026.07.08</span>
         <span class="cat c2">会場</span>
-        <span class="txt">パシフィコ横浜・みなとみらい開催バージョン「SANRIO SCHOOL FES 2026 AUTUMN」のページを公開しました</span>
-      </a>
-      <a class="news-item" href="#top">
-        <span class="date">2026.07.07</span>
-        <span class="cat">お知らせ</span>
-        <span class="txt">「SANRIO SCHOOL FES 2026 WINTER」公式サイトオープン!開催概要を公開しました</span>
+        <span class="txt">会場は「サンリオFes 2026」と同じパシフィコ横浜に決定!後夜祭ライブは国立大ホールで開催</span>
       </a>
       <a class="news-item" href="#area">
-        <span class="date">2026.07.07</span>
+        <span class="date">2026.07.08</span>
         <span class="cat c2">エリア</span>
-        <span class="txt">代々木公園イルミネーションとのスペシャルコラボが決定!</span>
+        <span class="txt">みなとみらいの観覧車 特別ライトアップ&街なかスタンプラリーの実施が決定!</span>
       </a>
       <a class="news-item" href="#live">
-        <span class="date">2026.07.07</span>
+        <span class="date">2026.07.08</span>
         <span class="cat c3">ライブ</span>
         <span class="txt">出演アーティスト第1弾は9月発表予定。公式SNSをフォローして続報をチェック♪</span>
       </a>
       <a class="news-item" href="#ticket">
-        <span class="date">2026.07.07</span>
+        <span class="date">2026.07.08</span>
         <span class="cat">チケット</span>
-        <span class="txt">チケットは10月より先行抽選スタート。中高生向けスペシャルプライスもご用意!</span>
+        <span class="txt">チケットは9月より先行抽選スタート。中高生向けスペシャルプライスもご用意!</span>
       </a>
     </div>
   </div>
@@ -1695,11 +1733,19 @@ ul{list-style:none}
     <div class="faq-list reveal">
       <div class="faq-item">
         <button class="faq-q">チケットがなくても楽しめますか?</button>
-        <div class="faq-a"><div class="faq-a-inner">はい!シブヤ・キャンパスエリア(部活動ブース・スタンプラリー・フォトスポット)は入場無料でお楽しみいただけます。ナイトライブの観覧と、代々木公園の一部エリアのみチケットが必要です。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">はい!みなとみらい・タウンエリア(スタンプラリー・フォトスポット・観覧車ライトアップ観覧)は入場無料でお楽しみいただけます。展示ホールのキャンパスエリアと、国立大ホールでの後夜祭ライブはチケットが必要です。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">「サンリオFes」とはちがうイベントですか?</button>
+        <div class="faq-a"><div class="faq-a-inner">はい、2026年6月に同じパシフィコ横浜で開催された「サンリオFes 2026」とは別の、「学園祭」がテーマの新しいフェスです。あの会場のワクワクはそのままに、部活動ブースや後夜祭ナイトライブなど、放課後気分で楽しめる企画をたっぷりご用意しています。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">中高生プライスのチケットはどうやって買えますか?</button>
         <div class="faq-a"><div class="faq-a-inner">一般チケットと同じ先行抽選・一般販売でご購入いただけます。ご入場の際に学生証(生徒手帳)のご提示が必要です。お忘れの場合は一般料金との差額をいただきますのでご注意ください。</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">雨の日でも楽しめますか?</button>
+        <div class="faq-a"><div class="faq-a-inner">キャンパスエリア(展示ホール)と後夜祭ライブ(国立大ホール)はすべて屋内なので、雨の日も安心してお楽しみいただけます。みなとみらい駅から会場までは屋根つきの通路もあります。街なかエリアの一部屋外コンテンツは、荒天時に中止となる場合があります。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">制服やなりきりコーデで参加してもいいですか?</button>
@@ -1707,11 +1753,7 @@ ul{list-style:none}
       </div>
       <div class="faq-item">
         <button class="faq-q">小さな子どもや大人だけでも楽しめますか?</button>
-        <div class="faq-a"><div class="faq-a-inner">もちろんです!昼の街なかエリアはどなたでも楽しめるコンテンツが中心です。なおナイトライブは照明・音響演出が大きいため、小さなお子さまは保護者の方とご相談のうえご参加ください。</div></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">雨や雪の日も開催されますか?</button>
-        <div class="faq-a"><div class="faq-a-inner">雨天決行・荒天中止です。開催可否は当日朝までに公式サイト・公式SNSでお知らせします。冬の屋外イベントのため、あたたかい服装でお越しください。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">もちろんです!キャンパスエリアはベビーカーでも回りやすい屋内会場で、小学生以下は入場無料です。ナイトライブは照明・音響演出が大きいため、小さなお子さまは保護者の方とご相談のうえご参加ください。</div></div>
       </div>
     </div>
   </div>
@@ -1723,8 +1765,8 @@ ul{list-style:none}
   <span class="twinkle v" style="top:30%;right:10%;animation-delay:.7s" aria-hidden="true">✧</span>
   <div class="section-inner reveal">
     <p class="outro-copy">
-      この冬、いちばんカワイイ放課後を。<br>
-      <span class="pink">まちで、待ってるね。</span>
+      この秋、いちばんカワイイ放課後を。<br>
+      <span class="pink">港町で、待ってるね。</span>
     </p>
     <div class="outro-charas" aria-hidden="true">
       <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
@@ -1746,7 +1788,7 @@ ul{list-style:none}
   <div class="footer-inner">
     <div class="footer-logo">
       <div class="en">SANRIO SCHOOL FES 2026</div>
-      <div class="ja">サンリオ学園祭 in 渋谷・代々木公園</div>
+      <div class="ja">サンリオ学園祭 in パシフィコ横浜・みなとみらい</div>
     </div>
     <div class="partner-row" aria-label="主催・協力社">
       <span>SANRIO</span>
@@ -1771,7 +1813,7 @@ ul{list-style:none}
       <a href="#top" aria-label="YouTube">YT</a>
     </div>
     <p class="footer-note">掲載の内容は2026年7月時点の予定です。イベント内容・出演者・料金等は変更になる場合があります。</p>
-    <p class="copyright">© 2026 SANRIO CO., LTD. APPROVAL No.SP2612XX</p>
+    <p class="copyright">© 2026 SANRIO CO., LTD. APPROVAL No.SP2611XX</p>
   </div>
 </footer>
 
