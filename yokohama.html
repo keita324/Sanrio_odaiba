@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SANRIO SCHOOL FES 2026 AUTUMN|サンリオ学園祭 in パシフィコ横浜・みなとみらい</title>
-<meta name="description" content="あの「サンリオFes」の会場が、まるごと学園になる2日間。2026年11月21日(土)・22日(日)、パシフィコ横浜とみなとみらいの街を舞台に、部活動ブース・グリーティング・そして国立大ホールでの後夜祭ナイトライブまで、一日中あそべるオータムフェス開催!">
+<title>SANRIO SCHOOL FES 2026 SUMMER|サンリオ学園祭 in パシフィコ横浜・みなとみらい</title>
+<meta name="description" content="あの「サンリオFes」の会場が、まるごと学園になる2日間。2026年6月20日(土)・21日(日)、パシフィコ横浜とみなとみらいの街を舞台に、部活動ブース・グリーティング・そして国立大ホールでの後夜祭ナイトライブまで、一日中あそべる初夏のフェス開催!翌週の「サンリオFes 2026」と2週連続、同じ会場でサンリオウィーク!">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Zen+Maru+Gothic:wght@500;700;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
@@ -860,6 +860,95 @@ ul{list-style:none}
 .totop.show{opacity:1;pointer-events:auto}
 .totop:hover{transform:translateY(-3px)}
 
+/* ---------- 会場マップ ---------- */
+.map-frame{
+  background:#fff;border:var(--card-border);border-radius:28px;
+  box-shadow:var(--card-shadow);padding:24px 24px 20px;
+}
+.map-frame svg{width:100%;height:auto;display:block;border-radius:16px}
+.map-legend{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.map-legend>span{
+  font-size:13px;font-weight:800;border-radius:999px;padding:5px 16px 5px 8px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.map-legend .lg1{background:var(--pink-pale);color:var(--pink-deep)}
+.map-legend .lg2{background:var(--sky-pale);color:var(--sky-deep)}
+.map-legend .lg3{background:var(--lav-pale);color:var(--lav-deep)}
+.lg-dot{
+  width:22px;height:22px;border-radius:50%;color:#fff;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--ff-en);font-size:12px;font-weight:800;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+}
+.map-note{text-align:center;font-size:12px;color:var(--ink-soft);font-weight:700;margin-top:12px}
+
+/* ---------- 企画意図(ビジネス視点)パネル ---------- */
+.biz-btn{
+  position:fixed;right:18px;bottom:90px;z-index:95;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  width:66px;height:66px;border-radius:50%;border:3px solid #fff;
+  background:linear-gradient(135deg,var(--sky-deep),var(--lav-deep));color:#fff;
+  font-family:var(--ff-maru);font-weight:900;font-size:10.5px;line-height:1.3;
+  cursor:pointer;box-shadow:0 8px 20px rgba(86,174,222,.45);transition:.2s;
+}
+.biz-btn .ico{font-size:19px;line-height:1}
+.biz-btn:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(86,174,222,.55)}
+.biz-overlay{
+  position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;
+  background:rgba(94,79,166,.45);backdrop-filter:blur(4px);padding:18px;
+}
+.biz-overlay.open{display:flex}
+.biz-panel{
+  background:#fff;border-radius:24px;max-width:780px;width:100%;max-height:86vh;
+  overflow-y:auto;box-shadow:0 24px 60px rgba(60,40,110,.4);position:relative;
+}
+.biz-head{
+  position:sticky;top:0;z-index:2;
+  background:linear-gradient(90deg,var(--sky-deep),var(--lav-deep));color:#fff;
+  padding:18px 60px 15px 26px;
+}
+.biz-head h2{font-family:var(--ff-maru);font-weight:900;font-size:19px;line-height:1.5}
+.biz-head p{font-size:11.5px;font-weight:700;opacity:.92;margin-top:2px}
+.biz-close{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;
+  border:2px solid #fff;background:rgba(255,255,255,.15);color:#fff;
+  font-size:16px;font-weight:900;cursor:pointer;transition:.2s;
+}
+.biz-close:hover{background:rgba(255,255,255,.3)}
+.biz-body{padding:22px 26px 26px}
+.biz-item{
+  border:2.5px solid #ece4f6;border-radius:18px;padding:16px 20px;
+  margin-bottom:14px;background:#fdfbff;
+}
+.biz-item p{font-size:13.5px;font-weight:600;line-height:1.95}
+.biz-item .q{font-weight:800;color:var(--ink);margin-bottom:10px}
+.biz-item .tag{
+  display:inline-block;color:#fff;border-radius:999px;font-size:11px;font-weight:900;
+  padding:1px 13px;margin-right:9px;white-space:nowrap;letter-spacing:.04em;
+  vertical-align:.12em;
+}
+.biz-item .q .tag{background:linear-gradient(90deg,var(--pink-deep),#f2938c)}
+.biz-item .a .tag{background:linear-gradient(90deg,var(--sky-deep),var(--mint-deep))}
+.biz-sub{
+  font-family:var(--ff-maru);font-weight:900;font-size:16px;color:var(--lav-deep);
+  margin:22px 0 12px;text-align:center;
+}
+.biz-roles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.biz-roles div{
+  background:var(--sky-pale);border-radius:14px;padding:12px 16px;
+  font-size:12.5px;font-weight:600;line-height:1.7;
+}
+.biz-roles div b{display:block;color:var(--sky-deep);font-size:13.5px;margin-bottom:2px}
+.biz-goal{
+  margin-top:18px;background:linear-gradient(90deg,var(--pink-pale),var(--lav-pale));
+  border-radius:16px;padding:14px 20px;font-weight:800;font-size:14px;line-height:1.9;
+}
+.biz-note{margin-top:14px;font-size:11.5px;color:var(--ink-soft);font-weight:600}
+@media (max-width:560px){
+  .biz-roles{grid-template-columns:1fr}
+  .biz-btn{width:58px;height:58px;font-size:9.5px;bottom:86px}
+}
+
 /* ---------- スクロールで表示 ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.on{opacity:1;transform:none}
@@ -1035,6 +1124,7 @@ ul{list-style:none}
       <ul>
         <li><a href="#about">開催概要</a></li>
         <li><a href="#area">エリア</a></li>
+        <li><a href="#map">マップ</a></li>
         <li><a href="#timetable">時間割</a></li>
         <li><a href="#bukatsu">部活動</a></li>
         <li><a href="#live">後夜祭ライブ</a></li>
@@ -1120,7 +1210,7 @@ ul{list-style:none}
 
   <div class="hero-inner">
     <div class="class-plate">サンリオ学園 文化祭実行委員会</div>
-    <span class="hero-badge">AUTUMN FES 2026 — YOKOHAMA</span>
+    <span class="hero-badge">EARLY SUMMER FES 2026 — YOKOHAMA</span>
     <h1 class="hero-title">
       SANRIO<br>SCHOOL FES
       <span class="small">サンリオ学園祭 in パシフィコ横浜・みなとみらい</span>
@@ -1167,13 +1257,13 @@ ul{list-style:none}
     <div class="hero-info">
       <div class="hero-date">
         <span class="label">DATE</span>
-        <div class="big">2026.<em>11.21</em><span class="dow">SAT</span> - <em>11.22</em><span class="dow">SUN</span></div>
+        <div class="big">2026.<em>6.20</em><span class="dow">SAT</span> - <em>6.21</em><span class="dow">SUN</span></div>
         <div class="note">10:00 開祭 / 20:00 閉祭(予定)</div>
       </div>
       <div class="hero-place">
         <span class="label">PLACE</span>
         <div class="big">パシフィコ横浜 &<br>みなとみらい街なかエリア</div>
-        <div class="note">「サンリオFes 2026」と同じ会場で開催!</div>
+        <div class="note">翌週6/27・28の「サンリオFes 2026」と同じ会場!</div>
       </div>
       <div class="stamp" aria-label="街なかエリアは入場無料">
         <span class="l1">街なか</span>
@@ -1201,16 +1291,18 @@ ul{list-style:none}
 <!-- ティッカー -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
+    <span><span class="star">★</span> 出演アーティスト第1弾発表は4月下旬予定!</span>
     <span><span class="star">★</span> 後夜祭ナイトライブは国立大ホール・全席指定で開催</span>
-    <span><span class="star">★</span> メイン会場は屋内!雨の日も安心</span>
+    <span><span class="star">★</span> メイン会場は屋内!梅雨の時期も安心</span>
     <span><span class="star">★</span> 中高生は学生証提示でチケットが半額以下に</span>
     <span><span class="star">★</span> みなとみらいの街なかエリアは入場無料</span>
-    <span><span class="star">★</span> 出演アーティスト第1弾発表は9月予定!</span>
+    <span><span class="star">★</span> 翌週は「サンリオFes 2026」!2週連続のサンリオウィーク</span>
+    <span><span class="star">★</span> 出演アーティスト第1弾発表は4月下旬予定!</span>
     <span><span class="star">★</span> 後夜祭ナイトライブは国立大ホール・全席指定で開催</span>
-    <span><span class="star">★</span> メイン会場は屋内!雨の日も安心</span>
+    <span><span class="star">★</span> メイン会場は屋内!梅雨の時期も安心</span>
     <span><span class="star">★</span> 中高生は学生証提示でチケットが半額以下に</span>
     <span><span class="star">★</span> みなとみらいの街なかエリアは入場無料</span>
+    <span><span class="star">★</span> 翌週は「サンリオFes 2026」!2週連続のサンリオウィーク</span>
   </div>
 </div>
 
@@ -1227,17 +1319,17 @@ ul{list-style:none}
       今度は、学園祭になる。
     </p>
     <p class="lead reveal">
-      2026年6月に「サンリオFes 2026」が開催されたパシフィコ横浜が、この秋「サンリオ学園」のキャンパスに大変身!
+      「サンリオFes 2026」(6月27日・28日)を翌週にひかえたパシフィコ横浜が、ひと足お先に「サンリオ学園」のキャンパスに大変身!
       昼は展示ホールの教室ブースとみなとみらいの街なかスタンプラリーをめぐって、
       夜は国立大ホールで<span class="strong">アーティストによる「後夜祭ナイトライブ」</span>へ。
-      朝から夜まで、友だちと一日中あそびつくせるオータムフェスです。
+      2週連続でパシフィコ横浜がサンリオ一色になる"サンリオウィーク"、その開幕を飾る初夏のフェスです。
     </p>
     <div class="about-points">
       <div class="point-card reveal">
         <span class="num">POINT 1</span>
         <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
         <h3>会場まるごとキャンパス</h3>
-        <p>パシフィコ横浜の展示ホールに「教室」と部活動ブースがずらり。屋根つきの屋内キャンパスだから、雨の日も一日中ゆっくりあそべます。</p>
+        <p>パシフィコ横浜の展示ホールに「教室」と部活動ブースがずらり。屋根つきの屋内キャンパスだから、梅雨の時期でも一日中ゆっくりあそべます。</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 2</span>
@@ -1313,6 +1405,143 @@ ul{list-style:none}
   </div>
 </section>
 
+<!-- 会場マップ -->
+<section class="section" id="map">
+  <div class="section-inner">
+    <div class="sec-head c-mint reveal">
+      <div class="plate">おでかけマップ</div>
+      <h2 class="en">FES MAP</h2>
+      <span class="ja">会場マップ</span>
+    </div>
+    <p class="lead reveal" style="margin-bottom:36px">
+      3つのエリアは、ぜんぶ歩いてめぐれるご近所さん。
+      海をながめながらの"つうがくろ"さんぽも、フェスの楽しみのひとつです♪
+    </p>
+    <div class="map-frame reveal">
+      <svg viewBox="0 0 1000 660" role="img" aria-label="みなとみらい周辺の会場イラストマップ">
+        <!-- 陸地 -->
+        <rect x="0" y="0" width="1000" height="660" fill="#f8fcf4"/>
+        <!-- 海 -->
+        <path d="M0,0 H1000 V118 Q920,136 830,126 Q740,116 650,130 Q560,144 470,132 Q380,120 290,134 Q200,148 110,134 Q55,126 0,132 Z" fill="#cfeafc"/>
+        <g stroke="#9fd8f5" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8">
+          <path d="M120,60 q10,-8 20,0 q10,8 20,0"/>
+          <path d="M420,52 q10,-8 20,0 q10,8 20,0"/>
+          <path d="M700,66 q10,-8 20,0 q10,8 20,0"/>
+        </g>
+        <text x="70" y="52" font-size="20" font-weight="800" fill="#4a90c2">横浜港 ⚓</text>
+        <text x="880" y="80" font-size="30">⛴️</text>
+        <!-- 臨港パーク -->
+        <rect x="60" y="152" width="170" height="62" rx="20" fill="#dcf3de" stroke="#fff" stroke-width="3"/>
+        <text x="145" y="190" font-size="13.5" font-weight="800" fill="#4d9a66" text-anchor="middle">臨港パーク 🌳</text>
+
+        <!-- AREA2 タウンエリア ゾーン -->
+        <rect x="250" y="316" width="640" height="212" rx="30" fill="rgba(159,216,245,.14)" stroke="#56aede" stroke-width="3" stroke-dasharray="12 8"/>
+        <rect x="565" y="300" width="325" height="34" rx="17" fill="#56aede" stroke="#fff" stroke-width="3"/>
+        <text x="727" y="323" font-size="14.5" font-weight="900" fill="#fff" text-anchor="middle">みなとみらい・タウンエリア(入場無料)</text>
+        <g transform="translate(548,317)">
+          <circle r="16" fill="#56aede" stroke="#fff" stroke-width="3"/>
+          <text y="6" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+        </g>
+
+        <!-- ルート:みなとみらい駅 → 展示ホール -->
+        <path d="M425,545 V278" fill="none" stroke="#f26ba5" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1 12"/>
+        <text x="438" y="344" font-size="12.5" font-weight="800" fill="#f26ba5">徒歩約5分(屋根つき)</text>
+        <!-- ルート:桜木町駅 → 観覧車 → 国立大ホール -->
+        <path d="M705,563 Q727,505 742,468" fill="none" stroke="#4db895" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1 12"/>
+        <path d="M756,352 Q736,318 716,296" fill="none" stroke="#4db895" stroke-width="4.5" stroke-linecap="round" stroke-dasharray="1 12"/>
+        <text x="610" y="547" font-size="12.5" font-weight="800" fill="#2f9c78">徒歩約12分</text>
+
+        <!-- パシフィコ横浜 展示ホール -->
+        <rect x="280" y="170" width="310" height="108" rx="18" fill="#fff" stroke="#f9c9dd" stroke-width="5"/>
+        <text x="315" y="215" font-size="26">🏫</text>
+        <text x="452" y="210" font-size="18" font-weight="900" fill="#f26ba5" text-anchor="middle">パシフィコ横浜 展示ホール</text>
+        <text x="435" y="238" font-size="12.5" font-weight="700" fill="#6b5670" text-anchor="middle">キャンパスエリア(教室・部活動・学食・グッズ)</text>
+        <text x="435" y="262" font-size="11.5" font-weight="800" fill="#d16a9a" text-anchor="middle">翌週の「サンリオFes 2026」と同じ会場♪</text>
+        <g transform="translate(285,164)">
+          <circle r="16" fill="#f26ba5" stroke="#fff" stroke-width="3"/>
+          <text y="6" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+        </g>
+
+        <!-- 国立大ホール -->
+        <path d="M640,272 L672,168 Q710,150 748,168 L780,272 Q710,298 640,272 Z" fill="#f1eafd" stroke="#c3aef0" stroke-width="4"/>
+        <text x="710" y="203" font-size="22" text-anchor="middle">🎤</text>
+        <text x="710" y="232" font-size="15.5" font-weight="900" fill="#9d7fe0" text-anchor="middle">国立大ホール</text>
+        <text x="710" y="252" font-size="11.5" font-weight="700" fill="#6b5670" text-anchor="middle">後夜祭ナイトライブ</text>
+        <g transform="translate(788,168)">
+          <circle r="16" fill="#9d7fe0" stroke="#fff" stroke-width="3"/>
+          <text y="6" font-size="15" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+        </g>
+
+        <!-- クイーンズスクエア -->
+        <rect x="300" y="356" width="210" height="60" rx="14" fill="#fff" stroke="#cfe4f7" stroke-width="4"/>
+        <text x="405" y="386" font-size="13.5" font-weight="800" fill="#5a7ea6" text-anchor="middle">🛍 クイーンズスクエア横浜</text>
+        <text x="405" y="404" font-size="11" font-weight="700" fill="#8ba3bd" text-anchor="middle">フォトスポット&スタンプ</text>
+
+        <!-- ランドマークタワー -->
+        <path d="M120,470 V392 L150,352 L180,392 V470 Z" fill="#dfe7f5" stroke="#fff" stroke-width="3"/>
+        <g stroke="#c3d2ea" stroke-width="2.5">
+          <line x1="132" y1="405" x2="168" y2="405"/>
+          <line x1="132" y1="425" x2="168" y2="425"/>
+          <line x1="132" y1="445" x2="168" y2="445"/>
+        </g>
+        <text x="150" y="492" font-size="12" font-weight="800" fill="#7a8bb0" text-anchor="middle">ランドマークタワー</text>
+
+        <!-- コスモワールド観覧車 -->
+        <g stroke="#f2a3c6" stroke-width="5" stroke-linecap="round">
+          <line x1="760" y1="410" x2="735" y2="482"/>
+          <line x1="760" y1="410" x2="785" y2="482"/>
+        </g>
+        <circle cx="760" cy="410" r="54" fill="none" stroke="#ffb3d4" stroke-width="6"/>
+        <g stroke="#c3aef0" stroke-width="3" opacity=".85">
+          <line x1="760" y1="410" x2="814" y2="410"/>
+          <line x1="760" y1="410" x2="798.2" y2="448.2"/>
+          <line x1="760" y1="410" x2="760" y2="464"/>
+          <line x1="760" y1="410" x2="721.8" y2="448.2"/>
+          <line x1="760" y1="410" x2="706" y2="410"/>
+          <line x1="760" y1="410" x2="721.8" y2="371.8"/>
+          <line x1="760" y1="410" x2="760" y2="356"/>
+          <line x1="760" y1="410" x2="798.2" y2="371.8"/>
+        </g>
+        <g stroke="#fff" stroke-width="2">
+          <circle cx="814" cy="410" r="6.5" fill="#ffb3d4"/>
+          <circle cx="798.2" cy="448.2" r="6.5" fill="#ffe49a"/>
+          <circle cx="760" cy="464" r="6.5" fill="#9fd8f5"/>
+          <circle cx="721.8" cy="448.2" r="6.5" fill="#c3aef0"/>
+          <circle cx="706" cy="410" r="6.5" fill="#98e0c6"/>
+          <circle cx="721.8" cy="371.8" r="6.5" fill="#ffb3d4"/>
+          <circle cx="760" cy="356" r="6.5" fill="#ffe49a"/>
+          <circle cx="798.2" cy="371.8" r="6.5" fill="#9fd8f5"/>
+        </g>
+        <circle cx="760" cy="410" r="8" fill="#fff" stroke="#f26ba5" stroke-width="4"/>
+        <text x="760" y="508" font-size="12.5" font-weight="800" fill="#d16a9a" text-anchor="middle">よこはまコスモワールド 🎡</text>
+        <text x="760" y="526" font-size="11" font-weight="700" fill="#d78bad" text-anchor="middle">観覧車 特別ライトアップ</text>
+
+        <!-- 駅 -->
+        <rect x="330" y="545" width="190" height="44" rx="22" fill="#56aede" stroke="#fff" stroke-width="3"/>
+        <text x="425" y="573" font-size="14.5" font-weight="900" fill="#fff" text-anchor="middle">🚇 みなとみらい駅</text>
+        <rect x="620" y="565" width="170" height="44" rx="22" fill="#4db895" stroke="#fff" stroke-width="3"/>
+        <text x="705" y="593" font-size="14.5" font-weight="900" fill="#fff" text-anchor="middle">🚇 桜木町駅</text>
+
+        <!-- コンパス&かざり -->
+        <g transform="translate(66,590)">
+          <circle r="24" fill="#fff" stroke="#c3aef0" stroke-width="3"/>
+          <path d="M0,-13 L6,8 L0,3 L-6,8 Z" fill="#9d7fe0"/>
+          <text y="20" font-size="10" font-weight="800" fill="#9d7fe0" text-anchor="middle">N</text>
+        </g>
+        <text x="935" y="180" font-size="18" fill="#ffd98a">✦</text>
+        <text x="60" y="300" font-size="16" fill="#ffb3d4">✧</text>
+        <text x="930" y="560" font-size="16" fill="#c3aef0">✧</text>
+      </svg>
+      <div class="map-legend">
+        <span class="lg1"><span class="lg-dot" style="background:#f26ba5">1</span>キャンパスエリア(展示ホール)</span>
+        <span class="lg2"><span class="lg-dot" style="background:#56aede">2</span>みなとみらい・タウンエリア|入場無料</span>
+        <span class="lg3"><span class="lg-dot" style="background:#9d7fe0">3</span>後夜祭ライブ(国立大ホール)</span>
+      </div>
+      <p class="map-note">※イラストマップのため、縮尺・位置関係はイメージです。街なかスポットの詳細マップは開催前に公開予定♪</p>
+    </div>
+  </div>
+</section>
+
 <!-- 時間割(ゆめかわボード) -->
 <section class="section dots-bg" id="timetable">
   <div class="section-inner">
@@ -1361,8 +1590,8 @@ ul{list-style:none}
         <div class="tt-row night">
           <span class="period">5時間目</span>
           <span class="time">17:00</span>
-          <h3>観覧車 特別ライトアップ点灯 ✨</h3>
-          <p>日が暮れたら、みなとみらいの観覧車がキャラクターカラーに。港の夜景ごとフォトタイム。</p>
+          <h3>後夜祭 開場&ウェルカムグリーティング</h3>
+          <p>国立大ホールのロビーでキャラクターたちがお出迎え。開演までワクワクの待ち時間。</p>
         </div>
         <div class="tt-row night">
           <span class="period">6時間目</span>
@@ -1375,6 +1604,12 @@ ul{list-style:none}
           <span class="time">19:45</span>
           <h3>フィナーレ「光と音のスペシャルショー」</h3>
           <p>ホールいっぱいの光×音楽×キャラクターの演出で、一日をしめくくるエンディング。</p>
+        </div>
+        <div class="tt-row night">
+          <span class="period">下校時間</span>
+          <span class="time">20:00</span>
+          <h3>観覧車 特別ライトアップ ✨</h3>
+          <p>おかえりの夜道は、みなとみらいの観覧車がキャラクターカラーに。帰り道も、まだ夢の中。</p>
         </div>
       </div>
       <div class="chalk-tray" aria-hidden="true">
@@ -1433,7 +1668,7 @@ ul{list-style:none}
         </div>
         <div class="bukatsu-body">
           <h3>部長:ポムポムプリン</h3>
-          <p>キャラクターモチーフのスイーツデコ体験や、学食フードコートの限定メニュー食べくらべ。秋の味覚コラボも見のがせない!</p>
+          <p>キャラクターモチーフのスイーツデコ体験や、学食フードコートの限定メニュー食べくらべ。初夏のひんやりスイーツコラボも見のがせない!</p>
           <div class="with">コラボフードは学食フードコートで販売</div>
         </div>
       </div>
@@ -1521,7 +1756,7 @@ ul{list-style:none}
     </div>
     <div class="coming reveal">
       <div class="en">LINE UP … COMING SOON!</div>
-      <p>出演アーティスト第1弾は<strong>2026年9月発表予定</strong>。<br>公式SNSのフォローをして続報を待っててね♪</p>
+      <p>出演アーティスト第1弾は<strong>2026年4月下旬発表予定</strong>。<br>公式SNSのフォローをして続報を待っててね♪</p>
     </div>
   </div>
 </section>
@@ -1541,11 +1776,11 @@ ul{list-style:none}
           <span class="emoji">🍮</span>
           <h3>学食フードコート</h3>
         </div>
-        <p>展示ホール内に「学食」がテーマのフードコートが登場。キャラクターモチーフの秋メニューが大集合の、どこか懐かしくてカワイイラインナップです。</p>
+        <p>展示ホール内に「学食」がテーマのフードコートが登場。キャラクターモチーフの初夏メニューが大集合の、どこか懐かしくてカワイイラインナップです。</p>
         <ul>
           <li>キャラクタードリンク&ラテアート</li>
           <li>"購買部"風のコラボパン&ホットスナック</li>
-          <li>秋の味覚×キャラクターの限定スイーツ</li>
+          <li>初夏限定・キャラクターのひんやりスイーツ</li>
           <li>ランチョンマット付きコラボフードセット</li>
         </ul>
       </div>
@@ -1586,7 +1821,7 @@ ul{list-style:none}
         </div>
         <div class="techo-lines">
           <div class="row"><span class="k">所属</span><span class="v">サンリオ学園 横浜校 2年C組(仮)</span></div>
-          <div class="row"><span class="k">登校日</span><span class="v">2026年11月21日(土)・22日(日)</span></div>
+          <div class="row"><span class="k">登校日</span><span class="v">2026年6月20日(土)・21日(日)</span></div>
           <div class="row"><span class="k">登校場所</span><span class="v">パシフィコ横浜&みなとみらい</span></div>
           <div class="row"><span class="k">とくてん</span><span class="v"><span class="accent">中高生は学生証提示でチケットが半額以下!</span></span></div>
         </div>
@@ -1624,7 +1859,7 @@ ul{list-style:none}
     <div class="dpoint reveal">
       <h3>📱 dポイントクラブ会員はもっとおトク!</h3>
       <ul>
-        <li>会員限定の最速先行抽選エントリー(9月上旬受付開始)</li>
+        <li>会員限定の最速先行抽選エントリー(4月中旬受付開始)</li>
         <li>d払いでのグッズ購入でdポイント還元率アップ</li>
         <li>スタンプラリー達成で限定dポイントプレゼント</li>
         <li>会員限定・後夜祭ライブのオンライン配信視聴特典</li>
@@ -1636,15 +1871,15 @@ ul{list-style:none}
       <h3>チケット販売スケジュール</h3>
       <div class="flow">
         <div class="flow-item">
-          <p class="when">9月上旬〜</p>
+          <p class="when">4月中旬〜</p>
           <p>dポイントクラブ会員 最速先行抽選エントリー</p>
         </div>
         <div class="flow-item">
-          <p class="when">9月下旬〜</p>
+          <p class="when">4月下旬〜</p>
           <p>公式先行抽選(どなたでもエントリーOK)</p>
         </div>
         <div class="flow-item">
-          <p class="when">10月下旬〜</p>
+          <p class="when">5月中旬〜</p>
           <p>一般販売(先着・枚数がなくなり次第終了)</p>
         </div>
       </div>
@@ -1694,29 +1929,29 @@ ul{list-style:none}
     </div>
     <div class="news-list reveal">
       <a class="news-item" href="#top">
-        <span class="date">2026.07.08</span>
+        <span class="date">2026.04.10</span>
         <span class="cat">お知らせ</span>
-        <span class="txt">「SANRIO SCHOOL FES 2026 AUTUMN」公式サイトオープン!開催概要を公開しました</span>
+        <span class="txt">「SANRIO SCHOOL FES 2026 SUMMER」公式サイトオープン!開催概要を公開しました</span>
       </a>
       <a class="news-item" href="#about">
-        <span class="date">2026.07.08</span>
+        <span class="date">2026.04.10</span>
         <span class="cat c2">会場</span>
-        <span class="txt">会場は「サンリオFes 2026」と同じパシフィコ横浜に決定!後夜祭ライブは国立大ホールで開催</span>
+        <span class="txt">会場は「サンリオFes 2026」と同じパシフィコ横浜!2週連続の"サンリオウィーク"開催が決定</span>
       </a>
       <a class="news-item" href="#area">
-        <span class="date">2026.07.08</span>
+        <span class="date">2026.04.10</span>
         <span class="cat c2">エリア</span>
         <span class="txt">みなとみらいの観覧車 特別ライトアップ&街なかスタンプラリーの実施が決定!</span>
       </a>
       <a class="news-item" href="#live">
-        <span class="date">2026.07.08</span>
+        <span class="date">2026.04.10</span>
         <span class="cat c3">ライブ</span>
-        <span class="txt">出演アーティスト第1弾は9月発表予定。公式SNSをフォローして続報をチェック♪</span>
+        <span class="txt">出演アーティスト第1弾は4月下旬発表予定。公式SNSをフォローして続報をチェック♪</span>
       </a>
       <a class="news-item" href="#ticket">
-        <span class="date">2026.07.08</span>
+        <span class="date">2026.04.10</span>
         <span class="cat">チケット</span>
-        <span class="txt">チケットは9月より先行抽選スタート。中高生向けスペシャルプライスもご用意!</span>
+        <span class="txt">チケットは4月中旬より先行抽選スタート。中高生向けスペシャルプライスもご用意!</span>
       </a>
     </div>
   </div>
@@ -1737,7 +1972,7 @@ ul{list-style:none}
       </div>
       <div class="faq-item">
         <button class="faq-q">「サンリオFes」とはちがうイベントですか?</button>
-        <div class="faq-a"><div class="faq-a-inner">はい、2026年6月に同じパシフィコ横浜で開催された「サンリオFes 2026」とは別の、「学園祭」がテーマの新しいフェスです。あの会場のワクワクはそのままに、部活動ブースや後夜祭ナイトライブなど、放課後気分で楽しめる企画をたっぷりご用意しています。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">はい、翌週の6月27日(土)・28日(日)に同じパシフィコ横浜で開催される「サンリオFes 2026」とは別の、「学園祭」がテーマの新しいフェスです。2週連続でパシフィコ横浜がサンリオ一色になる"サンリオウィーク"。あの会場のワクワクはそのままに、部活動ブースや後夜祭ナイトライブなど、放課後気分で楽しめる企画をたっぷりご用意しています。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">中高生プライスのチケットはどうやって買えますか?</button>
@@ -1745,7 +1980,7 @@ ul{list-style:none}
       </div>
       <div class="faq-item">
         <button class="faq-q">雨の日でも楽しめますか?</button>
-        <div class="faq-a"><div class="faq-a-inner">キャンパスエリア(展示ホール)と後夜祭ライブ(国立大ホール)はすべて屋内なので、雨の日も安心してお楽しみいただけます。みなとみらい駅から会場までは屋根つきの通路もあります。街なかエリアの一部屋外コンテンツは、荒天時に中止となる場合があります。</div></div>
+        <div class="faq-a"><div class="faq-a-inner">キャンパスエリア(展示ホール)と後夜祭ライブ(国立大ホール)はすべて屋内なので、6月の梅雨どきでも安心してお楽しみいただけます。みなとみらい駅から会場までは屋根つきの通路もあります。街なかエリアの一部屋外コンテンツは、荒天時に中止となる場合があります。</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q">制服やなりきりコーデで参加してもいいですか?</button>
@@ -1765,7 +2000,7 @@ ul{list-style:none}
   <span class="twinkle v" style="top:30%;right:10%;animation-delay:.7s" aria-hidden="true">✧</span>
   <div class="section-inner reveal">
     <p class="outro-copy">
-      この秋、いちばんカワイイ放課後を。<br>
+      この初夏、いちばんカワイイ放課後を。<br>
       <span class="pink">港町で、待ってるね。</span>
     </p>
     <div class="outro-charas" aria-hidden="true">
@@ -1812,10 +2047,53 @@ ul{list-style:none}
       <a href="#top" aria-label="TikTok">TT</a>
       <a href="#top" aria-label="YouTube">YT</a>
     </div>
-    <p class="footer-note">掲載の内容は2026年7月時点の予定です。イベント内容・出演者・料金等は変更になる場合があります。</p>
-    <p class="copyright">© 2026 SANRIO CO., LTD. APPROVAL No.SP2611XX</p>
+    <p class="footer-note">掲載の内容は2026年4月時点の予定です。イベント内容・出演者・料金等は変更になる場合があります。</p>
+    <p class="copyright">© 2026 SANRIO CO., LTD. APPROVAL No.SP2606XX</p>
   </div>
 </footer>
+
+<!-- 企画意図(ビジネス視点)ボタン&パネル -->
+<button class="biz-btn" id="bizBtn" aria-haspopup="dialog" aria-controls="bizOverlay"><span class="ico">💡</span>企画<br>意図</button>
+<div class="biz-overlay" id="bizOverlay" role="dialog" aria-modal="true" aria-label="この企画のビジネス的なねらい">
+  <div class="biz-panel">
+    <div class="biz-head">
+      <h2>💡 この企画、どうして生まれたの?</h2>
+      <p>ビジネス視点の背景メモ(社内検討用/実際の公開サイトには掲載しない想定です)</p>
+      <button class="biz-close" id="bizClose" aria-label="閉じる">✕</button>
+    </div>
+    <div class="biz-body">
+      <div class="biz-item">
+        <p class="q"><span class="tag">課題 1</span>サンリオFesはチケット抽選の倍率が高く、なかなか当たらない。実際に会場でも、中高生世代の姿が少なく感じられた。</p>
+        <p class="a"><span class="tag">打ち手</span>合言葉は<strong>「未来のファンを育てる」</strong>。中高生をメインターゲットに置き、学生証提示の半額以下プライスと、チケット不要の街なか無料エリアで、"抽選に当たらないと入れないイベント"から"誰でも立ち寄れるフェス"へ間口を広げる。</p>
+      </div>
+      <div class="biz-item">
+        <p class="q"><span class="tag">課題 2</span>サンリオのライブやステージに触れる機会がそもそも少ない。「サンリオは好きだけど、ライブを見に行くのはハードルが高い」——出会う機会がないまま、魅力に気づかれずにいる。</p>
+        <p class="a"><span class="tag">打ち手</span><strong>街なか(無料)→キャンパス(低価格)→後夜祭ライブ(プレミアム)の3段階設計</strong>。おでかけの"ついで"にキャラクターと出会い、フェスの流れの中で自然にライブまで案内する。フェスという形にすることで、より多くの人にライブの魅力そのものを知ってもらう。</p>
+      </div>
+      <div class="biz-item">
+        <p class="q"><span class="tag">課題 3</span>現在のファン層は20〜30代以上の女性が中心。「昔から好き」「懐かしい」という応援が多く、中高生の層が薄くなっている。</p>
+        <p class="a"><span class="tag">打ち手</span>中高生の日常にある<strong>「学園祭」「放課後」「推し活」</strong>を丸ごとテーマ化。制服・なりきりコーデ歓迎、SNS映えするフォトスポットや配信企画で、"懐かしい"ではなく"いま好き"と言える文脈をつくる。</p>
+      </div>
+      <div class="biz-item">
+        <p class="q"><span class="tag">課題 4</span>大型イベントはステージ・音響・装飾などの設営コストが大きく、単発開催では負担が重い。屋外開催は天候リスクも抱える。</p>
+        <p class="a"><span class="tag">打ち手</span>横浜案は<strong>「サンリオFes 2026」(6/27・28)と同じパシフィコ横浜で、同じ6月に2週連続開催</strong>。ステージ・音響・装飾などの設備とオペレーションを共有して設営コストを圧縮し、全館屋内で梅雨の天候リスクも回避する。(渋谷・代々木公園案では、冬の大規模イルミネーションに"相乗り"して演出・集客コストを分担)</p>
+      </div>
+      <div class="biz-item">
+        <p class="q"><span class="tag">課題 5</span>会場に来られる人にしか魅力が届かず、イベントが終わると接点も途切れてしまう。</p>
+        <p class="a"><span class="tag">打ち手</span>日本テレビのメディア露出・番組連動・ライブ配信で全国へ届け、ドコモのdポイントクラブ・d払いで<strong>来場前(先行抽選)から来場後(特典・配信視聴)まで続く接点</strong>をつくる。</p>
+      </div>
+      <h3 class="biz-sub">🤝 4社の役割分担</h3>
+      <div class="biz-roles">
+        <div><b>サンリオ</b>キャラクターIP・世界観の監修・限定グッズ</div>
+        <div><b>日本テレビ</b>メディア露出・番組連動・ライブ配信</div>
+        <div><b>NTTドコモ</b>dポイントクラブ会員基盤・チケット/決済・回遊のデジタル体験</div>
+        <div><b>ドコモ・スタジオ&ライブ</b>ライブの企画制作・アーティストブッキング・音楽演出</div>
+      </div>
+      <p class="biz-goal">🌱 めざす姿:中高生が「サンリオって、いま楽しい」と出会い直す場所をつくり、10年後のコアファンを育てる。</p>
+      <p class="biz-note">※本パネルは企画検討用の説明です。掲載している課題・打ち手は仮説ベースであり、今後の検討により変わる可能性があります。</p>
+    </div>
+  </div>
+</div>
 
 <button class="totop" id="totop" aria-label="ページの先頭へ">上へ<br>♥</button>
 
@@ -1869,6 +2147,15 @@ window.addEventListener('scroll',()=>{
   totop.classList.toggle('show',window.scrollY>600);
 });
 totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// 企画意図パネル
+const bizBtn=document.getElementById('bizBtn');
+const bizOverlay=document.getElementById('bizOverlay');
+const bizClose=document.getElementById('bizClose');
+bizBtn.addEventListener('click',()=>bizOverlay.classList.add('open'));
+bizClose.addEventListener('click',()=>bizOverlay.classList.remove('open'));
+bizOverlay.addEventListener('click',e=>{if(e.target===bizOverlay)bizOverlay.classList.remove('open');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')bizOverlay.classList.remove('open');});
 </script>
 </body>
 </html>
