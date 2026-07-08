@@ -80,6 +80,7 @@ ul{list-style:none}
   box-shadow:4px 4px 0 rgba(74,58,61,.14);
 }
 .chara-face svg{width:82%;height:82%;display:block}
+.chara-face img{width:88%;height:88%;object-fit:contain;display:block}
 .f-pink{background:linear-gradient(180deg,#ffeef5,var(--pink-pale))}
 .f-sky{background:linear-gradient(180deg,#eefaff,var(--sky-pale))}
 .f-yellow{background:linear-gradient(180deg,#fff9e8,var(--yellow-pale))}
@@ -191,13 +192,15 @@ ul{list-style:none}
   margin:30px auto 4px;
 }
 .chara{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
-.chara .chara-face{width:92px;height:92px;animation:bob 2.6s ease-in-out infinite}
-.chara:nth-child(2) .chara-face{animation-delay:.2s}
-.chara:nth-child(3) .chara-face{animation-delay:.4s}
-.chara:nth-child(4) .chara-face{animation-delay:.6s}
-.chara:nth-child(5) .chara-face{animation-delay:.8s}
-.chara:nth-child(6) .chara-face{animation-delay:1s}
-.chara:hover .chara-face{animation:wiggle .5s ease-in-out}
+.chara .fig{display:flex;align-items:flex-end;justify-content:center;height:150px;animation:bob 2.6s ease-in-out infinite}
+.chara .fig img{max-height:100%;max-width:142px;object-fit:contain;filter:drop-shadow(0 10px 0 rgba(244,86,140,.16))}
+.chara .fig svg{height:96px;width:96px;align-self:flex-end}
+.chara:nth-child(2) .fig{animation-delay:.2s}
+.chara:nth-child(3) .fig{animation-delay:.4s}
+.chara:nth-child(4) .fig{animation-delay:.6s}
+.chara:nth-child(5) .fig{animation-delay:.8s}
+.chara:nth-child(6) .fig{animation-delay:1s}
+.chara:hover .fig{animation:wiggle .5s ease-in-out}
 .chara .name{
   font-size:11px;font-weight:800;background:#fff;border:2px solid var(--ink);
   border-radius:999px;padding:0 12px;white-space:nowrap;
@@ -799,7 +802,7 @@ ul{list-style:none}
   .area-visual{padding:26px 18px}
   .live-cards,.fg-grid,.access-grid{grid-template-columns:1fr}
   .dpoint ul{grid-template-columns:1fr}
-  .chara .chara-face{width:72px;height:72px}
+  .chara .fig{height:112px}
   .tt-row{grid-template-columns:82px 1fr;gap:2px 12px}
   .tt-row h3{grid-column:1/-1}
   .tt-row p{grid-column:1/-1}
@@ -814,14 +817,16 @@ ul{list-style:none}
   .section{padding:66px 14px}
   .hero-date,.hero-place{min-width:0;width:100%}
   .chara-line{gap:8px}
-  .chara .chara-face{width:62px;height:62px}
+  .chara .fig{height:88px}
   .chara .name{font-size:9.5px}
 }
 </style>
 </head>
 <body>
 
-<!-- ▼ キャラクターSVGスプライト(オリジナル描き起こし) -->
+<!-- ▼ キャラクターSVGスプライト(公式画像が読み込めない環境用のフォールバック)
+     本ページのキャラクター画像はサンリオ公式サイト掲載素材を提案モック用に参照しています。
+     正式公開時はサンリオ様より提供・監修済みの素材に差し替えてください。 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <!-- キティ -->
@@ -934,7 +939,7 @@ ul{list-style:none}
 <header class="header">
   <div class="header-inner">
     <a href="#top" class="header-logo">
-      <span class="chara-face mini-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+      <span class="chara-face mini-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="" data-fb="#ch-kitty"></span>
       <span>
         <span class="en">SANRIO SCHOOL FES 2026</span>
         <span class="ja">サンリオ学園祭 in 渋谷・代々木公園</span>
@@ -996,27 +1001,27 @@ ul{list-style:none}
     <div class="chara-line" aria-label="登場キャラクター">
       <div class="chara">
         <span class="bubble">まってるよ♪</span>
-        <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" data-fb="#ch-kitty"></span>
         <span class="name">ハローキティ</span>
       </div>
       <div class="chara">
-        <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" data-fb="#ch-cinnamon"></span>
         <span class="name">シナモロール</span>
       </div>
       <div class="chara">
-        <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" data-fb="#ch-kuromi"></span>
         <span class="name">クロミ</span>
       </div>
       <div class="chara">
-        <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" data-fb="#ch-melody"></span>
         <span class="name">マイメロディ</span>
       </div>
       <div class="chara">
-        <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png" alt="ポムポムプリン" data-fb="#ch-purin"></span>
         <span class="name">ポムポムプリン</span>
       </div>
       <div class="chara">
-        <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+        <span class="fig"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png" alt="ポチャッコ" data-fb="#ch-pochacco"></span>
         <span class="name">ポチャッコ</span>
       </div>
     </div>
@@ -1085,19 +1090,19 @@ ul{list-style:none}
     <div class="about-points">
       <div class="point-card reveal">
         <span class="num">POINT 1</span>
-        <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+        <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
         <h3>街まるごとキャンパス</h3>
         <p>渋谷駅周辺の商業施設・ストリートに「教室」が出現。参加無料のスタンプラリーで、まちを歩くほどフェスが楽しくなる!</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 2</span>
-        <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+        <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
         <h3>イルミ×キャラクター</h3>
         <p>この冬はじまる代々木公園の大規模イルミネーションとコラボ。キャラクターたちと光に包まれる、ここだけの冬景色。</p>
       </div>
       <div class="point-card reveal">
         <span class="num">POINT 3</span>
-        <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+        <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
         <h3>フィナーレはライブ</h3>
         <p>一日のさいごは、人気アーティストとキャラクターが共演するスペシャルライブ。青春のBGMを、みんなで大合唱しよう。</p>
       </div>
@@ -1117,7 +1122,7 @@ ul{list-style:none}
       <div class="area-card a-pink reveal">
         <div class="area-visual">
           <span class="emoji">🎪</span>
-          <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+          <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" loading="lazy" data-fb="#ch-melody"></span>
           <span class="tag">AREA 1</span>
         </div>
         <div class="area-body">
@@ -1132,7 +1137,7 @@ ul{list-style:none}
       <div class="area-card a-night reveal">
         <div class="area-visual">
           <span class="emoji">🌃</span>
-          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+          <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
           <span class="tag">AREA 2</span>
         </div>
         <div class="area-body">
@@ -1147,7 +1152,7 @@ ul{list-style:none}
       <div class="area-card a-sky reveal">
         <div class="area-visual">
           <span class="emoji">🎸</span>
-          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+          <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
           <span class="tag">AREA 3</span>
         </div>
         <div class="area-body">
@@ -1252,7 +1257,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">部員大募集!</span>
-          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+          <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
           <span class="club">🎸 軽音部</span>
         </div>
         <div class="bukatsu-body">
@@ -1265,7 +1270,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">部員大募集!</span>
-          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
+          <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
           <span class="club">📸 写真部</span>
         </div>
         <div class="bukatsu-body">
@@ -1278,7 +1283,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">部員大募集!</span>
-          <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
+          <span class="chara-face f-yellow"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png" alt="ポムポムプリン" loading="lazy" data-fb="#ch-purin"></span>
           <span class="club">🧁 家庭科部</span>
         </div>
         <div class="bukatsu-body">
@@ -1291,7 +1296,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">部員大募集!</span>
-          <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
+          <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" loading="lazy" data-fb="#ch-melody"></span>
           <span class="club">🎨 美術部</span>
         </div>
         <div class="bukatsu-body">
@@ -1304,7 +1309,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">部員大募集!</span>
-          <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+          <span class="chara-face f-mint"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png" alt="ポチャッコ" loading="lazy" data-fb="#ch-pochacco"></span>
           <span class="club">📺 放送部</span>
         </div>
         <div class="bukatsu-body">
@@ -1317,7 +1322,7 @@ ul{list-style:none}
         <span class="tape"></span>
         <div class="bukatsu-head">
           <span class="recruit">メンバー募集!</span>
-          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+          <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
           <span class="club">💌 生徒会</span>
         </div>
         <div class="bukatsu-body">
@@ -1351,9 +1356,9 @@ ul{list-style:none}
       <div class="live-card reveal">
         <span class="cat">CHARACTER STAGE</span>
         <div class="mini-charas">
-          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
-          <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
-          <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
+          <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
+          <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
+          <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
         </div>
         <h3>キャラクタースペシャルステージ</h3>
         <p>ハローキティ、シナモロール、クロミ、マイメロディ、ポムポムプリンほか、人気キャラクターが日替わりラインナップで登場。歌って踊れるステージショーをお届けします。</p>
@@ -1382,7 +1387,7 @@ ul{list-style:none}
     </div>
     <div class="fg-grid">
       <div class="fg-card food reveal">
-        <span class="chara-face f-yellow corner-face"><svg><use href="#ch-purin"/></svg></span>
+        <span class="chara-face f-yellow corner-face"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png" alt="ポムポムプリン" loading="lazy" data-fb="#ch-purin"></span>
         <div class="head">
           <span class="emoji">🍫</span>
           <h3>あったか学食フード</h3>
@@ -1396,7 +1401,7 @@ ul{list-style:none}
         </ul>
       </div>
       <div class="fg-card goods reveal">
-        <span class="chara-face f-pink corner-face"><svg><use href="#ch-melody"/></svg></span>
+        <span class="chara-face f-pink corner-face"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" loading="lazy" data-fb="#ch-melody"></span>
         <div class="head">
           <span class="emoji">🎒</span>
           <h3>フェス限定グッズ</h3>
@@ -1427,7 +1432,7 @@ ul{list-style:none}
       <div class="techo-head">サンリオ学園 生徒手帳</div>
       <div class="techo-body">
         <div class="techo-photo">
-          <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
+          <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
           <span>キミの写真をここに</span>
         </div>
         <div class="techo-lines">
@@ -1604,12 +1609,12 @@ ul{list-style:none}
       <span class="pink">まちで、待ってるね。</span>
     </p>
     <div class="outro-charas" aria-hidden="true">
-      <span class="chara-face f-pink"><svg><use href="#ch-kitty"/></svg></span>
-      <span class="chara-face f-sky"><svg><use href="#ch-cinnamon"/></svg></span>
-      <span class="chara-face f-purple"><svg><use href="#ch-kuromi"/></svg></span>
-      <span class="chara-face f-pink"><svg><use href="#ch-melody"/></svg></span>
-      <span class="chara-face f-yellow"><svg><use href="#ch-purin"/></svg></span>
-      <span class="chara-face f-mint"><svg><use href="#ch-pochacco"/></svg></span>
+      <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png" alt="ハローキティ" loading="lazy" data-fb="#ch-kitty"></span>
+      <span class="chara-face f-sky"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-cinnamon.png" alt="シナモロール" loading="lazy" data-fb="#ch-cinnamon"></span>
+      <span class="chara-face f-purple"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-kuromi.png" alt="クロミ" loading="lazy" data-fb="#ch-kuromi"></span>
+      <span class="chara-face f-pink"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mymelody.png" alt="マイメロディ" loading="lazy" data-fb="#ch-melody"></span>
+      <span class="chara-face f-yellow"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pompompurin.png" alt="ポムポムプリン" loading="lazy" data-fb="#ch-purin"></span>
+      <span class="chara-face f-mint"><img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png" alt="ポチャッコ" loading="lazy" data-fb="#ch-pochacco"></span>
     </div>
     <a href="#ticket" class="btn btn-primary"><span class="hbeat">♥</span> チケット先行抽選にエントリー</a>
   </div>
@@ -1683,6 +1688,19 @@ document.querySelectorAll('.faq-item').forEach(item=>{
     const open=item.classList.toggle('open');
     a.style.maxHeight=open?a.scrollHeight+'px':0;
   });
+});
+
+// 公式画像が読み込めないときはSVGの似顔絵にフォールバック
+document.querySelectorAll('img[data-fb]').forEach(img=>{
+  const swap=()=>{
+    const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    const u=document.createElementNS('http://www.w3.org/2000/svg','use');
+    u.setAttribute('href',img.dataset.fb);
+    s.appendChild(u);
+    img.replaceWith(s);
+  };
+  if(img.complete&&img.naturalWidth===0){swap();}
+  else{img.addEventListener('error',swap);}
 });
 
 // ページトップボタン
