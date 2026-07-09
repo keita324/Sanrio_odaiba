@@ -855,6 +855,30 @@ ul{list-style:none}
 .totop.show{opacity:1;pointer-events:auto}
 .totop:hover{transform:translateY(-3px)}
 
+/* ---------- 会場マップ ---------- */
+.map-frame{
+  background:#fff;border:var(--card-border);border-radius:28px;
+  box-shadow:var(--card-shadow);padding:24px 24px 20px;
+}
+.map-photo{position:relative;border-radius:16px;overflow:hidden;box-shadow:inset 0 0 0 2px rgba(195,174,240,.35)}
+.map-photo img{width:100%;display:block}
+.map-photo svg{position:absolute;inset:0;width:100%;height:100%}
+.map-legend{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.map-legend>span{
+  font-size:13px;font-weight:800;border-radius:999px;padding:5px 16px 5px 8px;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.map-legend .lg1{background:var(--pink-pale);color:var(--pink-deep)}
+.map-legend .lg2{background:var(--sky-pale);color:var(--sky-deep)}
+.map-legend .lg3{background:var(--lav-pale);color:var(--lav-deep)}
+.lg-dot{
+  width:22px;height:22px;border-radius:50%;color:#fff;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--ff-en);font-size:12px;font-weight:800;border:2px solid #fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.12);
+}
+.map-note{text-align:center;font-size:12px;color:var(--ink-soft);font-weight:700;margin-top:12px}
+
 /* ---------- 企画意図(ビジネス視点)パネル ---------- */
 .biz-btn{
   position:fixed;right:18px;bottom:90px;z-index:95;
@@ -1097,6 +1121,7 @@ ul{list-style:none}
       <ul>
         <li><a href="#about">開催概要</a></li>
         <li><a href="#area">エリア</a></li>
+        <li><a href="#map">マップ</a></li>
         <li><a href="#timetable">時間割</a></li>
         <li><a href="#bukatsu">部活動</a></li>
         <li><a href="#live">ライブ</a></li>
@@ -1339,6 +1364,80 @@ ul{list-style:none}
           </ul>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会場マップ -->
+<section class="section" id="map">
+  <div class="section-inner">
+    <div class="sec-head c-mint reveal">
+      <div class="plate">おでかけマップ</div>
+      <h2 class="en">FES MAP</h2>
+      <span class="ja">会場マップ</span>
+    </div>
+    <p class="lead reveal" style="margin-bottom:36px">
+      昼は渋谷の街なか、夜は代々木公園へ。渋谷⇔代々木公園は徒歩約15分、
+      スタンプラリーを楽しみながらの"つうがくろ"さんぽがおすすめです♪
+    </p>
+    <div class="map-frame reveal">
+      <div class="map-photo">
+        <img src="assets/map-shibuya.png" alt="渋谷・代々木公園周辺の会場マップ" loading="lazy">
+        <svg viewBox="0 0 1000 1070" aria-hidden="true">
+          <defs>
+            <filter id="pinshadow" x="-40%" y="-40%" width="180%" height="180%">
+              <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#5e4fa6" flood-opacity=".4"/>
+            </filter>
+          </defs>
+          <!-- 徒歩ルート -->
+          <path d="M625,806 C555,700 502,480 464,362" fill="none" stroke="#f26ba5" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 13"/>
+          <text x="516" y="600" font-size="16" font-weight="800" fill="#f26ba5" stroke="#fff" stroke-width="4.5" paint-order="stroke" stroke-linejoin="round">徒歩約15分</text>
+          <!-- 街なかスポット -->
+          <circle cx="734" cy="738" r="8" fill="#f26ba5" stroke="#fff" stroke-width="3"/>
+          <text x="749" y="744" font-size="14.5" font-weight="800" fill="#d1548f" stroke="#fff" stroke-width="4.5" paint-order="stroke" stroke-linejoin="round">ミヤシタパーク周辺ブース</text>
+          <!-- 駅 -->
+          <rect x="622" y="928" width="124" height="34" rx="17" fill="#5e4fa6" stroke="#fff" stroke-width="2.5"/>
+          <text x="684" y="951" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">🚇 渋谷駅</text>
+          <rect x="672" y="170" width="124" height="34" rx="17" fill="#5e4fa6" stroke="#fff" stroke-width="2.5"/>
+          <text x="734" y="193" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">🚇 原宿駅</text>
+          <rect x="12" y="296" width="172" height="34" rx="17" fill="#5e4fa6" stroke="#fff" stroke-width="2.5"/>
+          <text x="98" y="319" font-size="14" font-weight="800" fill="#fff" text-anchor="middle">🚇 代々木公園駅</text>
+          <rect x="770" y="347" width="222" height="34" rx="17" fill="#5e4fa6" stroke="#fff" stroke-width="2.5"/>
+          <text x="881" y="370" font-size="13.5" font-weight="800" fill="#fff" text-anchor="middle">🚇 明治神宮前〈原宿〉駅</text>
+          <!-- AREA 1 シブヤ・キャンパスエリア -->
+          <g transform="translate(631,824)" filter="url(#pinshadow)">
+            <path d="M0,0 C-5,-11 -19,-17 -19,-31 a19,19 0 1 1 38,0 C19,-17 5,-11 0,0 Z" fill="#f26ba5" stroke="#fff" stroke-width="3"/>
+            <text y="-24" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">1</text>
+          </g>
+          <rect x="660" y="794" width="286" height="58" rx="13" fill="#fff" fill-opacity=".95" stroke="#f26ba5" stroke-width="2.5"/>
+          <text x="674" y="819" font-size="16.5" font-weight="900" fill="#f26ba5">シブヤ・キャンパスエリア</text>
+          <text x="674" y="841" font-size="13" font-weight="700" fill="#6b5670">部活動ブース・スタンプラリー|入場無料</text>
+          <!-- AREA 2 ヨヨギ・イルミネーションエリア -->
+          <g transform="translate(459,336)" filter="url(#pinshadow)">
+            <path d="M0,0 C-5,-11 -19,-17 -19,-31 a19,19 0 1 1 38,0 C19,-17 5,-11 0,0 Z" fill="#9d7fe0" stroke="#fff" stroke-width="3"/>
+            <text y="-24" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">2</text>
+          </g>
+          <rect x="487" y="306" width="278" height="58" rx="13" fill="#fff" fill-opacity=".95" stroke="#9d7fe0" stroke-width="2.5"/>
+          <text x="501" y="331" font-size="15.5" font-weight="900" fill="#9d7fe0">ヨヨギ・イルミネーションエリア</text>
+          <text x="501" y="353" font-size="13" font-weight="700" fill="#6b5670">コラボイルミ・グリーティング|一部有料</text>
+          <!-- AREA 3 ナイトライブ・ステージ -->
+          <g transform="translate(338,130)" filter="url(#pinshadow)">
+            <path d="M0,0 C-5,-11 -19,-17 -19,-31 a19,19 0 1 1 38,0 C19,-17 5,-11 0,0 Z" fill="#56aede" stroke="#fff" stroke-width="3"/>
+            <text y="-24" font-size="17" font-weight="800" fill="#fff" text-anchor="middle">3</text>
+          </g>
+          <rect x="366" y="100" width="262" height="58" rx="13" fill="#fff" fill-opacity=".95" stroke="#56aede" stroke-width="2.5"/>
+          <text x="380" y="125" font-size="16.5" font-weight="900" fill="#3c7fae">ナイトライブ・ステージ</text>
+          <text x="380" y="147" font-size="13" font-weight="700" fill="#6b5670">放課後ナイトライブ|チケット制</text>
+          <!-- 出典 -->
+          <text x="990" y="1058" font-size="12" font-weight="600" fill="#6b7280" text-anchor="end" stroke="#fff" stroke-width="3" paint-order="stroke">地図データ © OpenStreetMap contributors © CARTO</text>
+        </svg>
+      </div>
+      <div class="map-legend">
+        <span class="lg1"><span class="lg-dot" style="background:#f26ba5">1</span>シブヤ・キャンパスエリア|入場無料</span>
+        <span class="lg3"><span class="lg-dot" style="background:#9d7fe0">2</span>ヨヨギ・イルミネーションエリア</span>
+        <span class="lg2"><span class="lg-dot" style="background:#56aede">3</span>ナイトライブ・ステージ</span>
+      </div>
+      <p class="map-note">※ピンの位置はおおよその場所です。街なかスポットの詳細マップは開催前に公開予定♪</p>
     </div>
   </div>
 </section>
@@ -1848,7 +1947,7 @@ ul{list-style:none}
   <div class="biz-panel">
     <div class="biz-head">
       <h2>💡 この企画、どうして生まれたの?</h2>
-      <p>ビジネス視点の背景メモ(社内検討用/実際の公開サイトには掲載しない想定です)</p>
+      <p>ビジネス視点の背景メモ</p>
       <button class="biz-close" id="bizClose" aria-label="閉じる">✕</button>
     </div>
     <div class="biz-body">
@@ -1857,7 +1956,7 @@ ul{list-style:none}
         <p class="a"><span class="tag">打ち手</span>合言葉は<strong>「未来のファンを育てる」</strong>。中高生をメインターゲットに置き、学生証提示の半額以下プライスと、チケット不要の街なか無料エリアで、"抽選に当たらないと入れないイベント"から"誰でも立ち寄れるフェス"へ間口を広げる。</p>
       </div>
       <div class="biz-item">
-        <p class="q"><span class="tag">課題 2</span>サンリオのライブやステージに触れる機会がそもそも少ない。「サンリオは好きだけど、ライブを見に行くのはハードルが高い」——出会う機会がないまま、魅力に気づかれずにいる。</p>
+        <p class="q"><span class="tag">課題 2</span>サンリオのライブやステージに触れる機会がそもそも少ない。「サンリオは好きだけど、ライブを見に行くのはハードルが高い」という層がいるはず。出会う機会がないまま、魅力に気づかれずにいる。</p>
         <p class="a"><span class="tag">打ち手</span><strong>街なか(無料)→ライブ(チケット制)への段階設計</strong>。おでかけの"ついで"にキャラクターと出会い、フェスの流れの中で自然にライブまで案内する。フェスという形にすることで、より多くの人にライブの魅力そのものを知ってもらう。</p>
       </div>
       <div class="biz-item">
@@ -1880,7 +1979,6 @@ ul{list-style:none}
         <div><b>ドコモ・スタジオ&ライブ</b>ライブの企画制作・アーティストブッキング・音楽演出</div>
       </div>
       <p class="biz-goal">🌱 めざす姿:中高生が「サンリオって、いま楽しい」と出会い直す場所をつくり、10年後のコアファンを育てる。</p>
-      <p class="biz-note">※本パネルは企画検討用の説明です。掲載している課題・打ち手は仮説ベースであり、今後の検討により変わる可能性があります。</p>
     </div>
   </div>
 </div>
